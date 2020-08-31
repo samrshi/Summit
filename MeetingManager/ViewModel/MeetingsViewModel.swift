@@ -56,6 +56,11 @@ extension Meetings {
     }
     
     func addMeeting(title: String, urlString: String, week: [Bool], startTime: Date, endTime: Date, completion: @escaping (SaveResult, String) -> Void) {
+        if urlString.isEmpty || title.isEmpty {
+            completion(.error, "Please fill out all required fields")
+            return
+        }
+        
         let urlStringTrimmed = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if !urlStringTrimmed.isValidURL {

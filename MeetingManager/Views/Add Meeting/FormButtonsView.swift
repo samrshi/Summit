@@ -20,6 +20,8 @@ struct FormButtonsView: View {
     
     @Binding var presentationMode: Bool
     
+    @Binding var hasAttemptedToSave: Bool
+    
     @EnvironmentObject var meetings: Meetings
     
     var body: some View {
@@ -28,12 +30,12 @@ struct FormButtonsView: View {
                 withAnimation {
                     self.presentationMode.toggle()
                 }            }) {
-                Text("Cancel")
-                    .formButton(backgroundColor: Color.clear)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(Color.gray)
-                )
+                    Text("Cancel")
+                        .formButton(backgroundColor: Color.clear)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.gray)
+                    )
             }
             .buttonStyle(PlainButtonStyle())
             
@@ -46,8 +48,11 @@ struct FormButtonsView: View {
                             self.presentationMode.toggle()
                         }
                     } else {
-                        self.errorMessage = message
-                        self.showError.toggle()
+                        withAnimation {
+                            self.errorMessage = message
+                            self.showError.toggle()
+                            self.hasAttemptedToSave = true
+                        }
                     }
                 }
             }) {

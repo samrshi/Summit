@@ -24,23 +24,22 @@ struct AddView: View {
     
     @State private var currentWeek: [Bool] = [Bool](repeating: false, count: 7)
     
+    @State private var hasAttemptedToSave: Bool = false
+    
     var body: some View {
         ZStack {
             VStack {
-                MainInfoView(currentTitle: $currentTitle, currentURLString: $currentURLString)
+                MainInfoView(currentTitle: $currentTitle, currentURLString: $currentURLString, hasAttemptedToSave: $hasAttemptedToSave)
                 
-                DatePickersView(currentWeek: $currentWeek, currentStartTime: $currentStartTime,
-                                currentEndTime: $currentEndTime)
+                DatePickersView(currentWeek: $currentWeek, currentStartTime: $currentStartTime, currentEndTime: $currentEndTime)
                 
-                FormButtonsView(currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, showError: $showError, errorMessage: $errorMessage, presentationMode: $presentationMode)
+                FormButtonsView(currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, showError: $showError, errorMessage: $errorMessage, presentationMode: $presentationMode, hasAttemptedToSave: $hasAttemptedToSave)
                     .environmentObject(meetings)
                 
                 Spacer()
             }
         }
-        .alert(isPresented: $showError) {
-            Alert(title: Text("Error"), message: Text(self.errorMessage), dismissButton: .default(Text("OK")))
-        }
+        .customAlert(isPresented: $showError, title: "Error", message: errorMessage)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
