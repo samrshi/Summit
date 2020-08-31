@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BD20FA0B24FB2E2300E74D39 /* MeetingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20FA0A24FB2E2300E74D39 /* MeetingListView.swift */; };
 		BD933CA024FB14E5001F8A90 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD933C9F24FB14E5001F8A90 /* Header.swift */; };
+		BDA7D97B24FD60B500A18CA8 /* URLValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */; };
+		BDA7D97D24FD60C800A18CA8 /* Weekdays.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7D97C24FD60C800A18CA8 /* Weekdays.swift */; };
 		BDB6699424FAE83E004052C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6699324FAE83E004052C0 /* AppDelegate.swift */; };
 		BDB6699624FAE83E004052C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6699524FAE83E004052C0 /* ContentView.swift */; };
 		BDB6699924FAE83E004052C0 /* MeetingManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDB6699724FAE83E004052C0 /* MeetingManager.xcdatamodeld */; };
@@ -17,7 +19,6 @@
 		BDB669A124FAE841004052C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB6699F24FAE841004052C0 /* Main.storyboard */; };
 		BDB669AA24FAFAB8004052C0 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB669A924FAFAB8004052C0 /* AddView.swift */; };
 		BDB669AC24FAFAF8004052C0 /* MeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB669AB24FAFAF8004052C0 /* MeetingModel.swift */; };
-		BDB669AE24FAFB0D004052C0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB669AD24FAFB0D004052C0 /* Helpers.swift */; };
 		BDB669B024FB016B004052C0 /* MeetingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB669AF24FB016B004052C0 /* MeetingItemView.swift */; };
 		BDC5CCE424FB3CBC0003B1AB /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE324FB3CBC0003B1AB /* MainInfoView.swift */; };
 		BDC5CCE624FB3D2D0003B1AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE524FB3D2D0003B1AB /* Extensions.swift */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		BD20FA0A24FB2E2300E74D39 /* MeetingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListView.swift; sourceTree = "<group>"; };
 		BD933C9F24FB14E5001F8A90 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidity.swift; sourceTree = "<group>"; };
+		BDA7D97C24FD60C800A18CA8 /* Weekdays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekdays.swift; sourceTree = "<group>"; };
 		BDB6699024FAE83E004052C0 /* MeetingManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB6699324FAE83E004052C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDB6699524FAE83E004052C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,7 +44,6 @@
 		BDB669A324FAE841004052C0 /* MeetingManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeetingManager.entitlements; sourceTree = "<group>"; };
 		BDB669A924FAFAB8004052C0 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		BDB669AB24FAFAF8004052C0 /* MeetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingModel.swift; sourceTree = "<group>"; };
-		BDB669AD24FAFB0D004052C0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		BDB669AF24FB016B004052C0 /* MeetingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingItemView.swift; sourceTree = "<group>"; };
 		BDC5CCE324FB3CBC0003B1AB /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
 		BDC5CCE524FB3D2D0003B1AB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -81,6 +83,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BDA7D97924FD609B00A18CA8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */,
+				BDA7D97C24FD60C800A18CA8 /* Weekdays.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		BDB6698724FAE83E004052C0 = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +115,7 @@
 				BD933C9D24FB14AF001F8A90 /* Views */,
 				BD933C9E24FB14C2001F8A90 /* Model */,
 				BDC5CCEB24FB43F00003B1AB /* ViewModel */,
-				BDB669AD24FAFB0D004052C0 /* Helpers.swift */,
+				BDA7D97924FD609B00A18CA8 /* Helpers */,
 				BDB6699A24FAE841004052C0 /* Assets.xcassets */,
 				BDB6699F24FAE841004052C0 /* Main.storyboard */,
 				BDB669A224FAE841004052C0 /* Info.plist */,
@@ -226,9 +237,11 @@
 			files = (
 				BDB669AA24FAFAB8004052C0 /* AddView.swift in Sources */,
 				BD933CA024FB14E5001F8A90 /* Header.swift in Sources */,
+				BDA7D97D24FD60C800A18CA8 /* Weekdays.swift in Sources */,
 				BDC5CCF124FCC5230003B1AB /* FormButtonsView.swift in Sources */,
 				BD20FA0B24FB2E2300E74D39 /* MeetingListView.swift in Sources */,
 				BDC5CCEA24FB41450003B1AB /* WeekPickerView.swift in Sources */,
+				BDA7D97B24FD60B500A18CA8 /* URLValidity.swift in Sources */,
 				BDB6699624FAE83E004052C0 /* ContentView.swift in Sources */,
 				BDB669B024FB016B004052C0 /* MeetingItemView.swift in Sources */,
 				BDC5CCEF24FCC1EC0003B1AB /* DatePickersView.swift in Sources */,
@@ -237,7 +250,6 @@
 				BDC5CCE624FB3D2D0003B1AB /* Extensions.swift in Sources */,
 				BDC5CCED24FB440D0003B1AB /* MeetingsViewModel.swift in Sources */,
 				BDB669AC24FAFAF8004052C0 /* MeetingModel.swift in Sources */,
-				BDB669AE24FAFB0D004052C0 /* Helpers.swift in Sources */,
 				BDC5CCE424FB3CBC0003B1AB /* MainInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

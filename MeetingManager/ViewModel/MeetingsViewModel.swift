@@ -52,14 +52,16 @@ extension Meetings {
     }
     
     func addMeeting(title: String, urlString: String, week: [Bool], startTime: Date, endTime: Date, completion: @escaping (SaveResult, String) -> Void) {
-        if !urlString.isValidURL {
+        let urlStringTrimmed = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if !urlStringTrimmed.isValidURL {
             completion(.error, "Bad URL")
             return
         }
         
-        let prefix = String(urlString.prefix(8))
+        let prefix = String(urlStringTrimmed.prefix(8))
         
-        var newURLString = urlString
+        var newURLString = urlStringTrimmed
         if !prefix.contains("http") {
             newURLString = "https://" + urlString
         }
