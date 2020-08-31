@@ -12,6 +12,7 @@ struct Header: View {
     let title: String
     
     @Binding var showAddView: Bool
+    @Binding var mainViewState: MainViewState
     
     var body: some View {
         HStack(alignment: .bottom) {
@@ -21,10 +22,12 @@ struct Header: View {
             
             Spacer()
             
-            if !self.showAddView {
+//            if !self.showAddView {
+            if self.mainViewState != .add {
                 Button("Add A Meeting") {
                     withAnimation {
                         self.showAddView.toggle()
+                        self.mainViewState = .add
                     }
                 }
                 .buttonStyle(LinkButtonStyle())

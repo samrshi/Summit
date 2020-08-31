@@ -42,9 +42,6 @@ extension Meetings {
         let components = Calendar.current.dateComponents([.weekday], from: date)
         
         let weekDayInt = components.weekday ?? -1
-                
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "E"
         
         return weekDayInt
     }
@@ -55,7 +52,7 @@ extension Meetings {
             .sorted()
     }
     
-    func addMeeting(title: String, urlString: String, week: [Bool], startTime: Date, endTime: Date, completion: @escaping (SaveResult, String) -> Void) {
+    func newMeeting(editViewState: EditViewStates, selectedMeetingID: UUID? = nil, title: String, urlString: String, week: [Bool], startTime: Date, endTime: Date, completion: @escaping (SaveResult, String) -> Void) {
         if urlString.isEmpty || title.isEmpty {
             completion(.error, "Please fill out all required fields")
             return
@@ -91,7 +88,17 @@ extension Meetings {
         
         let meeting = MeetingModel(name: title, url: url, urlString: newURLString, days: weekDaysResult, startTime: startTime, endTime: endTime)
         
-        allMeetings.append(meeting)
+        switch editViewState {
+        case .add:
+            allMeetings.append(meeting)
+        case .edit:
+            guard let index = allMeetings.firstIndex(where: { $0.id == selectedMeetingID }) else {
+                completion(.error, "Error occured when attempting to update meeting")
+                return
+            }
+            
+            allMeetings[index] = meeting
+        }
         
         completion(.success, "")
     }

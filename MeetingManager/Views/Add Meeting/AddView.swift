@@ -8,22 +8,29 @@
 
 import SwiftUI
 
+enum EditViewStates {
+    case add
+    case edit
+}
+
 struct AddView: View {
-    @Binding var presentationMode: Bool
+    let editViewState: EditViewStates
     
+    @Binding var presentationMode: Bool
+    @Binding var mainViewState: MainViewState
     @ObservedObject var meetings: Meetings
+    let selectedMeetingID: UUID?
     
     @State private var currentTitle: String = ""
     @State private var currentURLString: String = ""
     
     @State private var currentStartTime: Date = Date()
     @State private var currentEndTime: Date = Date(timeIntervalSinceNow: 3600)
+    @State private var currentWeek: [Bool] = [Bool](repeating: false, count: 7)
     
     @State private var showError: Bool = false
     @State private var errorMessage: String = ""
-    
-    @State private var currentWeek: [Bool] = [Bool](repeating: false, count: 7)
-    
+        
     @State private var hasAttemptedToSave: Bool = false
     
     var body: some View {
@@ -33,7 +40,7 @@ struct AddView: View {
                 
                 DatePickersView(currentWeek: $currentWeek, currentStartTime: $currentStartTime, currentEndTime: $currentEndTime)
                 
-                FormButtonsView(currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, showError: $showError, errorMessage: $errorMessage, presentationMode: $presentationMode, hasAttemptedToSave: $hasAttemptedToSave)
+                FormButtonsView(editViewState: editViewState, selectedMeetingID: selectedMeetingID, currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, showError: $showError, errorMessage: $errorMessage, mainViewState: $mainViewState, presentationMode: $presentationMode, hasAttemptedToSave: $hasAttemptedToSave)
                     .environmentObject(meetings)
                 
                 Spacer()
@@ -41,11 +48,23 @@ struct AddView: View {
         }
         .customAlert(isPresented: $showError, title: "Error", message: errorMessage)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-}
-
-struct AddView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddView(presentationMode: .constant(true), meetings: Meetings())
+        .onAppear {
+            if self.editViewState == .edit {
+                let selectedMeeting: MeetingModel = self.meetings.allMeetings.first(where: { $0.id == self.selectedMeetingID! })!
+                
+                self.currentTitle = selectedMeeting.name
+                self.currentURLString = selectedMeeting.urlString
+                self.currentStartTime = selectedMeeting.startTime
+                self.currentEndTime = selectedMeeting.endTime
+                
+                var weekResult = [Bool](repeating: false, count: 7)
+                for i in 0..<7 {
+                    let dayIsIncluded = selectedMeeting.days.first(where: { $0 == i + 1 })
+                    weekResult[i] = (dayIsIncluded != nil)
+                }
+                
+                self.currentWeek = weekResult
+            }
+        }
     }
 }

@@ -11,9 +11,12 @@ import SwiftUI
 struct MeetingListView: View {
     @ObservedObject var meetings: Meetings
     
-    var showAddView: Bool = false
+    let showAddView: Bool
+    @Binding var mainViewState: MainViewState
     
-    @State private var filtered = false
+    @Binding var selectedMeetingID: UUID?
+    
+    @State private var filtered = true
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -29,16 +32,18 @@ struct MeetingListView: View {
                 self.filtered.toggle()
             }
             .buttonStyle(LinkButtonStyle())
+            .padding(.vertical, -5)
             
             ForEach(filtered ? meetings.filteredMeetings : meetings.allMeetings, id: \.id) { meeting in
-                MeetingItemView(meeting: meeting) {
+                MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID) {
                     self.meetings.allMeetings.removeAll {
                         $0.id == meeting.id
                     }
                 }
                 .padding(.top)
                 .onTapGesture {
-                    if !self.showAddView {
+//                    if !self.showAddView {
+                    if self.mainViewState != .add {
                         let url = meeting.url
                         if NSWorkspace.shared.open(url) {
                             print("default browser was successfully opened")
@@ -52,11 +57,5 @@ struct MeetingListView: View {
                 .padding(.top)
             }
         }
-    }
-}
-
-struct MeetingListView_Previews: PreviewProvider {
-    static var previews: some View {
-        MeetingListView(meetings: Meetings())
     }
 }

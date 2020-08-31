@@ -10,7 +10,11 @@ import SwiftUI
 
 struct MeetingItemView: View {
     let meeting: MeetingModel
-    let delete: () -> Void
+    
+    @Binding var mainViewState: MainViewState
+    @Binding var selectedMeetingID: UUID?
+    
+    let delete: () -> Void    
     
     @State private var showSettings: Bool = false
     
@@ -25,9 +29,14 @@ struct MeetingItemView: View {
                     Text(meeting.name)
                         .font(.headline)
                     
-                    Text(meeting.urlString)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                    HStack {
+                        Text(meeting.formattedMeetingDays)
+                        
+                        Text(meeting.formattedMeetingTimes)
+                    }
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    
                 }
             }
             .background(Color.gray.opacity(0.001))
@@ -44,6 +53,17 @@ struct MeetingItemView: View {
                 }
                 
                 if self.showSettings {
+                    Button(action: {
+                        withAnimation {
+                            self.mainViewState = .edit
+                            self.selectedMeetingID = self.meeting.id
+                        }
+                    }) {
+                        Text("􀈎")
+                            .foregroundColor(.blue)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
                     Button(action: {
                         withAnimation {
                             self.delete()
