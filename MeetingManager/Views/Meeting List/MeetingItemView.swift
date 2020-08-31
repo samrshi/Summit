@@ -14,7 +14,6 @@ struct MeetingItemView: View {
     
     @State private var showSettings: Bool = false
     
-    
     var body: some View {
         HStack {
             HStack {

@@ -28,14 +28,11 @@ struct AddView: View {
         ZStack {
             VStack {
                 MainInfoView(currentTitle: $currentTitle, currentURLString: $currentURLString)
-                                
-                DatePickersView(currentWeek: $currentWeek, currentStartTime: $currentStartTime,
-                    currentEndTime: $currentEndTime)
                 
-                FormButtonsView(currentTitle: currentTitle, currentURLString: currentURLString,
-                    currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime,
-                    showError: $showError, errorMessage: $errorMessage,
-                    presentationMode: $presentationMode)
+                DatePickersView(currentWeek: $currentWeek, currentStartTime: $currentStartTime,
+                                currentEndTime: $currentEndTime)
+                
+                FormButtonsView(currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, showError: $showError, errorMessage: $errorMessage, presentationMode: $presentationMode)
                     .environmentObject(meetings)
                 
                 Spacer()
