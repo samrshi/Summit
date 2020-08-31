@@ -15,7 +15,7 @@ struct MeetingModel: Codable, Comparable {
     var url: URL
     var urlString: String
     
-    var days: [String]
+    var days: [Int]
     
     var startTime: Date
     var endTime: Date

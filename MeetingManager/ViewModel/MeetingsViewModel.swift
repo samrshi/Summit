@@ -36,13 +36,17 @@ class Meetings: ObservableObject {
 }
 
 extension Meetings {
-    static var currentWeekDay: String {
+    static var currentWeekDay: Int {
         let date = Date()
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E"
+        let components = Calendar.current.dateComponents([.weekday], from: date)
         
-        return formatter.string(from: date)
+        let weekDayInt = components.weekday ?? -1
+                
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "E"
+        
+        return weekDayInt
     }
     
     var filteredMeetings: [MeetingModel] {
@@ -71,16 +75,16 @@ extension Meetings {
             return
         }
         
-        let weekDays: [WeekDay] = [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday]
-        var weekDaysString = [String]()
+        let weekDays = [1, 2, 3, 4, 5, 6, 7]
+        var weekDaysResult = [Int]()
         
         for i in 0 ..< week.count {
             if week[i] {
-                weekDaysString.append(weekDays[i].rawValue)
+                weekDaysResult.append(weekDays[i])
             }
         }
         
-        let meeting = MeetingModel(name: title, url: url, urlString: newURLString, days: weekDaysString, startTime: startTime, endTime: endTime)
+        let meeting = MeetingModel(name: title, url: url, urlString: newURLString, days: weekDaysResult, startTime: startTime, endTime: endTime)
         
         allMeetings.append(meeting)
         
