@@ -102,6 +102,22 @@ extension Meetings {
         
         completion(.success, "")
     }
+    
+    // FOR TESTING ONLY
+    func addFallSchedule() {
+        let comp301 = MeetingModel(name: "COMP 301", url: URL(string: "https://unc.zoom.us/j/97164010235")!, urlString: "https://unc.zoom.us/j/97164010235", days: [3, 5], startTime: Date(), endTime: Date())
+        let math233 = MeetingModel(name: "MATH 233", url: URL(string: "https://unc.zoom.us/j/91753397782")!, urlString: "https://unc.zoom.us/j/91753397782", days: [2, 4, 6], startTime: Date(), endTime: Date())
+        let astr101 = MeetingModel(name: "ASTR 101", url: URL(string: "https://unc.zoom.us/j/98893223423")!, urlString: "https://unc.zoom.us/j/98893223423", days: [2, 4, 6], startTime: Date(), endTime: Date())
+        let astr101L = MeetingModel(name: "ASTR 101L", url: URL(string: "https://unc.zoom.us/j/98216613879")!, urlString: "https://unc.zoom.us/j/98216613879", days: [5], startTime: Date(), endTime: Date())
+        let comp283 = MeetingModel(name: "COMP 283", url: URL(string: "https://unc.zoom.us/j/93565803306")!, urlString: "https://unc.zoom.us/j/93565803306", days: [3, 5], startTime: Date(), endTime: Date())
+        let comp283OH = MeetingModel(name: "COMP 283 OH", url: URL(string: "https://unc.zoom.us/j/92825065172")!, urlString: "https://unc.zoom.us/j/92825065172", days: [1, 2, 3, 4, 5, 6, 7], startTime: Date(), endTime: Date())
+        
+        let meetings = [comp301, math233, astr101, astr101L, comp283, comp283OH]
+        
+        for meeting in meetings {
+            allMeetings.append(meeting)
+        }
+    }
 }
 
 enum SaveResult {

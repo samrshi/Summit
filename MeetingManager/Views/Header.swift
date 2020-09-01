@@ -23,7 +23,7 @@ struct Header: View {
                 Text(title)
                     .fontWeight(.bold)
                     .font(.title)
-                    .onTapGesture {
+                    .onTapGesture(count: 2) {
                         withAnimation {
                             self.showingDebugging.toggle()
                         }
@@ -35,7 +35,6 @@ struct Header: View {
                     Button("Add A Meeting") {
                         withAnimation {
                             self.mainViewState = .add
-                            //                        self.meetings.allMeetings.append(MeetingModel(name: "New List Item", url: URL(string: "google.com")!, urlString: "google.com", days: [3, 5], startTime: Date(), endTime: Date(timeIntervalSinceNow: 3600)))
                         }
                     }
                     .buttonStyle(LinkButtonStyle())
@@ -43,15 +42,24 @@ struct Header: View {
             }
             
             if showingDebugging {
-                Button("Add Fall Schedule") {
-                    withAnimation {
-                        self.meetings.addFallSchedule()
-                        self.showingDebugging.toggle()
+                HStack {
+                    Button("Add Fall Schedule") {
+                        withAnimation {
+                            self.meetings.addFallSchedule()
+                            self.showingDebugging.toggle()
+                        }
+                    }
+                    
+                    Button("Add Generic Item") {
+                        withAnimation {
+                            self.meetings.allMeetings.append(MeetingModel(name: "New List Item", url: URL(string: "google.com")!, urlString: "google.com", days: [3, 5], startTime: Date(), endTime: Date(timeIntervalSinceNow: 3600)))
+                        }
                     }
                 }
                 .transition(.opacity)
                 .buttonStyle(LinkButtonStyle())
             }
         }
+        .padding([.top, .horizontal])
     }
 }

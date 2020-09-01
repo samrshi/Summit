@@ -26,9 +26,7 @@ struct ContentView: View {
         VStack {
             Header(title: "Summit", mainViewState: $mainViewState, meetings: meetings)
             
-            Divider()
-                .animation(.none)
-            
+            Divider()            
             
             VStack {
                 if mainViewState == .list {
