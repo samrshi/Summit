@@ -22,7 +22,6 @@ struct FormButtonsView: View {
     @Binding var errorMessage: String
     
     @Binding var mainViewState: MainViewState
-    @Binding var presentationMode: Bool
     
     @Binding var hasAttemptedToSave: Bool
     
@@ -32,16 +31,13 @@ struct FormButtonsView: View {
         HStack(spacing: 15) {
             Button(action: {
                 withAnimation {
-                    self.presentationMode.toggle()
                     self.mainViewState = .list
                 }
             }) {
                 Text("Cancel")
                     .formButton(backgroundColor: Color.clear)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(Color.gray)
-                )
+                    .overlay(RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.gray, lineWidth: 1))
             }
             .buttonStyle(PlainButtonStyle())
             
@@ -60,16 +56,11 @@ struct FormButtonsView: View {
         withAnimation {
             self.meetings.newMeeting(editViewState: editViewState, selectedMeetingID: selectedMeetingID, title: self.currentTitle, urlString: self.currentURLString, week: self.currentWeek, startTime: self.currentStartTime, endTime: self.currentEndTime) { result, message in
                 if result == .success {
-                    withAnimation {
-                        self.presentationMode.toggle()
                         self.mainViewState = .list
-                    }
                 } else {
-                    withAnimation {
                         self.errorMessage = message
                         self.showError.toggle()
                         self.hasAttemptedToSave = true
-                    }
                 }
             }
         }

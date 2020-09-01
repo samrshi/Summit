@@ -77,5 +77,6 @@ struct MeetingItemView: View {
             }
             .font(.headline)
         }
+        .transition(.opacity)
     }
 }

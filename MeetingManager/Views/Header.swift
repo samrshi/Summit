@@ -11,8 +11,9 @@ import SwiftUI
 struct Header: View {
     let title: String
     
-    @Binding var showAddView: Bool
     @Binding var mainViewState: MainViewState
+    
+    @ObservedObject var meetings: Meetings
     
     var body: some View {
         HStack(alignment: .bottom) {
@@ -22,12 +23,11 @@ struct Header: View {
             
             Spacer()
             
-//            if !self.showAddView {
             if self.mainViewState != .add {
                 Button("Add A Meeting") {
                     withAnimation {
-                        self.showAddView.toggle()
                         self.mainViewState = .add
+//                        self.meetings.allMeetings.append(MeetingModel(name: "New List Item", url: URL(string: "google.com")!, urlString: "google.com", days: [3, 5], startTime: Date(), endTime: Date(timeIntervalSinceNow: 3600)))
                     }
                 }
                 .buttonStyle(LinkButtonStyle())

@@ -16,14 +16,12 @@ enum EditViewStates {
 struct AddView: View {
     let editViewState: EditViewStates
     
-    @Binding var presentationMode: Bool
     @Binding var mainViewState: MainViewState
     @ObservedObject var meetings: Meetings
     let selectedMeetingID: UUID?
     
     @State private var currentTitle: String = ""
     @State private var currentURLString: String = ""
-    
     @State private var currentStartTime: Date = Date()
     @State private var currentEndTime: Date = Date(timeIntervalSinceNow: 3600)
     @State private var currentWeek: [Bool] = [Bool](repeating: false, count: 7)
@@ -40,7 +38,7 @@ struct AddView: View {
                 
                 DatePickersView(currentWeek: $currentWeek, currentStartTime: $currentStartTime, currentEndTime: $currentEndTime)
                 
-                FormButtonsView(editViewState: editViewState, selectedMeetingID: selectedMeetingID, currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, showError: $showError, errorMessage: $errorMessage, mainViewState: $mainViewState, presentationMode: $presentationMode, hasAttemptedToSave: $hasAttemptedToSave)
+                FormButtonsView(editViewState: editViewState, selectedMeetingID: selectedMeetingID, currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, showError: $showError, errorMessage: $errorMessage, mainViewState: $mainViewState, hasAttemptedToSave: $hasAttemptedToSave)
                     .environmentObject(meetings)
                 
                 Spacer()

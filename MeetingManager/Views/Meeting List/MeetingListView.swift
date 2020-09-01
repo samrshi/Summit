@@ -11,38 +11,39 @@ import SwiftUI
 struct MeetingListView: View {
     @ObservedObject var meetings: Meetings
     
-    let showAddView: Bool
     @Binding var mainViewState: MainViewState
-    
     @Binding var selectedMeetingID: UUID?
     
-    @State private var filtered = true
+    @Binding var listIsFiltered: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("\(filtered ? "Today's" : "All") Meetings")
+                Text("\(listIsFiltered ? "Today's" : "All") Meetings")
                     .fontWeight(.bold)
                     .font(.system(size: 20))
                 
                 Spacer()
             }
+            .animation(.none)
             
-            Button("\(filtered ? "Show All 􀆈" : "Show Today 􀆇")") {
-                self.filtered.toggle()
+            
+            Button("\(listIsFiltered ? "Show All 􀆈" : "Show Today 􀆇")") {
+                self.listIsFiltered.toggle()
             }
             .buttonStyle(LinkButtonStyle())
             .padding(.vertical, -5)
+            .animation(.none)
             
-            ForEach(filtered ? meetings.filteredMeetings : meetings.allMeetings, id: \.id) { meeting in
+            ForEach(listIsFiltered ? meetings.filteredMeetings : meetings.allMeetings, id: \.id) { meeting in
                 MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID) {
                     self.meetings.allMeetings.removeAll {
                         $0.id == meeting.id
                     }
                 }
+                .transition(.scale)
                 .padding(.top)
                 .onTapGesture {
-//                    if !self.showAddView {
                     if self.mainViewState != .add {
                         let url = meeting.url
                         if NSWorkspace.shared.open(url) {
@@ -52,9 +53,12 @@ struct MeetingListView: View {
                 }
             }
             
-            if filtered && meetings.filteredMeetings.isEmpty {
+            if listIsFiltered && meetings.filteredMeetings.isEmpty {
                 Text("No Meetings Today 🎉")
-                .padding(.top)
+                    .padding(.top)
+            } else if meetings.allMeetings.isEmpty {
+                Text("No Meetings Yet")
+                    .padding(.top)
             }
         }
     }

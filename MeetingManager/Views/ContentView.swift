@@ -15,28 +15,30 @@ enum MainViewState {
 }
 
 struct ContentView: View {
-    @State private var showAddView: Bool = false
-    @State private var mainViewState: MainViewState = .list
-    
     @ObservedObject var meetings: Meetings = Meetings()
     
+    @State private var mainViewState: MainViewState = .list
     @State private var selectedMeetingID: UUID? = nil
+    
+    @State private var listIsFiltered = false
     
     var body: some View {
         VStack {
-            Header(title: "Summit", showAddView: $showAddView, mainViewState: $mainViewState)
-            
+            Header(title: "Summit", mainViewState: $mainViewState, meetings: meetings)
+                .animation(.none)
             Divider()
+                .animation(.none)
+            
             
             VStack {
                 if mainViewState == .list {
                     ScrollView(.vertical) {
-                        MeetingListView(meetings: meetings, showAddView: showAddView, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID)
+                        MeetingListView(meetings: meetings, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, listIsFiltered: $listIsFiltered)
                     }
                 } else if mainViewState == .add {
-                    AddView(editViewState: .add, presentationMode: self.$showAddView, mainViewState: $mainViewState, meetings: self.meetings, selectedMeetingID: nil)
+                    AddView(editViewState: .add, mainViewState: $mainViewState, meetings: self.meetings, selectedMeetingID: nil)
                 } else {
-                    AddView(editViewState: .edit, presentationMode: self.$showAddView, mainViewState: $mainViewState, meetings: self.meetings, selectedMeetingID: self.selectedMeetingID)
+                    AddView(editViewState: .edit, mainViewState: $mainViewState, meetings: self.meetings, selectedMeetingID: self.selectedMeetingID)
                 }
             }
         }

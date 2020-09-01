@@ -88,6 +88,7 @@
 		BDA7D97924FD609B00A18CA8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BDC5CCE524FB3D2D0003B1AB /* Extensions.swift */,
 				BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */,
 				BDEF51A524FD6E9E00D9987C /* CustomAlert.swift */,
 			);
@@ -144,7 +145,6 @@
 				BDC5CCEE24FCC1EC0003B1AB /* DatePickersView.swift */,
 				BDC5CCE924FB41450003B1AB /* WeekPickerView.swift */,
 				BDC5CCF024FCC5230003B1AB /* FormButtonsView.swift */,
-				BDC5CCE524FB3D2D0003B1AB /* Extensions.swift */,
 			);
 			path = "Add Meeting";
 			sourceTree = "<group>";

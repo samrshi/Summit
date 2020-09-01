@@ -21,9 +21,9 @@ extension View {
                             isPresented.wrappedValue = false
                         }
                 }
-            
-            
-            CustomAlert(isPresented: isPresented, title: title, message: message)
+                
+                
+                CustomAlert(isPresented: isPresented, title: title, message: message)
             }
         }
     }
@@ -38,20 +38,18 @@ struct CustomAlert: View {
     var body: some View {
         Group {
             HStack {
-                HStack {
-                    Text("􀇾")
-                        .foregroundColor(.red)
-                        .font(.title)
+                Text("􀇾")
+                    .foregroundColor(.red)
+                    .font(.title)
+                
+                VStack(alignment: .leading) {
+                    Text(title)
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
                     
-                    VStack(alignment: .leading) {
-                        Text(title)
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                        
-                        Text(message)
-                            .foregroundColor(.white)
-                    }
+                    Text(message)
+                        .foregroundColor(.white)
                 }
                 
                 Button(action: {
