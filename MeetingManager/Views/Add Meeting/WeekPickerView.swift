@@ -22,7 +22,6 @@ struct WeekPickerView: View {
                     VStack {
                         Text(self.weekDays[day])
                             .font(.footnote)
-                            .foregroundColor(.white)
                         
                         ZStack {
                             Text(self.week[day] ? "􀀁" : "􀀀")

@@ -11,7 +11,6 @@ import SwiftUI
 extension Text {
     func formButton(backgroundColor: Color) -> some View{
         self
-            .foregroundColor(.white)
             .fontWeight(.semibold)
             .padding(5)
             .frame(width: 70)

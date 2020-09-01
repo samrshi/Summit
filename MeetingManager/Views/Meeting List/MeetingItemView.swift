@@ -21,9 +21,9 @@ struct MeetingItemView: View {
     var body: some View {
         HStack {
             HStack {
-                Text("􀌾")
+                Text("􀄔")
                     .foregroundColor(.green)
-                    .font(.headline)
+                    .font(.callout)
                 
                 VStack(alignment: .leading) {
                     Text(meeting.name)

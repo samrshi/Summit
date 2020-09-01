@@ -20,7 +20,7 @@ struct ContentView: View {
     @State private var mainViewState: MainViewState = .list
     @State private var selectedMeetingID: UUID? = nil
     
-    @State private var listIsFiltered = false
+    @State private var listIsFiltered = true
     
     var body: some View {
         VStack {

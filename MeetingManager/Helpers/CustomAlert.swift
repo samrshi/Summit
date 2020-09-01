@@ -65,7 +65,7 @@ struct CustomAlert: View {
                 .buttonStyle(PlainButtonStyle())
             }
             .padding(10)
-            .background(Color(NSColor.darkGray).opacity(0.8))
+            .background(Color.black.opacity(0.75))
             .cornerRadius(10)
         }
     }

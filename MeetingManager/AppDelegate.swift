@@ -12,6 +12,7 @@ import SwiftUI
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+//    var window: NSWindow!
     var popover: NSPopover!
     var statusBarItem: NSStatusItem!
 
@@ -20,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         let contentView = ContentView().environment(\.managedObjectContext, persistentContainer.viewContext)
 
-        // Create the window and set the content view. 
+////         Create the window and set the content view.
 //        window = NSWindow(
 //            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
 //            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
@@ -34,6 +35,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 400, height: 400)
         popover.behavior = .transient
+        // makes app always in dark mode
+        popover.appearance = .some(NSAppearance(named: .vibrantDark)!)
+        
         popover.contentViewController = NSHostingController(rootView: contentView)
         self.popover = popover
         
