@@ -15,21 +15,41 @@ struct Header: View {
     
     @ObservedObject var meetings: Meetings
     
+    @State private var showingDebugging = false
+    
     var body: some View {
-        HStack(alignment: .bottom) {
-            Text(title)
-                .fontWeight(.bold)
-                .font(.title)
+        VStack(alignment: .leading) {
+            HStack(alignment: .bottom) {
+                Text(title)
+                    .fontWeight(.bold)
+                    .font(.title)
+                    .onTapGesture {
+                        withAnimation {
+                            self.showingDebugging.toggle()
+                        }
+                }
+                
+                Spacer()
+                
+                if self.mainViewState != .add {
+                    Button("Add A Meeting") {
+                        withAnimation {
+                            self.mainViewState = .add
+                            //                        self.meetings.allMeetings.append(MeetingModel(name: "New List Item", url: URL(string: "google.com")!, urlString: "google.com", days: [3, 5], startTime: Date(), endTime: Date(timeIntervalSinceNow: 3600)))
+                        }
+                    }
+                    .buttonStyle(LinkButtonStyle())
+                }
+            }
             
-            Spacer()
-            
-            if self.mainViewState != .add {
-                Button("Add A Meeting") {
+            if showingDebugging {
+                Button("Add Fall Schedule") {
                     withAnimation {
-                        self.mainViewState = .add
-//                        self.meetings.allMeetings.append(MeetingModel(name: "New List Item", url: URL(string: "google.com")!, urlString: "google.com", days: [3, 5], startTime: Date(), endTime: Date(timeIntervalSinceNow: 3600)))
+                        self.meetings.addFallSchedule()
+                        self.showingDebugging.toggle()
                     }
                 }
+                .transition(.opacity)
                 .buttonStyle(LinkButtonStyle())
             }
         }

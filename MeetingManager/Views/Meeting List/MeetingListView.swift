@@ -61,5 +61,6 @@ struct MeetingListView: View {
                     .padding(.top)
             }
         }
+        .padding()
     }
 }

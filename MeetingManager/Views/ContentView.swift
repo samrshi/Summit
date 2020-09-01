@@ -25,7 +25,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Header(title: "Summit", mainViewState: $mainViewState, meetings: meetings)
-                .animation(.none)
+            
             Divider()
                 .animation(.none)
             
@@ -42,6 +42,5 @@ struct ContentView: View {
                 }
             }
         }
-        .padding()
     }
 }

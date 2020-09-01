@@ -28,7 +28,7 @@ struct AddView: View {
     
     @State private var showError: Bool = false
     @State private var errorMessage: String = ""
-        
+    
     @State private var hasAttemptedToSave: Bool = false
     
     var body: some View {
@@ -64,5 +64,6 @@ struct AddView: View {
                 self.currentWeek = weekResult
             }
         }
+        .padding()
     }
 }
