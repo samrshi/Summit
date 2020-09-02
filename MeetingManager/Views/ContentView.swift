@@ -25,8 +25,10 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Header(title: "Summit", mainViewState: $mainViewState, meetings: meetings)
+                .animation(.none)
             
-            Divider()            
+            Divider()
+                .animation(.none)
             
             VStack {
                 if mainViewState == .list {
@@ -38,6 +40,10 @@ struct ContentView: View {
                 } else {
                     AddView(editViewState: .edit, mainViewState: $mainViewState, meetings: self.meetings, selectedMeetingID: self.selectedMeetingID)
                 }
+            }
+            
+            if self.mainViewState == .list {
+                FooterView(mainViewState: self.$mainViewState)
             }
         }
     }

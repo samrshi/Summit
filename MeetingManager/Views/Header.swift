@@ -30,15 +30,6 @@ struct Header: View {
                 }
                 
                 Spacer()
-                
-                if self.mainViewState != .add {
-                    Button("Add A Meeting") {
-                        withAnimation {
-                            self.mainViewState = .add
-                        }
-                    }
-                    .buttonStyle(LinkButtonStyle())
-                }
             }
             
             if showingDebugging {

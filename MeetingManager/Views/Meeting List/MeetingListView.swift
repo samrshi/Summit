@@ -18,37 +18,12 @@ struct MeetingListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Text("\(listIsFiltered ? "Today's" : "All") Meetings")
-                    .fontWeight(.bold)
-                    .font(.system(size: 20))
-                
-                Spacer()
-            }
-            .animation(.none)
-            
-            
-            Button("\(listIsFiltered ? "Show All 􀆈" : "Show Today 􀆇")") {
-                self.listIsFiltered.toggle()
-            }
-            .buttonStyle(LinkButtonStyle())
-            .padding(.vertical, -5)
-            .animation(.none)
+            MeetingListHeader(listIsFiltered: $listIsFiltered)
             
             ForEach(listIsFiltered ? meetings.filteredMeetings : meetings.allMeetings, id: \.id) { meeting in
-                MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID) {
+                MeetingItemView(meeting: meeting, listIsFiltered: self.listIsFiltered, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID) {
                     self.meetings.allMeetings.removeAll {
                         $0.id == meeting.id
-                    }
-                }
-                .transition(.scale)
-                .padding(.top)
-                .onTapGesture {
-                    if self.mainViewState != .add {
-                        let url = meeting.url
-                        if NSWorkspace.shared.open(url) {
-                            print("default browser was successfully opened")
-                        }
                     }
                 }
             }

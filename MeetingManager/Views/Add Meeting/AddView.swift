@@ -38,10 +38,10 @@ struct AddView: View {
                 
                 DatePickersView(currentWeek: $currentWeek, currentStartTime: $currentStartTime, currentEndTime: $currentEndTime)
                 
+                Spacer()
+                
                 FormButtonsView(editViewState: editViewState, selectedMeetingID: selectedMeetingID, currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, showError: $showError, errorMessage: $errorMessage, mainViewState: $mainViewState, hasAttemptedToSave: $hasAttemptedToSave)
                     .environmentObject(meetings)
-                
-                Spacer()
             }
         }
         .customAlert(isPresented: $showError, title: "Error", message: errorMessage)
@@ -64,6 +64,7 @@ struct AddView: View {
                 self.currentWeek = weekResult
             }
         }
-        .padding()
+        .padding([.horizontal, .top])
+        .padding(.bottom, 10)
     }
 }

@@ -46,6 +46,12 @@ extension Meetings {
         return weekDayInt
     }
     
+//    func getNextMeeting() -> MeetingModel {
+//        let minTimeUntilMeeting: Int = Int.max
+//        
+//        
+//    }
+    
     var filteredMeetings: [MeetingModel] {
         self.allMeetings
             .filter( { $0.days.contains(Meetings.currentWeekDay) })

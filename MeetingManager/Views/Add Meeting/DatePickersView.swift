@@ -20,12 +20,12 @@ struct DatePickersView: View {
             VStack (alignment: .leading) {
                 DatePicker(selection: $currentStartTime, displayedComponents: .hourAndMinute) {
                     Text("Start Time")
-                        .frame(width: 70, alignment: .leading)
+                        .frame(alignment: .leading)
                 }
                 
                 DatePicker(selection: $currentEndTime, displayedComponents: .hourAndMinute) {
                     Text("End Time")
-                        .frame(width: 70, alignment: .leading)
+                        .frame(alignment: .leading)
                 }
             }
         }

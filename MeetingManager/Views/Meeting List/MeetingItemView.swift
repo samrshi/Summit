@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MeetingItemView: View {
     let meeting: MeetingModel
+    let listIsFiltered: Bool
     
     @Binding var mainViewState: MainViewState
     @Binding var selectedMeetingID: UUID?
@@ -29,8 +30,10 @@ struct MeetingItemView: View {
                     Text(meeting.name)
                         .font(.headline)
                     
-                    HStack {
-                        Text(meeting.formattedMeetingDays)
+                    HStack(spacing: 3) {
+                        if (!listIsFiltered) {
+                            Text(meeting.formattedMeetingDays)
+                        }
                         
                         Text(meeting.formattedMeetingTimes)
                     }
@@ -78,5 +81,14 @@ struct MeetingItemView: View {
             .font(.headline)
         }
         .transition(.opacity)
+        .padding(.top)
+        .onTapGesture {
+            if self.mainViewState != .add {
+                let url = self.meeting.url
+                if NSWorkspace.shared.open(url) {
+                    print("default browser was successfully opened")
+                }
+            }
+        }
     }
 }

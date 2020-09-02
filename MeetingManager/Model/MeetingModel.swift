@@ -21,18 +21,10 @@ struct MeetingModel: Codable, Comparable {
     var endTime: Date
     
     static func < (lhs: MeetingModel, rhs: MeetingModel) -> Bool {
-        let lhsTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: lhs.startTime)
-        let lhsHour = lhsTimeComponents.hour ?? 0
-        let lhsMinute = lhsTimeComponents.minute ?? 0
+        let lhsStartMins = lhs.startTime.getMinutesPlusHours()
         
-        let lhsStartMin = (lhsHour * 60) + lhsMinute
+        let rhsStartMins = rhs.startTime.getMinutesPlusHours()
         
-        let rhsTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: rhs.startTime)
-        let rhsHour = rhsTimeComponents.hour ?? 0
-        let rhsMinute = rhsTimeComponents.minute ?? 0
-        
-        let rhsStartMin = (rhsHour * 60) + rhsMinute
-        
-        return lhsStartMin < rhsStartMin
+        return lhsStartMins < rhsStartMins
     }
 }

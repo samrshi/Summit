@@ -35,9 +35,7 @@ struct FormButtonsView: View {
                 }
             }) {
                 Text("Cancel")
-                    .formButton(backgroundColor: Color.clear)
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                            .stroke(Color.gray, lineWidth: 1))
+                    .formButton(backgroundColor: Color.clear, padding: 5, width: 70)
             }
             .buttonStyle(PlainButtonStyle())
             
@@ -45,7 +43,7 @@ struct FormButtonsView: View {
             
             Button(action: saveButtonAction) {
                 Text("Save")
-                    .formButton(backgroundColor: Color.blue)
+                    .formButton(backgroundColor: Color.blue, padding: 5, width: 70)
             }
             .buttonStyle(PlainButtonStyle())
         }

@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD13CBBD24FF1D10009C5F5D /* MeetingListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13CBBC24FF1D10009C5F5D /* MeetingListHeader.swift */; };
+		BD13CBC124FF4011009C5F5D /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13CBC024FF4011009C5F5D /* Footer.swift */; };
 		BD20FA0B24FB2E2300E74D39 /* MeetingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20FA0A24FB2E2300E74D39 /* MeetingListView.swift */; };
 		BD933CA024FB14E5001F8A90 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD933C9F24FB14E5001F8A90 /* Header.swift */; };
 		BDA7D97B24FD60B500A18CA8 /* URLValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */; };
 		BDB6699424FAE83E004052C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6699324FAE83E004052C0 /* AppDelegate.swift */; };
 		BDB6699624FAE83E004052C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6699524FAE83E004052C0 /* ContentView.swift */; };
-		BDB6699924FAE83E004052C0 /* MeetingManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDB6699724FAE83E004052C0 /* MeetingManager.xcdatamodeld */; };
 		BDB6699B24FAE841004052C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB6699A24FAE841004052C0 /* Assets.xcassets */; };
 		BDB6699E24FAE841004052C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB6699D24FAE841004052C0 /* Preview Assets.xcassets */; };
 		BDB669A124FAE841004052C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB6699F24FAE841004052C0 /* Main.storyboard */; };
@@ -30,13 +31,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD13CBBC24FF1D10009C5F5D /* MeetingListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListHeader.swift; sourceTree = "<group>"; };
+		BD13CBC024FF4011009C5F5D /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		BD20FA0A24FB2E2300E74D39 /* MeetingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListView.swift; sourceTree = "<group>"; };
 		BD933C9F24FB14E5001F8A90 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidity.swift; sourceTree = "<group>"; };
 		BDB6699024FAE83E004052C0 /* MeetingManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB6699324FAE83E004052C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDB6699524FAE83E004052C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BDB6699824FAE83E004052C0 /* MeetingManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MeetingManager.xcdatamodel; sourceTree = "<group>"; };
 		BDB6699A24FAE841004052C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDB6699D24FAE841004052C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BDB669A024FAE841004052C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				BDB6699524FAE83E004052C0 /* ContentView.swift */,
 				BD933C9F24FB14E5001F8A90 /* Header.swift */,
+				BD13CBC024FF4011009C5F5D /* Footer.swift */,
 				BDC5CCE724FB40260003B1AB /* Meeting List */,
 				BDC5CCE224FB3C940003B1AB /* Add Meeting */,
 			);
@@ -123,7 +126,6 @@
 				BDB6699F24FAE841004052C0 /* Main.storyboard */,
 				BDB669A224FAE841004052C0 /* Info.plist */,
 				BDB669A324FAE841004052C0 /* MeetingManager.entitlements */,
-				BDB6699724FAE83E004052C0 /* MeetingManager.xcdatamodeld */,
 				BDB6699C24FAE841004052C0 /* Preview Content */,
 			);
 			path = MeetingManager;
@@ -154,6 +156,7 @@
 			children = (
 				BD20FA0A24FB2E2300E74D39 /* MeetingListView.swift */,
 				BDB669AF24FB016B004052C0 /* MeetingItemView.swift */,
+				BD13CBBC24FF1D10009C5F5D /* MeetingListHeader.swift */,
 			);
 			path = "Meeting List";
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD13CBC124FF4011009C5F5D /* Footer.swift in Sources */,
 				BDB669AA24FAFAB8004052C0 /* AddView.swift in Sources */,
 				BD933CA024FB14E5001F8A90 /* Header.swift in Sources */,
 				BDC5CCF124FCC5230003B1AB /* FormButtonsView.swift in Sources */,
@@ -247,9 +251,9 @@
 				BDB6699624FAE83E004052C0 /* ContentView.swift in Sources */,
 				BDB669B024FB016B004052C0 /* MeetingItemView.swift in Sources */,
 				BDC5CCEF24FCC1EC0003B1AB /* DatePickersView.swift in Sources */,
-				BDB6699924FAE83E004052C0 /* MeetingManager.xcdatamodeld in Sources */,
 				BDB6699424FAE83E004052C0 /* AppDelegate.swift in Sources */,
 				BDC5CCE624FB3D2D0003B1AB /* Extensions.swift in Sources */,
+				BD13CBBD24FF1D10009C5F5D /* MeetingListHeader.swift in Sources */,
 				BDC5CCED24FB440D0003B1AB /* MeetingsViewModel.swift in Sources */,
 				BDB669AC24FAFAF8004052C0 /* MeetingModel.swift in Sources */,
 				BDC5CCE424FB3CBC0003B1AB /* MainInfoView.swift in Sources */,
@@ -455,19 +459,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		BDB6699724FAE83E004052C0 /* MeetingManager.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				BDB6699824FAE83E004052C0 /* MeetingManager.xcdatamodel */,
-			);
-			currentVersion = BDB6699824FAE83E004052C0 /* MeetingManager.xcdatamodel */;
-			path = MeetingManager.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = BDB6698824FAE83E004052C0 /* Project object */;
 }
