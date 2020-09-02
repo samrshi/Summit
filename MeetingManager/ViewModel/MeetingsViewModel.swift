@@ -13,11 +13,13 @@ let defaultsKey = "meetings"
 class Meetings: ObservableObject {
     @Published var allMeetings: [MeetingModel] {
         didSet {
+            getNextMeeting()
             save()
         }
     }
     
     @Published var currentDate: Date = Date()
+    @Published var nextMeeting: MeetingModel? = nil
     
     init() {
         if let data = UserDefaults.standard.data(forKey: defaultsKey) {
@@ -26,8 +28,10 @@ class Meetings: ObservableObject {
                 return
             }
         }
-
+        
         self.allMeetings = []
+        
+        self.getNextMeeting()
     }
     
     func save() {
@@ -52,11 +56,32 @@ extension Meetings {
         self.currentDate = Date()
     }
     
-//    func getNextMeeting() -> MeetingModel {
-//        let minTimeUntilMeeting: Int = Int.max
-//        
-//        
-//    }
+    func getNextMeeting() {
+        var minTimeUntilMeeting: Int = Int.max
+        var nextMeeting: MeetingModel? = nil
+        
+        for meeting in filteredMeetings {
+            let currentTime = currentDate.getMinutesPlusHours()
+            guard let meetingTime = meeting.startTime?.getMinutesPlusHours() else {
+                continue
+            }
+            print("\(currentTime) \(meetingTime)")
+            
+            let difference = meetingTime - currentTime
+            
+            if difference < minTimeUntilMeeting && difference >= 0 {
+                minTimeUntilMeeting = difference
+                nextMeeting = meeting
+            }
+        }
+        
+        if let soonestMeeting = nextMeeting {
+            self.nextMeeting = soonestMeeting
+            return
+        }
+        
+        self.nextMeeting = nil
+    }
     
     var filteredMeetings: [MeetingModel] {
         self.allMeetings
@@ -115,17 +140,24 @@ extension Meetings {
         completion(.success, "")
     }
     
+    func deleteMeetings(meeting: MeetingModel) {
+        allMeetings.removeAll {
+            $0.id == meeting.id
+        }
+    }
+    
     // FOR TESTING ONLY
     func addFallSchedule() {
-        let comp301 = MeetingModel(name: "COMP 301", url: URL(string: "https://unc.zoom.us/j/97164010235")!, urlString: "https://unc.zoom.us/j/97164010235", days: [3, 5], sameTimeEachDay: true, startTime: Date(), endTime: Date())
-        let math233 = MeetingModel(name: "MATH 233", url: URL(string: "https://unc.zoom.us/j/91753397782")!, urlString: "https://unc.zoom.us/j/91753397782", days: [2, 4, 6], sameTimeEachDay: true, startTime: Date(), endTime: Date())
-        let astr101 = MeetingModel(name: "ASTR 101", url: URL(string: "https://unc.zoom.us/j/98893223423")!, urlString: "https://unc.zoom.us/j/98893223423", days: [2, 4, 6], sameTimeEachDay: true, startTime: Date(), endTime: Date())
-        let astr101L = MeetingModel(name: "ASTR 101L", url: URL(string: "https://unc.zoom.us/j/98216613879")!, urlString: "https://unc.zoom.us/j/98216613879", days: [5], sameTimeEachDay: true, startTime: Date(), endTime: Date())
-        let comp283 = MeetingModel(name: "COMP 283", url: URL(string: "https://unc.zoom.us/j/93565803306")!, urlString: "https://unc.zoom.us/j/93565803306", days: [3, 5], sameTimeEachDay: true, startTime: Date(), endTime: Date())
-        let comp283OH = MeetingModel(name: "COMP 283 OH", url: URL(string: "https://unc.zoom.us/j/92825065172")!, urlString: "https://unc.zoom.us/j/92825065172", days: [1, 2, 3, 4, 5, 6, 7], sameTimeEachDay: true, startTime: Date(), endTime: Date())
+//        let comp301 = MeetingModel(name: "COMP 301", url: URL(string: "https://unc.zoom.us/j/97164010235")!, urlString: "https://unc.zoom.us/j/97164010235", days: [3, 5], sameTimeEachDay: true, startTime: Date(), endTime: Date())
+        let math233 = MeetingModel(name: "MATH 233", url: URL(string: "https://unc.zoom.us/j/91753397782")!, urlString: "https://unc.zoom.us/j/91753397782", days: [2, 4, 6], sameTimeEachDay: true, startTime: Date(timeIntervalSinceNow: 60), endTime: Date())
+        let astr101 = MeetingModel(name: "ASTR 101", url: URL(string: "https://unc.zoom.us/j/98893223423")!, urlString: "https://unc.zoom.us/j/98893223423", days: [2, 4, 6], sameTimeEachDay: true, startTime: Date(timeIntervalSinceNow: 3600), endTime: Date())
+//        let astr101L = MeetingModel(name: "ASTR 101L", url: URL(string: "https://unc.zoom.us/j/98216613879")!, urlString: "https://unc.zoom.us/j/98216613879", days: [5], sameTimeEachDay: true, startTime: Date(), endTime: Date())
+//        let comp283 = MeetingModel(name: "COMP 283", url: URL(string: "https://unc.zoom.us/j/93565803306")!, urlString: "https://unc.zoom.us/j/93565803306", days: [3, 5], sameTimeEachDay: true, startTime: Date(), endTime: Date())
+//        let comp283OH = MeetingModel(name: "COMP 283 OH", url: URL(string: "https://unc.zoom.us/j/92825065172")!, urlString: "https://unc.zoom.us/j/92825065172", days: [1, 2, 3, 4, 5, 6, 7], sameTimeEachDay: false, startTime: nil, endTime: nil)
         
-        let meetings = [comp301, math233, astr101, astr101L, comp283, comp283OH]
-        
+//        let meetings = [comp301, math233, astr101, astr101L, comp283, comp283OH]
+        let meetings = [math233, astr101]
+
         for meeting in meetings {
             allMeetings.append(meeting)
         }

@@ -18,13 +18,23 @@ struct MeetingListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            if meetings.nextMeeting != nil {
+                Text("Next Meeting")
+                    .fontWeight(.bold)
+                    .font(.system(size: 20))
+                
+                MeetingItemView(meeting: meetings.nextMeeting!, listIsFiltered: listIsFiltered, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID) {
+                    self.deleteMeetings(meeting: self.meetings.nextMeeting)
+                }
+                
+                Divider()
+            }
+            
             MeetingListHeader(listIsFiltered: $listIsFiltered)
             
             ForEach(listIsFiltered ? meetings.filteredMeetings : meetings.allMeetings, id: \.id) { meeting in
                 MeetingItemView(meeting: meeting, listIsFiltered: self.listIsFiltered, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID) {
-                    self.meetings.allMeetings.removeAll {
-                        $0.id == meeting.id
-                    }
+                    self.deleteMeetings(meeting: meeting)
                 }
             }
             
@@ -37,5 +47,17 @@ struct MeetingListView: View {
             }
         }
         .padding()
+        .onAppear {
+            self.meetings.updateDate()
+            self.meetings.getNextMeeting()
+        }
+    }
+    
+    func deleteMeetings(meeting: MeetingModel?) {
+        if let id = meeting?.id {
+            self.meetings.allMeetings.removeAll {
+                $0.id == id
+            }
+        }
     }
 }

@@ -69,6 +69,7 @@ struct MeetingItemView: View {
                     
                     Button(action: {
                         withAnimation {
+                            self.showSettings = false
                             self.delete()
                         }
                     }) {

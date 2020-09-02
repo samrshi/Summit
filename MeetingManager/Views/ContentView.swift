@@ -50,6 +50,7 @@ struct ContentView: View {
         }
         .onReceive(publisher) { _ in
             self.meetings.updateDate()
+            self.meetings.getNextMeeting()
         }
     }
 }
