@@ -25,7 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.behavior = .transient
         // makes app always in dark mode
         popover.appearance = .some(NSAppearance(named: .vibrantDark)!)
-        popover.contentViewController = NSHostingController(rootView: contentView)
+        popover.contentViewController = MainViewController()
+        popover.contentViewController?.view = NSHostingView(rootView: contentView)
         self.popover = popover
         
         // Create status bar item
@@ -43,6 +44,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                    self.popover.performClose(sender)
               } else {
                    self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+                
+                // Send Notification to update UI
+                NotificationCenter.default.post(name: NSNotification.Name("hasBeenOpened"), object: nil)
               }
          }
     }

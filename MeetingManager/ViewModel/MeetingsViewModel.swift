@@ -17,6 +17,8 @@ class Meetings: ObservableObject {
         }
     }
     
+    @Published var currentDate: Date = Date()
+    
     init() {
         if let data = UserDefaults.standard.data(forKey: defaultsKey) {
             if let decoded = try? JSONDecoder().decode([MeetingModel].self, from: data) {
@@ -44,6 +46,10 @@ extension Meetings {
         let weekDayInt = components.weekday ?? -1
         
         return weekDayInt
+    }
+    
+    func updateDate() {
+        self.currentDate = Date()
     }
     
 //    func getNextMeeting() -> MeetingModel {

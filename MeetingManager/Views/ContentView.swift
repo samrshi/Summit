@@ -22,6 +22,8 @@ struct ContentView: View {
     
     @State private var listIsFiltered = true
     
+    let publisher = NotificationCenter.default.publisher(for: Notification.Name("hasBeenOpened"))
+        
     var body: some View {
         VStack {
             Header(title: "Summit", mainViewState: $mainViewState, meetings: meetings)
@@ -45,6 +47,9 @@ struct ContentView: View {
             if self.mainViewState == .list {
                 FooterView(mainViewState: self.$mainViewState)
             }
+        }
+        .onReceive(publisher) { _ in
+            self.meetings.updateDate()
         }
     }
 }
