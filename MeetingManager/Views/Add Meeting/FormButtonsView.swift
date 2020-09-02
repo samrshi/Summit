@@ -17,12 +17,12 @@ struct FormButtonsView: View {
     let currentWeek: [Bool]
     let currentStartTime: Date
     let currentEndTime: Date
+    let sameTimeEachDay: Bool
     
     @Binding var showError: Bool
     @Binding var errorMessage: String
     
     @Binding var mainViewState: MainViewState
-    
     @Binding var hasAttemptedToSave: Bool
     
     @EnvironmentObject var meetings: Meetings
@@ -52,7 +52,10 @@ struct FormButtonsView: View {
     
     func saveButtonAction() {
         withAnimation {
-            self.meetings.newMeeting(editViewState: editViewState, selectedMeetingID: selectedMeetingID, title: self.currentTitle, urlString: self.currentURLString, week: self.currentWeek, startTime: self.currentStartTime, endTime: self.currentEndTime) { result, message in
+            let startTime = sameTimeEachDay ? currentStartTime : nil
+            let endTime = sameTimeEachDay ? currentEndTime : nil
+
+            self.meetings.newMeeting(editViewState: editViewState, selectedMeetingID: selectedMeetingID, title: self.currentTitle, urlString: self.currentURLString, week: self.currentWeek, sameTimeEachDay: self.sameTimeEachDay, startTime: startTime, endTime: endTime) { result, message in
                 if result == .success {
                         self.mainViewState = .list
                 } else {

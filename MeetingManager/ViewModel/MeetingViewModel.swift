@@ -10,6 +10,10 @@ import Foundation
 
 extension MeetingModel {
     var formattedMeetingTimes: String {
+        guard let startTime = startTime, let endTime = endTime else {
+            return ""
+        }
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
         

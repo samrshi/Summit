@@ -17,13 +17,22 @@ struct MeetingModel: Codable, Comparable {
     
     var days: [Int]
     
-    var startTime: Date
-    var endTime: Date
+    var sameTimeEachDay: Bool
+    var startTime: Date?
+    var endTime: Date?
     
     static func < (lhs: MeetingModel, rhs: MeetingModel) -> Bool {
-        let lhsStartMins = lhs.startTime.getMinutesPlusHours()
+        guard let lhsDate = lhs.startTime else {
+            return false
+        }
         
-        let rhsStartMins = rhs.startTime.getMinutesPlusHours()
+        guard let rhsDate = rhs.startTime else {
+            return true
+        }
+        
+        let lhsStartMins = lhsDate.getMinutesPlusHours()
+        
+        let rhsStartMins = rhsDate.getMinutesPlusHours()
         
         return lhsStartMins < rhsStartMins
     }

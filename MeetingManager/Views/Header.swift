@@ -43,7 +43,7 @@ struct Header: View {
                     
                     Button("Add Generic Item") {
                         withAnimation {
-                            self.meetings.allMeetings.append(MeetingModel(name: "New List Item", url: URL(string: "google.com")!, urlString: "google.com", days: [3, 5], startTime: Date(), endTime: Date(timeIntervalSinceNow: 3600)))
+                            self.meetings.allMeetings.append(MeetingModel(name: "New List Item", url: URL(string: "google.com")!, urlString: "google.com", days: [3, 5], sameTimeEachDay: false, startTime: Date(), endTime: Date(timeIntervalSinceNow: 3600)))
                         }
                     }
                 }

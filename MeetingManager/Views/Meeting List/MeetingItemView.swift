@@ -30,12 +30,12 @@ struct MeetingItemView: View {
                     Text(meeting.name)
                         .font(.headline)
                     
-                    HStack(spacing: 3) {
-                        if (!listIsFiltered) {
-                            Text(meeting.formattedMeetingDays)
-                        }
+                    HStack {
+                        Text(meeting.sameTimeEachDay ? meeting.formattedMeetingDays : "Various Times")
                         
-                        Text(meeting.formattedMeetingTimes)
+                        if (meeting.sameTimeEachDay) {
+                            Text(meeting.formattedMeetingTimes)
+                        }
                     }
                     .font(.caption)
                     .foregroundColor(.secondary)

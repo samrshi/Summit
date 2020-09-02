@@ -13,19 +13,31 @@ struct DatePickersView: View {
     @Binding var currentStartTime: Date
     @Binding var currentEndTime: Date
     
+    @Binding var sameTimeEachDay: Bool
+    
     var body: some View {
         VStack {
             WeekPickerView(week: $currentWeek)
             
             VStack (alignment: .leading) {
-                DatePicker(selection: $currentStartTime, displayedComponents: .hourAndMinute) {
-                    Text("Start Time")
-                        .frame(alignment: .leading)
+                HStack {
+                    Toggle(isOn: $sameTimeEachDay.animation(.default)) {
+                        Text("Same time each day")
+                    }
+                    
+                    Spacer()
                 }
                 
-                DatePicker(selection: $currentEndTime, displayedComponents: .hourAndMinute) {
-                    Text("End Time")
-                        .frame(alignment: .leading)
+                if sameTimeEachDay {
+                    DatePicker(selection: $currentStartTime, displayedComponents: .hourAndMinute) {
+                        Text("Start Time")
+                            .frame(width: 70, alignment: .leading)
+                    }
+                    
+                    DatePicker(selection: $currentEndTime, displayedComponents: .hourAndMinute) {
+                        Text("End Time")
+                            .frame(width: 70, alignment: .leading)
+                    }
                 }
             }
         }
