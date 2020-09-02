@@ -25,8 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.behavior = .transient
         // makes app always in dark mode
         popover.appearance = .some(NSAppearance(named: .vibrantDark)!)
-        popover.contentViewController = MainViewController()
-        popover.contentViewController?.view = NSHostingView(rootView: contentView)
+        popover.contentViewController = NSHostingController(rootView: contentView)
         self.popover = popover
         
         // Create status bar item
