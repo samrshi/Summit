@@ -10,7 +10,6 @@ import SwiftUI
 
 struct MeetingItemView: View {
     let meeting: MeetingModel
-    let listIsFiltered: Bool
     
     @Binding var mainViewState: MainViewState
     @Binding var selectedMeetingID: UUID?

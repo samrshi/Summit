@@ -14,11 +14,13 @@ enum EditViewStates {
 }
 
 struct AddView: View {
+    @EnvironmentObject var meetings: Meetings
+
     let editViewState: EditViewStates
     
-    @Binding var mainViewState: MainViewState
-    @ObservedObject var meetings: Meetings
     let selectedMeetingID: UUID?
+    
+    @Binding var mainViewState: MainViewState
     
     @State private var currentTitle: String = ""
     @State private var currentURLString: String = ""

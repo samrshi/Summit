@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MeetingListView: View {
-    @ObservedObject var meetings: Meetings
+    @EnvironmentObject var meetings: Meetings
     
     @Binding var mainViewState: MainViewState
     @Binding var selectedMeetingID: UUID?
@@ -18,22 +18,13 @@ struct MeetingListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            if meetings.nextMeeting != nil {
-                Text("Next Meeting")
-                    .fontWeight(.bold)
-                    .font(.system(size: 20))
-                
-                MeetingItemView(meeting: meetings.nextMeeting!, listIsFiltered: listIsFiltered, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID) {
-                    self.deleteMeetings(meeting: self.meetings.nextMeeting)
-                }
-                
-                Divider()
-            }
+            NextMeetingView(listIsFiltered: listIsFiltered, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, deleteMeetings: self.deleteMeetings)
+                .environmentObject(meetings)
             
             MeetingListHeader(listIsFiltered: $listIsFiltered)
             
             ForEach(listIsFiltered ? meetings.filteredMeetings : meetings.allMeetings, id: \.id) { meeting in
-                MeetingItemView(meeting: meeting, listIsFiltered: self.listIsFiltered, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID) {
+                MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID) {
                     self.deleteMeetings(meeting: meeting)
                 }
             }

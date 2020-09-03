@@ -65,7 +65,6 @@ extension Meetings {
             guard let meetingTime = meeting.startTime?.getMinutesPlusHours() else {
                 continue
             }
-            print("\(currentTime) \(meetingTime)")
             
             let difference = meetingTime - currentTime
             

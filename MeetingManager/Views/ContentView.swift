@@ -35,12 +35,15 @@ struct ContentView: View {
             VStack {
                 if mainViewState == .list {
                     ScrollView(.vertical) {
-                        MeetingListView(meetings: meetings, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, listIsFiltered: $listIsFiltered)
+                        MeetingListView(mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, listIsFiltered: $listIsFiltered)
+                        .environmentObject(meetings)
                     }
                 } else if mainViewState == .add {
-                    AddView(editViewState: .add, mainViewState: $mainViewState, meetings: self.meetings, selectedMeetingID: nil)
+                    AddView(editViewState: .add, selectedMeetingID: nil, mainViewState: $mainViewState)
+                        .environmentObject(meetings)
                 } else {
-                    AddView(editViewState: .edit, mainViewState: $mainViewState, meetings: self.meetings, selectedMeetingID: self.selectedMeetingID)
+                    AddView(editViewState: .edit, selectedMeetingID: self.selectedMeetingID, mainViewState: $mainViewState)
+                        .environmentObject(meetings)
                 }
             }
             
