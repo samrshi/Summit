@@ -18,7 +18,7 @@ struct NextMeetingView: View {
     let deleteMeetings: (MeetingModel?) -> Void
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             if meetings.nextMeeting != nil {
                 Text("Next Meeting")
                     .fontWeight(.bold)
