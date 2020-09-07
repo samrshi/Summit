@@ -13,7 +13,7 @@ struct Header: View {
     
     @Binding var mainViewState: MainViewState
     
-    @ObservedObject var meetings: Meetings
+    @ObservedObject var meetings: UserInfo
     
     @State private var showingDebugging = false
     
@@ -30,6 +30,17 @@ struct Header: View {
                 }
                 
                 Spacer()
+                
+                Button(action: {
+                    withAnimation {
+                        self.mainViewState = self.mainViewState != .settings ? .settings : .list
+                    }
+                }) {
+                    Text("􀍟")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                }
+                .buttonStyle(PlainButtonStyle())
             }
             
             if showingDebugging {

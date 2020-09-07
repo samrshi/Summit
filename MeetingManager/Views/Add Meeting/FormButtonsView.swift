@@ -25,43 +25,28 @@ struct FormButtonsView: View {
     @Binding var mainViewState: MainViewState
     @Binding var hasAttemptedToSave: Bool
     
-    @EnvironmentObject var meetings: Meetings
+    @EnvironmentObject var meetings: UserInfo
     
     var body: some View {
-        HStack(spacing: 15) {
-            Button(action: {
-                withAnimation {
-                    self.mainViewState = .list
-                }
-            }) {
-                Text("Cancel")
-                    .formButton(backgroundColor: Color.clear, padding: 5, width: 70)
+        FooterView(primaryTitle: "Save", primaryAction: self.saveButtonAction, secondaryTitle: "Cancel", secondaryAction: {
+            withAnimation {
+                self.mainViewState = .list
             }
-            .buttonStyle(PlainButtonStyle())
-            
-            Spacer()
-            
-            Button(action: saveButtonAction) {
-                Text("Save")
-                    .formButton(backgroundColor: Color.blue, padding: 5, width: 70)
-            }
-            .buttonStyle(PlainButtonStyle())
-        }
-        .padding(.top)
+        })
     }
     
     func saveButtonAction() {
         withAnimation {
             let startTime = sameTimeEachDay ? currentStartTime : nil
             let endTime = sameTimeEachDay ? currentEndTime : nil
-
+            
             self.meetings.newMeeting(editViewState: editViewState, selectedMeetingID: selectedMeetingID, title: self.currentTitle, urlString: self.currentURLString, week: self.currentWeek, sameTimeEachDay: self.sameTimeEachDay, startTime: startTime, endTime: endTime) { result, message in
                 if result == .success {
-                        self.mainViewState = .list
+                    self.mainViewState = .list
                 } else {
-                        self.errorMessage = message
-                        self.showError.toggle()
-                        self.hasAttemptedToSave = true
+                    self.errorMessage = message
+                    self.showError.toggle()
+                    self.hasAttemptedToSave = true
                 }
             }
         }

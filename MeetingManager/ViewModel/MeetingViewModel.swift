@@ -9,13 +9,13 @@
 import Foundation
 
 extension MeetingModel {
-    var formattedMeetingTimes: String {
+    func formattedMeetingTimes(show24HourTime: Bool) -> String {
         guard let startTime = startTime, let endTime = endTime else {
             return ""
         }
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "h:mm a"
+        formatter.dateFormat = show24HourTime ? "H:mm" : "h:mm a"
         
         let startTimeString = formatter.string(from: startTime)
         let endTimeString = formatter.string(from: endTime)

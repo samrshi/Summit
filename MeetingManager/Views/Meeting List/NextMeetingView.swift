@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct NextMeetingView: View {
-    @EnvironmentObject var meetings: Meetings
+    @EnvironmentObject var meetings: UserInfo
     
     let listIsFiltered: Bool
     @Binding var mainViewState: MainViewState
@@ -19,13 +19,19 @@ struct NextMeetingView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            if meetings.nextMeeting != nil {
+            if meetings.settings.alwaysShowNextMeeting {
                 Text("Next Meeting")
                     .fontWeight(.bold)
                     .font(.system(size: 20))
+                    .transition(.opacity)
                 
-                MeetingItemView(meeting: meetings.nextMeeting!, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID) {
-                    self.deleteMeetings(self.meetings.nextMeeting)
+                if meetings.nextMeeting != nil {
+                    MeetingItemView(meeting: meetings.nextMeeting!, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, show24HourTime: meetings.settings.show24HourTime) {
+                        self.deleteMeetings(self.meetings.nextMeeting)
+                    }
+                } else {
+                    Text("No more meetings today! 🎉")
+                        .padding(.vertical)
                 }
                 
                 Divider()

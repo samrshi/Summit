@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Create status bar item
         self.statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
         if let button = self.statusBarItem.button {
-             button.image = NSImage(named: "Icon")
+             button.image = NSImage(named: "MenuIcon")
              button.action = #selector(togglePopover(_:))
         }
     }

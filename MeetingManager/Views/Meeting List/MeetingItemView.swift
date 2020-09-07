@@ -14,6 +14,8 @@ struct MeetingItemView: View {
     @Binding var mainViewState: MainViewState
     @Binding var selectedMeetingID: UUID?
     
+    let show24HourTime: Bool
+    
     let delete: () -> Void    
     
     @State private var showSettings: Bool = false
@@ -33,7 +35,7 @@ struct MeetingItemView: View {
                         Text(meeting.sameTimeEachDay ? meeting.formattedMeetingDays : "Various Times")
                         
                         if (meeting.sameTimeEachDay) {
-                            Text(meeting.formattedMeetingTimes)
+                            Text(meeting.formattedMeetingTimes(show24HourTime: show24HourTime))
                         }
                     }
                     .font(.caption)

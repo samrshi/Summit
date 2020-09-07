@@ -12,21 +12,24 @@ enum MainViewState {
     case list
     case add
     case edit
+    case settings
 }
 
 struct ContentView: View {
-    @ObservedObject var meetings: Meetings = Meetings()
+    @ObservedObject var userInfo: UserInfo = UserInfo()
     
     @State private var mainViewState: MainViewState = .list
     @State private var selectedMeetingID: UUID? = nil
     
     @State private var listIsFiltered = true
     
+    @State private var showAlert = false
+    
     let publisher = NotificationCenter.default.publisher(for: Notification.Name("hasBeenOpened"))
-        
+    
     var body: some View {
         VStack {
-            Header(title: "Summit", mainViewState: $mainViewState, meetings: meetings)
+            Header(title: "Summit", mainViewState: $mainViewState, meetings: userInfo)
                 .animation(.none)
             
             Divider()
@@ -36,24 +39,38 @@ struct ContentView: View {
                 if mainViewState == .list {
                     ScrollView(.vertical) {
                         MeetingListView(mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, listIsFiltered: $listIsFiltered)
-                        .environmentObject(meetings)
+                            .environmentObject(userInfo)
                     }
                 } else if mainViewState == .add {
                     AddView(editViewState: .add, selectedMeetingID: nil, mainViewState: $mainViewState)
-                        .environmentObject(meetings)
-                } else {
+                        .environmentObject(userInfo)
+                } else if mainViewState == .edit {
                     AddView(editViewState: .edit, selectedMeetingID: self.selectedMeetingID, mainViewState: $mainViewState)
-                        .environmentObject(meetings)
+                        .environmentObject(userInfo)
+                } else {
+                    SettingsView(mainViewState: $mainViewState)
+                        .environmentObject(userInfo)
                 }
             }
             
             if self.mainViewState == .list {
-                FooterView(mainViewState: self.$mainViewState)
+                FooterView(primaryTitle: "Add a Meeting", primaryAction: {
+                        withAnimation {
+                            self.mainViewState = .add
+                        }
+                    },
+                    secondaryTitle: "Quit", secondaryAction: {
+                        self.showAlert.toggle()
+                    }
+                )
             }
         }
+        .customAlert(isPresented: $showAlert, title: "Are you sure?", message: "Are you sure that you want to quit Summit?", alertType: .warning, buttonTitle: "Yes") {
+            NSApplication.shared.terminate(self)
+        }
         .onReceive(publisher) { _ in
-            self.meetings.updateDate()
-            self.meetings.getNextMeeting()
+            self.userInfo.updateDate()
+            self.userInfo.getNextMeeting()
         }
     }
 }

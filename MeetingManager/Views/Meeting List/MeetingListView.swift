@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MeetingListView: View {
-    @EnvironmentObject var meetings: Meetings
+    @EnvironmentObject var meetings: UserInfo
     
     @Binding var mainViewState: MainViewState
     @Binding var selectedMeetingID: UUID?
@@ -24,7 +24,7 @@ struct MeetingListView: View {
             MeetingListHeader(listIsFiltered: $listIsFiltered)
             
             ForEach(listIsFiltered ? meetings.filteredMeetings : meetings.allMeetings, id: \.id) { meeting in
-                MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID) {
+                MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID, show24HourTime: self.meetings.settings.show24HourTime) {
                     self.deleteMeetings(meeting: meeting)
                 }
             }

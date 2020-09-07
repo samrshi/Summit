@@ -14,8 +14,8 @@ enum EditViewStates {
 }
 
 struct AddView: View {
-    @EnvironmentObject var meetings: Meetings
-
+    @EnvironmentObject var meetings: UserInfo
+    
     let editViewState: EditViewStates
     
     let selectedMeetingID: UUID?
@@ -38,9 +38,12 @@ struct AddView: View {
     var body: some View {
         ZStack {
             VStack {
-                MainInfoView(currentTitle: $currentTitle, currentURLString: $currentURLString, hasAttemptedToSave: $hasAttemptedToSave)
-                
-                DatePickersView(currentWeek: $currentWeek, currentStartTime: $currentStartTime, currentEndTime: $currentEndTime, sameTimeEachDay: $sameTimeEachDay)
+                VStack {
+                    MainInfoView(currentTitle: $currentTitle, currentURLString: $currentURLString, hasAttemptedToSave: $hasAttemptedToSave)
+                    
+                    DatePickersView(currentWeek: $currentWeek, currentStartTime: $currentStartTime, currentEndTime: $currentEndTime, sameTimeEachDay: $sameTimeEachDay)
+                }
+                .padding([.horizontal, .top])
                 
                 Spacer()
                 
@@ -48,10 +51,8 @@ struct AddView: View {
                     .environmentObject(meetings)
             }
         }
-        .customAlert(isPresented: $showError, title: "Error", message: errorMessage)
+        .customAlert(isPresented: $showError, title: "Error", message: errorMessage, alertType: .error)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding([.horizontal, .top])
-        .padding(.bottom, 10)
         .onAppear {
             if self.editViewState == .edit {
                 self.fillInFields()

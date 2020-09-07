@@ -17,6 +17,7 @@ struct MeetingListHeader: View {
                 Text("\(listIsFiltered ? "Today's" : "All") Meetings")
                     .fontWeight(.bold)
                     .font(.system(size: 20))
+                    .transition(.opacity)
                 
                 Spacer()
             }

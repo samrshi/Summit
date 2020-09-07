@@ -1,47 +1,14 @@
 //
-//  MeetingsViewModel.swift
+//  ViewModel.swift
 //  MeetingManager
 //
-//  Created by hawkeyeshi on 8/29/20.
+//  Created by hawkeyeshi on 9/6/20.
 //  Copyright © 2020 samrshi. All rights reserved.
 //
 
 import Foundation
 
-let defaultsKey = "meetings"
-
-class Meetings: ObservableObject {
-    @Published var allMeetings: [MeetingModel] {
-        didSet {
-            getNextMeeting()
-            save()
-        }
-    }
-    
-    @Published var currentDate: Date = Date()
-    @Published var nextMeeting: MeetingModel? = nil
-    
-    init() {
-        if let data = UserDefaults.standard.data(forKey: defaultsKey) {
-            if let decoded = try? JSONDecoder().decode([MeetingModel].self, from: data) {
-                self.allMeetings = decoded
-                return
-            }
-        }
-        
-        self.allMeetings = []
-        
-        self.getNextMeeting()
-    }
-    
-    func save() {
-        if let encoded = try? JSONEncoder().encode(allMeetings) {
-            UserDefaults.standard.set(encoded, forKey: defaultsKey)
-        }
-    }
-}
-
-extension Meetings {
+extension UserInfo {
     static var currentWeekDay: Int {
         let date = Date()
         
@@ -84,7 +51,7 @@ extension Meetings {
     
     var filteredMeetings: [MeetingModel] {
         self.allMeetings
-            .filter( { $0.days.contains(Meetings.currentWeekDay) })
+            .filter( { $0.days.contains(UserInfo.currentWeekDay) })
             .sorted()
     }
     

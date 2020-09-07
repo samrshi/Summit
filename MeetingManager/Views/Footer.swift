@@ -8,31 +8,29 @@
 
 import SwiftUI
 
-struct FooterView: View {
-    @Binding var mainViewState: MainViewState
+struct FooterView: View {    
+    let primaryTitle: String
+    let primaryAction: () -> Void
+    
+    let secondaryTitle: String
+    let secondaryAction: () -> Void
     
     var body: some View {
         VStack {
             Divider()
             
             HStack {
-                Button(action: {
-                    NSApplication.shared.terminate(self)
-                }) {
-                    Text("Quit")
+                Button(action: secondaryAction) {
+                    Text(secondaryTitle)
                         .formButton(backgroundColor: Color.clear, padding: 5, width: 70)
                 }
                 .buttonStyle(PlainButtonStyle())
                 
                 Spacer()
                 
-                Button(action: {
-                    withAnimation {
-                        self.mainViewState = .add
-                    }
-                }) {
-                    Text("Add a Meeting")
-                        .formButton(backgroundColor: Color.blue, padding: 5)
+                Button(action: primaryAction) {
+                    Text(primaryTitle)
+                        .formButton(backgroundColor: Color.blue, padding: 5, width: 115)
                 }
                 .buttonStyle(PlainButtonStyle())
             }
