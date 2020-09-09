@@ -70,7 +70,7 @@
 		BD7991BF250890D7008841F7 /* LightMenuIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LightMenuIcon@3x.png"; sourceTree = "<group>"; };
 		BD933C9F24FB14E5001F8A90 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidity.swift; sourceTree = "<group>"; };
-		BDB6699024FAE83E004052C0 /* MeetingManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB6699024FAE83E004052C0 /* Summit-Meeting-Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Summit-Meeting-Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB6699324FAE83E004052C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDB6699524FAE83E004052C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BDB6699A24FAE841004052C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 		BDB6698724FAE83E004052C0 = {
 			isa = PBXGroup;
 			children = (
-				BDB6699224FAE83E004052C0 /* MeetingManager */,
+				BDB6699224FAE83E004052C0 /* Summit-Meeting-Manager */,
 				BDB6699124FAE83E004052C0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -191,12 +191,12 @@
 		BDB6699124FAE83E004052C0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BDB6699024FAE83E004052C0 /* MeetingManager.app */,
+				BDB6699024FAE83E004052C0 /* Summit-Meeting-Manager.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BDB6699224FAE83E004052C0 /* MeetingManager */ = {
+		BDB6699224FAE83E004052C0 /* Summit-Meeting-Manager */ = {
 			isa = PBXGroup;
 			children = (
 				BDB6699324FAE83E004052C0 /* AppDelegate.swift */,
@@ -212,7 +212,7 @@
 				BDB669A324FAE841004052C0 /* MeetingManager.entitlements */,
 				BDB6699C24FAE841004052C0 /* Preview Content */,
 			);
-			path = MeetingManager;
+			path = "Summit-Meeting-Manager";
 			sourceTree = "<group>";
 		};
 		BDB6699C24FAE841004052C0 /* Preview Content */ = {
@@ -259,9 +259,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BDB6698F24FAE83E004052C0 /* MeetingManager */ = {
+		BDB6698F24FAE83E004052C0 /* Summit-Meeting-Manager */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BDB669A624FAE841004052C0 /* Build configuration list for PBXNativeTarget "MeetingManager" */;
+			buildConfigurationList = BDB669A624FAE841004052C0 /* Build configuration list for PBXNativeTarget "Summit-Meeting-Manager" */;
 			buildPhases = (
 				BDB6698C24FAE83E004052C0 /* Sources */,
 				BDB6698D24FAE83E004052C0 /* Frameworks */,
@@ -271,9 +271,9 @@
 			);
 			dependencies = (
 			);
-			name = MeetingManager;
+			name = "Summit-Meeting-Manager";
 			productName = MeetingManager;
-			productReference = BDB6699024FAE83E004052C0 /* MeetingManager.app */;
+			productReference = BDB6699024FAE83E004052C0 /* Summit-Meeting-Manager.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -291,7 +291,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BDB6698B24FAE83E004052C0 /* Build configuration list for PBXProject "MeetingManager" */;
+			buildConfigurationList = BDB6698B24FAE83E004052C0 /* Build configuration list for PBXProject "Summit-Meeting-Manager" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -304,7 +304,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BDB6698F24FAE83E004052C0 /* MeetingManager */,
+				BDB6698F24FAE83E004052C0 /* Summit-Meeting-Manager */,
 			);
 		};
 /* End PBXProject section */
@@ -412,6 +412,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "hawkeyeshi@gmail.com";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -472,6 +474,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "hawkeyeshi@gmail.com";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -497,21 +501,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MeetingManager/MeetingManager.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Summit-Meeting-Manager/Summit-Meeting-Manager.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"MeetingManager/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Summit-Meeting-Manager/Preview Content\"";
 				DEVELOPMENT_TEAM = 9A9373K73V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = MeetingManager/Info.plist;
+				INFOPLIST_FILE = "Summit-Meeting-Manager/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samrshi.MeetingManager;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samrshi.Summit-Meeting-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -521,21 +525,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MeetingManager/MeetingManager.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Summit-Meeting-Manager/Summit-Meeting-Manager.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"MeetingManager/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Summit-Meeting-Manager/Preview Content\"";
 				DEVELOPMENT_TEAM = 9A9373K73V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = MeetingManager/Info.plist;
+				INFOPLIST_FILE = "Summit-Meeting-Manager/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samrshi.MeetingManager;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samrshi.Summit-Meeting-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -544,7 +548,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BDB6698B24FAE83E004052C0 /* Build configuration list for PBXProject "MeetingManager" */ = {
+		BDB6698B24FAE83E004052C0 /* Build configuration list for PBXProject "Summit-Meeting-Manager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BDB669A424FAE841004052C0 /* Debug */,
@@ -553,7 +557,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BDB669A624FAE841004052C0 /* Build configuration list for PBXNativeTarget "MeetingManager" */ = {
+		BDB669A624FAE841004052C0 /* Build configuration list for PBXNativeTarget "Summit-Meeting-Manager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BDB669A724FAE841004052C0 /* Debug */,
