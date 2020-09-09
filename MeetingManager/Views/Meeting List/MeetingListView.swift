@@ -37,6 +37,7 @@ struct MeetingListView: View {
                     .padding(.top)
             }
         }
+        .transition(.opacity)
         .padding()
         .onAppear {
             self.meetings.updateDate()

@@ -32,7 +32,7 @@ struct MeetingItemView: View {
                         .font(.headline)
                     
                     HStack {
-                        Text(meeting.sameTimeEachDay ? meeting.formattedMeetingDays : "Various Times")
+                        Text(meeting.formattedMeetingDays)
                         
                         if (meeting.sameTimeEachDay) {
                             Text(meeting.formattedMeetingTimes(show24HourTime: show24HourTime))
@@ -63,8 +63,11 @@ struct MeetingItemView: View {
                             self.selectedMeetingID = self.meeting.id
                         }
                     }) {
-                        Text("􀈎")
+                        Text("Edit")
+                            .font(.caption)
+                            .padding(4)
                             .foregroundColor(.blue)
+                            .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.blue, lineWidth: 1))
                     }
                     .buttonStyle(PlainButtonStyle())
                     

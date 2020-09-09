@@ -19,7 +19,7 @@ struct Header: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(alignment: .bottom) {
+            HStack {
                 Text(title)
                     .fontWeight(.bold)
                     .font(.title)

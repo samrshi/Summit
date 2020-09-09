@@ -21,6 +21,7 @@ struct MeetingListHeader: View {
                 
                 Spacer()
             }
+            .animation(.none)
             
             Button(action: {
                 self.listIsFiltered.toggle()

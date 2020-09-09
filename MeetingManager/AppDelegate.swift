@@ -6,7 +6,6 @@
 //  Copyright © 2020 samrshi. All rights reserved.
 //
 
-import Cocoa
 import SwiftUI
 
 @NSApplicationMain
@@ -21,10 +20,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Create the popover
         let popover = NSPopover()
-        popover.contentSize = NSSize(width: 400, height: 470)
+        popover.contentSize = NSSize(width: 400, height: 475)
         popover.behavior = .transient
         // makes app always in dark mode
-//        popover.appearance = .some(NSAppearance(named: .vibrantDark)!)
+        popover.appearance = .some(NSAppearance(named: .darkAqua)!)
         popover.contentViewController = NSHostingController(rootView: contentView)
         self.popover = popover
         

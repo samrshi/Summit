@@ -60,7 +60,9 @@ struct ContentView: View {
                         }
                     },
                     secondaryTitle: "Quit", secondaryAction: {
-                        self.showAlert.toggle()
+                        withAnimation {
+                            self.showAlert.toggle()
+                        }
                     }
                 )
             }

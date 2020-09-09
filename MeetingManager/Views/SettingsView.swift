@@ -59,7 +59,7 @@ struct SettingsView: View {
                                         self.showPopver2 = b
                                 }
                                 .popover(isPresented: $showPopver2) {
-                                    Text("Show next meeting view even when you have no more meetings for the day")
+                                    Text("Show next meeting view even when you have\nno more meetings for the day")
                                         .padding()
                                 }
                             }
@@ -72,18 +72,6 @@ struct SettingsView: View {
                 Spacer()
             }
             .padding([.horizontal])
-            
-            FooterView(primaryTitle: "Done", primaryAction: {
-                    withAnimation {
-                        self.mainViewState = .list
-                    }
-                },
-                secondaryTitle: "Back", secondaryAction: {
-                    withAnimation {
-                        self.mainViewState = .list
-                    }
-                }
-            )
         }
         .transition(.move(edge: .trailing))
     }

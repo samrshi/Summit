@@ -20,7 +20,7 @@ extension MeetingModel {
         let startTimeString = formatter.string(from: startTime)
         let endTimeString = formatter.string(from: endTime)
         
-        return "\(startTimeString) - \(endTimeString)"
+        return "\(startTimeString) — \(endTimeString)"
     }
     
     var formattedMeetingDays: String {

@@ -30,6 +30,7 @@ struct FooterView: View {
                 
                 Button(action: primaryAction) {
                     Text(primaryTitle)
+                        .foregroundColor(.white)
                         .formButton(backgroundColor: Color.blue, padding: 5, width: 115)
                 }
                 .buttonStyle(PlainButtonStyle())
