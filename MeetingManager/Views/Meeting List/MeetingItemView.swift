@@ -68,6 +68,7 @@ struct MeetingItemView: View {
                             .padding(4)
                             .foregroundColor(.blue)
                             .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.blue, lineWidth: 1))
+                            .background(Color.gray.opacity(0.0001))
                     }
                     .buttonStyle(PlainButtonStyle())
                     

@@ -39,7 +39,9 @@ struct MeetingListHeader: View {
                 .animation(.none)
                 
                 Button(action: {
-                    self.listIsFiltered.toggle()
+                    withAnimation {
+                        self.listIsFiltered.toggle()
+                    }
                 }) {
                     HStack {
                         Text("􀆈")

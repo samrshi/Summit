@@ -37,5 +37,6 @@ struct NextMeetingView: View {
                 Divider()
             }
         }
+        .transition(.opacity)
     }
 }
