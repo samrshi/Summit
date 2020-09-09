@@ -16,14 +16,17 @@ struct MeetingListView: View {
     
     @Binding var listIsFiltered: Bool
     
+    @State private var showFilter: Bool = false
+    @State private var filterString: String = ""
+    
     var body: some View {
         VStack(alignment: .leading) {
             NextMeetingView(listIsFiltered: listIsFiltered, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, deleteMeetings: self.deleteMeetings)
                 .environmentObject(meetings)
             
-            MeetingListHeader(listIsFiltered: $listIsFiltered)
+            MeetingListHeader(listIsFiltered: $listIsFiltered, showFilter: $showFilter, filterString: $filterString)
             
-            ForEach(listIsFiltered ? meetings.filteredMeetings : meetings.allMeetings, id: \.id) { meeting in
+            ForEach(listIsFiltered ? meetings.filteredMeetings : meetings.allMeetings.filter(filterLogic), id: \.id) { meeting in
                 MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID, show24HourTime: self.meetings.settings.show24HourTime) {
                     self.deleteMeetings(meeting: meeting)
                 }
@@ -51,5 +54,13 @@ struct MeetingListView: View {
                 $0.id == id
             }
         }
+    }
+    
+    func filterLogic(meeting: MeetingModel) -> Bool {
+        if filterString.isEmpty {
+            return true
+        }
+        
+        return meeting.name.lowercased().contains(filterString.lowercased())
     }
 }

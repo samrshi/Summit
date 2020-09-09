@@ -30,5 +30,6 @@ extension View {
                 CustomAlert(isPresented: isPresented, title: title, message: message, alertType: alertType, buttonTitle: buttonTitle, action: action)
             }
         }
+        .transition(.opacity)
     }
 }
