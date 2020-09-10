@@ -30,37 +30,35 @@ struct SettingsView: View {
                 Text("Settings")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
-                                
+                
                 HStack {
                     VStack(alignment: .leading) {
-                    Toggle(isOn: $userInfo.settings.show24HourTime) {
-                        HStack {
-                            Text("Show 24 hour time instead of 12 hour time")
-                            
-                            Text("􀅴")
-                                .foregroundColor(.gray)
-                                .onHover { hovering in
-                                    self.showPopver1 = hovering
-                            }
-                            .popover(isPresented: $showPopver1) {
-                                Text("Ex: 13:15 as opposed to 1:15 PM")
-                                    .padding()
+                        Toggle(isOn: $userInfo.settings.show24HourTime) {
+                            VStack(alignment: .leading) {
+                                Text("Show 24 hour time instead of 12 hour time")
+                                
+                                HStack {
+//                                    Text("􀅴")
+//                                        .foregroundColor(.gray)
+                                    
+                                    Text("Ex: 13:15 as opposed to 1:15 PM")
+                                        .foregroundColor(.gray)
+                                        .font(.caption)
+                                }
                             }
                         }
-                    }
                         
                         Toggle(isOn: $userInfo.settings.alwaysShowNextMeeting) {
-                            HStack {
+                            VStack(alignment: .leading) {
                                 Text("Always show next meeting view")
                                 
-                                Text("􀅴")
-                                    .foregroundColor(.gray)
-                                    .onHover { hovering in
-                                            self.showPopver2 = hovering
-                                    }
-                                .popover(isPresented: $showPopver2) {
-                                    Text("Show next meeting view even when you have\nno more meetings for the day")
-                                        .padding()
+                                HStack {
+//                                    Text("􀅴")
+//                                        .foregroundColor(.gray)
+                                    
+                                    Text("Show next meeting view even when you have no more meetings for the day")
+                                        .foregroundColor(.gray)
+                                        .font(.caption)
                                 }
                             }
                         }
