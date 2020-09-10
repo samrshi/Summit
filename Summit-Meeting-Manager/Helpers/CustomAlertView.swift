@@ -45,6 +45,7 @@ struct CustomAlert: View {
                         }
                     }) {
                         Text("OK")
+                            .foregroundColor(.white)
                             .formButton(backgroundColor: .clear, padding: 5, width: 70)
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -59,11 +60,13 @@ struct CustomAlert: View {
                             }
                         }) {
                             Text("Cancel")
+                                .foregroundColor(.white)
                                 .formButton(backgroundColor: .clear, padding: 5, width: 70)
                         }
                         
                         Button(action : action!) {
                             Text("Quit")
+                                .foregroundColor(.white)
                                 .bold()
                                 .formButton(backgroundColor: .blue, padding: 5, width: 70)
                         }
@@ -73,7 +76,7 @@ struct CustomAlert: View {
             }
             .transition(.opacity)
             .padding(10)
-            .background(Color(NSColor.darkGray))
+            .background(Color(.darkGray))
             .cornerRadius(10)
         }
     }

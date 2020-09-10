@@ -41,6 +41,7 @@ struct ContentView: View {
                         MeetingListView(mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, listIsFiltered: $listIsFiltered)
                             .environmentObject(userInfo)
                     }
+                    .transition(.opacity)
                 } else if mainViewState == .add {
                     AddView(editViewState: .add, selectedMeetingID: nil, mainViewState: $mainViewState)
                         .environmentObject(userInfo)

@@ -20,11 +20,6 @@ struct Header: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image("IconImage")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 40)
-                
                 Text(title)
                     .fontWeight(.bold)
                     .font(.title)

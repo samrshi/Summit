@@ -39,8 +39,8 @@ struct SettingsView: View {
                             
                             Text("􀅴")
                                 .foregroundColor(.gray)
-                                .onHover { b in
-                                    self.showPopver1 = b
+                                .onHover { hovering in
+                                    self.showPopver1 = hovering
                             }
                             .popover(isPresented: $showPopver1) {
                                 Text("Ex: 13:15 as opposed to 1:15 PM")
@@ -55,9 +55,9 @@ struct SettingsView: View {
                                 
                                 Text("􀅴")
                                     .foregroundColor(.gray)
-                                    .onHover { b in
-                                        self.showPopver2 = b
-                                }
+                                    .onHover { hovering in
+                                            self.showPopver2 = hovering
+                                    }
                                 .popover(isPresented: $showPopver2) {
                                     Text("Show next meeting view even when you have\nno more meetings for the day")
                                         .padding()

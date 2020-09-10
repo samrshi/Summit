@@ -17,13 +17,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the contents
          let contentView = ContentView()
-        
+
         // Create the popover
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 400, height: 475)
         popover.behavior = .transient
         // makes app always in dark mode
-        popover.appearance = .some(NSAppearance(named: .darkAqua)!)
+        popover.appearance = .some(NSAppearance(named: .vibrantDark)!)
         popover.contentViewController = NSHostingController(rootView: contentView)
         self.popover = popover
         

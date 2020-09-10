@@ -47,8 +47,10 @@ struct MeetingListHeader: View {
                         Text("􀆈")
                             .rotation3DEffect(Angle(degrees: listIsFiltered ? 0 : 180), axis: (x: 10, y: 0, z: 0))
                             .animation(.spring())
+                            .frame(width: 15)
                         
                         Text("\(listIsFiltered ? "Show All" : "Show Today")")
+                            .animation(.none)
                     }
                 }
                 .buttonStyle(LinkButtonStyle())
