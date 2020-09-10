@@ -20,12 +20,6 @@
 		BD7991A325088808008841F7 /* AppIcon-512px.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7991A225088808008841F7 /* AppIcon-512px.png */; };
 		BD7991A525088858008841F7 /* AppIcon-256px.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7991A425088858008841F7 /* AppIcon-256px.png */; };
 		BD7991A725088896008841F7 /* AppIcon-1024px.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7991A625088896008841F7 /* AppIcon-1024px.png */; };
-		BD7991C0250890D7008841F7 /* DarkMenuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7991BA250890D7008841F7 /* DarkMenuIcon.png */; };
-		BD7991C1250890D7008841F7 /* DarkMenuIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7991BB250890D7008841F7 /* DarkMenuIcon@2x.png */; };
-		BD7991C2250890D7008841F7 /* LightMenuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7991BC250890D7008841F7 /* LightMenuIcon.png */; };
-		BD7991C3250890D7008841F7 /* DarkMenuIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7991BD250890D7008841F7 /* DarkMenuIcon@3x.png */; };
-		BD7991C4250890D7008841F7 /* LightMenuIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7991BE250890D7008841F7 /* LightMenuIcon@2x.png */; };
-		BD7991C5250890D7008841F7 /* LightMenuIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7991BF250890D7008841F7 /* LightMenuIcon@3x.png */; };
 		BD933CA024FB14E5001F8A90 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD933C9F24FB14E5001F8A90 /* Header.swift */; };
 		BDA7D97B24FD60B500A18CA8 /* URLValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */; };
 		BDB6699424FAE83E004052C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6699324FAE83E004052C0 /* AppDelegate.swift */; };
@@ -62,12 +56,6 @@
 		BD7991A225088808008841F7 /* AppIcon-512px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-512px.png"; sourceTree = "<group>"; };
 		BD7991A425088858008841F7 /* AppIcon-256px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-256px.png"; sourceTree = "<group>"; };
 		BD7991A625088896008841F7 /* AppIcon-1024px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-1024px.png"; sourceTree = "<group>"; };
-		BD7991BA250890D7008841F7 /* DarkMenuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkMenuIcon.png; sourceTree = "<group>"; };
-		BD7991BB250890D7008841F7 /* DarkMenuIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DarkMenuIcon@2x.png"; sourceTree = "<group>"; };
-		BD7991BC250890D7008841F7 /* LightMenuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightMenuIcon.png; sourceTree = "<group>"; };
-		BD7991BD250890D7008841F7 /* DarkMenuIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DarkMenuIcon@3x.png"; sourceTree = "<group>"; };
-		BD7991BE250890D7008841F7 /* LightMenuIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LightMenuIcon@2x.png"; sourceTree = "<group>"; };
-		BD7991BF250890D7008841F7 /* LightMenuIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LightMenuIcon@3x.png"; sourceTree = "<group>"; };
 		BD933C9F24FB14E5001F8A90 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidity.swift; sourceTree = "<group>"; };
 		BDB6699024FAE83E004052C0 /* Summit-Meeting-Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Summit-Meeting-Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,12 +104,6 @@
 		BD59F4F82504768600AE1348 /* MenuIcon */ = {
 			isa = PBXGroup;
 			children = (
-				BD7991BA250890D7008841F7 /* DarkMenuIcon.png */,
-				BD7991BB250890D7008841F7 /* DarkMenuIcon@2x.png */,
-				BD7991BD250890D7008841F7 /* DarkMenuIcon@3x.png */,
-				BD7991BC250890D7008841F7 /* LightMenuIcon.png */,
-				BD7991BE250890D7008841F7 /* LightMenuIcon@2x.png */,
-				BD7991BF250890D7008841F7 /* LightMenuIcon@3x.png */,
 			);
 			path = MenuIcon;
 			sourceTree = "<group>";
@@ -200,16 +182,16 @@
 			isa = PBXGroup;
 			children = (
 				BDB6699324FAE83E004052C0 /* AppDelegate.swift */,
-				BD933C9D24FB14AF001F8A90 /* Views */,
 				BD933C9E24FB14C2001F8A90 /* Model */,
+				BD933C9D24FB14AF001F8A90 /* Views */,
 				BDC5CCEB24FB43F00003B1AB /* ViewModel */,
 				BDA7D97924FD609B00A18CA8 /* Helpers */,
 				BD4BFAC225047409000062DB /* Assets */,
 				BDB6699A24FAE841004052C0 /* Assets.xcassets */,
-				BD7991E9250893A2008841F7 /* Utils */,
 				BDB6699F24FAE841004052C0 /* Main.storyboard */,
 				BDB669A224FAE841004052C0 /* Info.plist */,
 				BDB669A324FAE841004052C0 /* Summit-Meeting-Manager.entitlements */,
+				BD7991E9250893A2008841F7 /* Utils */,
 				BDB6699C24FAE841004052C0 /* Preview Content */,
 			);
 			path = "Summit-Meeting-Manager";
@@ -314,21 +296,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD7991C1250890D7008841F7 /* DarkMenuIcon@2x.png in Resources */,
 				BDB669A124FAE841004052C0 /* Main.storyboard in Resources */,
 				BD7991A325088808008841F7 /* AppIcon-512px.png in Resources */,
 				BD4BFAC42504741E000062DB /* AppIcon-16px.png in Resources */,
 				BDB6699E24FAE841004052C0 /* Preview Assets.xcassets in Resources */,
 				BDB6699B24FAE841004052C0 /* Assets.xcassets in Resources */,
 				BD7991A525088858008841F7 /* AppIcon-256px.png in Resources */,
-				BD7991C0250890D7008841F7 /* DarkMenuIcon.png in Resources */,
-				BD7991C5250890D7008841F7 /* LightMenuIcon@3x.png in Resources */,
 				BD4BFAC8250474E5000062DB /* AppIcon-64px.png in Resources */,
-				BD7991C3250890D7008841F7 /* DarkMenuIcon@3x.png in Resources */,
 				BD4BFAC625047492000062DB /* AppIcon-32px.png in Resources */,
 				BD7991A725088896008841F7 /* AppIcon-1024px.png in Resources */,
-				BD7991C4250890D7008841F7 /* LightMenuIcon@2x.png in Resources */,
-				BD7991C2250890D7008841F7 /* LightMenuIcon.png in Resources */,
 				BD7991A12508873D008841F7 /* AppIcon-128px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
