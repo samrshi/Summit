@@ -12,7 +12,6 @@ struct Header: View {
     let title: String
     
     @Binding var mainViewState: MainViewState
-    
     @ObservedObject var meetings: UserInfo
     
     @State private var showingDebugging = false
@@ -49,12 +48,6 @@ struct Header: View {
                         withAnimation {
                             self.meetings.addFallSchedule()
                             self.showingDebugging.toggle()
-                        }
-                    }
-                    
-                    Button("Add Generic Item") {
-                        withAnimation {
-                            self.meetings.allMeetings.append(MeetingModel(name: "New List Item", url: URL(string: "google.com")!, urlString: "google.com", days: [3, 5], sameTimeEachDay: false, startTime: Date(), endTime: Date(timeIntervalSinceNow: 3600)))
                         }
                     }
                 }

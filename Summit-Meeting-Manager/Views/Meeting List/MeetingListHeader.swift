@@ -54,7 +54,7 @@ struct MeetingListHeader: View {
                     }
                 }
                 .buttonStyle(LinkButtonStyle())
-                .padding(.vertical, -5)
+                .padding(.top, -5)
             }
             
             if (!listIsFiltered && showFilter) {

@@ -13,30 +13,30 @@ struct MeetingListView: View {
     
     @Binding var mainViewState: MainViewState
     @Binding var selectedMeetingID: UUID?
-    
     @Binding var listIsFiltered: Bool
     
     @State private var showFilter: Bool = false
     @State private var filterString: String = ""
     
     var body: some View {
-        VStack(alignment: .leading) {
-            NextMeetingView(listIsFiltered: listIsFiltered, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, deleteMeetings: self.deleteMeetings)
-                .environmentObject(meetings)
-            
-            MeetingListHeader(listIsFiltered: $listIsFiltered, showFilter: $showFilter, filterString: $filterString)
-            
-            ForEach(listIsFiltered ? meetings.filteredMeetings : meetings.allMeetings.filter(filterLogic), id: \.id) { meeting in
-                MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID, show24HourTime: self.meetings.settings.show24HourTime) {
-                    self.deleteMeetings(meeting: meeting)
+        VStack {
+            VStack(alignment: .leading) {
+                NextMeetingView(listIsFiltered: listIsFiltered, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, deleteMeetings: self.deleteMeetings)
+                    .environmentObject(meetings)
+                
+                MeetingListHeader(listIsFiltered: $listIsFiltered, showFilter: $showFilter, filterString: $filterString)
+                
+                ForEach(listIsFiltered ? meetings.filteredMeetings : meetings.allMeetings.filter(filterLogic), id: \.id) { meeting in
+                    MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID, show24HourTime: self.meetings.settings.show24HourTime) {
+                        self.deleteMeetings(meeting: meeting)
+                    }
                 }
             }
             
-            if listIsFiltered && meetings.filteredMeetings.isEmpty {
+            if meetings.allMeetings.isEmpty {
+                EmptyStateView(mainViewState: $mainViewState)
+            } else if listIsFiltered && meetings.filteredMeetings.isEmpty {
                 Text("No Meetings Today 🎉")
-                    .padding(.top)
-            } else if meetings.allMeetings.isEmpty {
-                Text("No Meetings Yet")
                     .padding(.top)
             }
         }

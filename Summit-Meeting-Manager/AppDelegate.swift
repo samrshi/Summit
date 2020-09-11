@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the contents
          let contentView = ContentView()
-
+        
         // Create the popover
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 400, height: 475)

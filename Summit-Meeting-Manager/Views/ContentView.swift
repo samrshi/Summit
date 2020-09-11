@@ -19,11 +19,11 @@ struct ContentView: View {
     @ObservedObject var userInfo: UserInfo = UserInfo()
     
     @State private var mainViewState: MainViewState = .list
-    @State private var selectedMeetingID: UUID? = nil
-    
     @State private var listIsFiltered = true
-    
+    @State private var selectedMeetingID: UUID? = nil
+        
     @State private var showAlert = false
+    @State private var showArt = false
     
     let publisher = NotificationCenter.default.publisher(for: Notification.Name("hasBeenOpened"))
     
