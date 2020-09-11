@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BDB6698F24FAE83E004052C0"
-               BuildableName = "Summit-Meeting-Manager.app"
-               BlueprintName = "Summit-Meeting-Manager"
-               ReferencedContainer = "container:Summit-Meeting-Manager.xcodeproj">
+               BuildableName = "Summit.app"
+               BlueprintName = "Summit"
+               ReferencedContainer = "container:Summit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BDB6698F24FAE83E004052C0"
-            BuildableName = "Summit-Meeting-Manager.app"
-            BlueprintName = "Summit-Meeting-Manager"
-            ReferencedContainer = "container:Summit-Meeting-Manager.xcodeproj">
+            BuildableName = "Summit.app"
+            BlueprintName = "Summit"
+            ReferencedContainer = "container:Summit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BDB6698F24FAE83E004052C0"
-            BuildableName = "Summit-Meeting-Manager.app"
-            BlueprintName = "Summit-Meeting-Manager"
-            ReferencedContainer = "container:Summit-Meeting-Manager.xcodeproj">
+            BuildableName = "Summit.app"
+            BlueprintName = "Summit"
+            ReferencedContainer = "container:Summit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
