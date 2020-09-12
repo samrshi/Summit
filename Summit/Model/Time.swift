@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct Time: Codable {
+struct Time: Codable, Comparable {
     var hour: Int
     var minute: Int
+    
+    static func < (lhs: Time, rhs: Time) -> Bool {
+        let lhsHM = lhs.toHoursAndMinutes()
+        let rhsHM = rhs.toHoursAndMinutes()
+        
+        return lhsHM <= rhsHM
+    }
 }
 
 extension Time {
@@ -18,5 +25,9 @@ extension Time {
         let calendar = Calendar.current
         let components = DateComponents(hour: hour, minute: minute)
         return calendar.date(from: components) ?? Date()
+    }
+    
+    func toHoursAndMinutes() -> Int {
+        (hour * 60) + minute
     }
 }

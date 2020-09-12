@@ -32,16 +32,26 @@ struct MeetingItemView: View {
                     Text(meeting.name)
                         .font(.headline)
                     
-                    HStack {
-                        Text(meeting.formattedMeetingDays)
-                        
-                        if (meeting.sameTimeEachDay) {
-                            Text(meeting.formattedMeetingTimes(show24HourTime: show24HourTime))
+                    HStack(spacing: 4) {
+                        if meeting.isCurrentlyHappening() {
+                            Text("*")
+                                .font(.callout)
+                                .foregroundColor(.blue)
+                            
+                            Text("Happening Now")
+                                .foregroundColor(.secondary)
+                        } else {
+                            Group {
+                                Text(meeting.formattedMeetingDays)
+                                
+                                if (meeting.sameTimeEachDay) {
+                                    Text(meeting.formattedMeetingTimes(show24HourTime: show24HourTime))
+                                }
+                            }
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                         }
                     }
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    
                 }
             }
             .background(Color.gray.opacity(0.001))

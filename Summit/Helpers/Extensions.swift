@@ -31,4 +31,10 @@ extension Date {
         
         return (hours * 60) + minutes
     }
+    
+    func toTime() -> Time {
+        let hour = Calendar.current.component(.hour, from: self)
+        let minute = Calendar.current.component(.minute, from: self)
+        return Time(hour: hour, minute: minute)
+    }
 }

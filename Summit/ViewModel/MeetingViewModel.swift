@@ -52,4 +52,18 @@ extension RecurringMeetingModel {
         }
         return weekDaysString
     }
+    
+    func isCurrentlyHappening() -> Bool {
+        guard let startTime = startTime, let endTime = endTime else {
+            return false
+        }
+        
+        let currentDate = Date()
+        let currentTime = currentDate.toTime()
+        
+        let currentWeekday = Calendar.current.component(.weekday, from: currentDate)
+        let sameDay = days.contains(currentWeekday)
+        
+        return sameDay && startTime < currentTime && currentTime < endTime
+    }
 }
