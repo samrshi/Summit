@@ -34,10 +34,9 @@ struct MeetingListView: View {
             }
             
             if meetings.allMeetings.isEmpty {
-                EmptyStateView(mainViewState: $mainViewState)
+                EmptyStateView(mainViewState: $mainViewState, emptyStateType: .emptyList)
             } else if listIsFiltered && meetings.filteredMeetings.isEmpty {
-                Text("No Meetings Today 🎉")
-                    .padding(.top)
+                EmptyStateView(mainViewState: $mainViewState, emptyStateType: .freeDay)
             }
         }
         .transition(.opacity)

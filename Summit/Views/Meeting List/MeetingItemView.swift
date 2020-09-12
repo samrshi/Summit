@@ -19,6 +19,7 @@ struct MeetingItemView: View {
     let delete: () -> Void    
     
     @State private var showSettings: Bool = false
+    @State private var beingDeleted: Bool = false
     
     var body: some View {
         HStack {
@@ -74,6 +75,9 @@ struct MeetingItemView: View {
                     
                     Button(action: {
                         withAnimation {
+                            self.beingDeleted = true
+                        }
+                        withAnimation(Animation.default.delay(0.1)) {
                             self.showSettings = false
                             self.delete()
                         }
@@ -86,6 +90,7 @@ struct MeetingItemView: View {
             }
             .font(.headline)
         }
+        .scaleEffect(beingDeleted ? 0.001 : 1)
         .transition(.opacity)
         .padding(.top)
         .onTapGesture {
