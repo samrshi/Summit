@@ -12,7 +12,7 @@ struct Header: View {
     let title: String
     
     @Binding var mainViewState: MainViewState
-    @ObservedObject var meetings: UserInfo
+    @ObservedObject var userInfo: UserInfo
     
     @State private var showingDebugging = false
     
@@ -46,7 +46,7 @@ struct Header: View {
                 HStack {
                     Button("Add Fall Schedule") {
                         withAnimation {
-                            self.meetings.addFallSchedule()
+                            self.userInfo.addFallSchedule()
                             self.showingDebugging.toggle()
                         }
                     }

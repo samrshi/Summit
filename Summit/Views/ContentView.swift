@@ -19,7 +19,7 @@ struct ContentView: View {
     @ObservedObject var userInfo: UserInfo = UserInfo()
     
     @State private var mainViewState: MainViewState = .list
-    @State private var listIsFiltered = true
+    @State private var onlyShowToday = true
     @State private var selectedMeetingID: UUID? = nil
         
     @State private var showAlert = false
@@ -29,7 +29,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Header(title: "Summit", mainViewState: $mainViewState, meetings: userInfo)
+            Header(title: "Summit", mainViewState: $mainViewState, userInfo: userInfo)
                 .animation(.none)
             
             Divider()
@@ -38,7 +38,7 @@ struct ContentView: View {
             VStack {
                 if mainViewState == .list {
                     ScrollView(.vertical) {
-                        MeetingListView(mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, listIsFiltered: $listIsFiltered)
+                        MeetingListView(mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, onlyShowToday: $onlyShowToday)
                             .environmentObject(userInfo)
                     }
                     .transition(.opacity)

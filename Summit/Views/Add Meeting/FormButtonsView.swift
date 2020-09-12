@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct FormButtonsView: View {
+    @EnvironmentObject var userInfo: UserInfo
+
     let editViewState: EditViewStates
     let selectedMeetingID: UUID?
     
@@ -21,12 +23,9 @@ struct FormButtonsView: View {
     
     @Binding var showError: Bool
     @Binding var errorMessage: String
-    
     @Binding var mainViewState: MainViewState
     @Binding var hasAttemptedToSave: Bool
-    
-    @EnvironmentObject var meetings: UserInfo
-    
+        
     var body: some View {
         FooterView(primaryTitle: "Save", primaryAction: self.saveButtonAction, secondaryTitle: "Cancel", secondaryAction: {
             withAnimation {
@@ -40,7 +39,7 @@ struct FormButtonsView: View {
             let startDate = sameTimeEachDay ? currentStartTime : nil
             let endDate = sameTimeEachDay ? currentEndTime : nil
             
-            self.meetings.newMeeting(editViewState: editViewState, selectedMeetingID: selectedMeetingID, title: self.currentTitle, urlString: self.currentURLString, week: self.currentWeek, sameTimeEachDay: self.sameTimeEachDay, startDate: startDate, endDate: endDate) { result, message in
+            self.userInfo.newMeeting(editViewState: editViewState, selectedMeetingID: selectedMeetingID, title: self.currentTitle, urlString: self.currentURLString, week: self.currentWeek, sameTimeEachDay: self.sameTimeEachDay, startDate: startDate, endDate: endDate) { result, message in
                 if result == .success {
                     self.mainViewState = .list
                 } else {

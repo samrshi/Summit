@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MeetingListHeader: View {
-    @Binding var listIsFiltered: Bool
+    @Binding var onlyShowToday: Bool
     @Binding var showFilter: Bool
     @Binding var filterString: String
     
@@ -17,7 +17,7 @@ struct MeetingListHeader: View {
         VStack {
             VStack(alignment: .leading, spacing: 7.5) {
                 HStack {
-                    Text("\(listIsFiltered ? "Today's" : "All") Meetings")
+                    Text("\(onlyShowToday ? "Today's" : "All") Meetings")
                         .fontWeight(.bold)
                         .font(.system(size: 20))
                         .transition(.opacity)
@@ -27,7 +27,7 @@ struct MeetingListHeader: View {
                     Button(action: {
                         withAnimation {
                             self.showFilter.toggle()
-                            self.listIsFiltered = false
+                            self.onlyShowToday = false
                         }
                     }) {
                         Text("􀊫")
@@ -40,16 +40,16 @@ struct MeetingListHeader: View {
                 
                 Button(action: {
                     withAnimation {
-                        self.listIsFiltered.toggle()
+                        self.onlyShowToday.toggle()
                     }
                 }) {
                     HStack {
                         Text("􀆈")
-                            .rotation3DEffect(Angle(degrees: listIsFiltered ? 0 : 180), axis: (x: 10, y: 0, z: 0))
+                            .rotation3DEffect(Angle(degrees: onlyShowToday ? 0 : 180), axis: (x: 10, y: 0, z: 0))
                             .animation(.spring())
                             .frame(width: 15)
                         
-                        Text("\(listIsFiltered ? "Show All" : "Show Today")")
+                        Text("\(onlyShowToday ? "Show All" : "Show Today")")
                             .animation(.none)
                     }
                 }
@@ -57,7 +57,7 @@ struct MeetingListHeader: View {
                 .padding(.top, -5)
             }
             
-            if (!listIsFiltered && showFilter) {
+            if (!onlyShowToday && showFilter) {
                 TextField("Filter", text: $filterString.animation(.default))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .transition(.opacity)

@@ -14,7 +14,7 @@ enum EditViewStates {
 }
 
 struct AddView: View {
-    @EnvironmentObject var meetings: UserInfo
+    @EnvironmentObject var userInfo: UserInfo
     
     let editViewState: EditViewStates
     
@@ -48,7 +48,7 @@ struct AddView: View {
                 Spacer()
                 
                 FormButtonsView(editViewState: editViewState, selectedMeetingID: selectedMeetingID, currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, sameTimeEachDay: sameTimeEachDay, showError: $showError, errorMessage: $errorMessage, mainViewState: $mainViewState, hasAttemptedToSave: $hasAttemptedToSave)
-                    .environmentObject(meetings)
+                    .environmentObject(userInfo)
             }
         }
         .customAlert(isPresented: $showError, title: "Error", message: errorMessage, alertType: .error)
@@ -61,7 +61,7 @@ struct AddView: View {
     }
     
     func fillInFields() {
-        let selectedMeeting: RecurringMeetingModel = self.meetings.allMeetings.first(where: { $0.id == self.selectedMeetingID! })!
+        let selectedMeeting: RecurringMeetingModel = self.userInfo.allMeetings.first(where: { $0.id == self.selectedMeetingID! })!
         
         self.currentTitle = selectedMeeting.name
         self.currentURLString = selectedMeeting.urlString

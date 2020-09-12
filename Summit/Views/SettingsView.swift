@@ -13,9 +13,6 @@ struct SettingsView: View {
     
     @Binding var mainViewState: MainViewState
     
-    @State private var showPopver1 = false
-    @State private var showPopver2 = false
-    
     var body: some View {
         Form {
             VStack(alignment: .leading) {
@@ -27,50 +24,51 @@ struct SettingsView: View {
                 .font(.callout)
                 .buttonStyle(LinkButtonStyle())
                 
-                Text("Settings")
+                Text("Preferences")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 
-                HStack {
-                    VStack(alignment: .leading) {
-                        Toggle(isOn: $userInfo.settings.show24HourTime) {
-                            VStack(alignment: .leading) {
-                                Text("Show 24 hour time instead of 12 hour time")
-                                
-                                HStack {
-//                                    Text("􀅴")
-//                                        .foregroundColor(.gray)
-                                    
-                                    Text("Ex: 13:15 as opposed to 1:15 PM")
-                                        .foregroundColor(.gray)
-                                        .font(.caption)
-                                }
-                            }
-                        }
-                        
-                        Toggle(isOn: $userInfo.settings.alwaysShowNextMeeting) {
-                            VStack(alignment: .leading) {
-                                Text("Always show next meeting view")
-                                
-                                HStack {
-//                                    Text("􀅴")
-//                                        .foregroundColor(.gray)
-                                    
-                                    Text("Show next meeting view even when you have no more meetings for the day")
-                                        .foregroundColor(.gray)
-                                        .font(.caption)
-                                }
-                            }
+                Divider()
+                
+                Section(header: Text("Settings")) {
+                    Toggle(isOn: $userInfo.settings.show24HourTime) {
+                        VStack(alignment: .leading) {
+                            Text("Show 24 hour time instead of 12 hour time")
+                            
+                            Text("Ex: 13:15 as opposed to 1:15 PM")
+                                .foregroundColor(.gray)
+                                .font(.caption)
                         }
                     }
                     
-                    Spacer()
+                    Toggle(isOn: $userInfo.settings.alwaysShowNextMeeting) {
+                        VStack(alignment: .leading) {
+                            
+                            Text("Always show next meeting view")
+                            
+                            Text("Show next meeting view even when you have no more meetings for the day")
+                                .foregroundColor(.gray)
+                                .font(.caption)
+                        }
+                    }
                 }
                 
-                Spacer()
+                Divider()
+                
+                Section(header: Text("Actions")) {
+                    Button("Clear All Meetings") {
+                        withAnimation {
+                            self.userInfo.allMeetings = []
+                            self.mainViewState = .list
+                        }
+                    }
+                    .buttonStyle(LinkButtonStyle())
+                    .foregroundColor(.red)
+                }
             }
-            .padding([.horizontal])
+            Spacer()
         }
+        .padding([.horizontal])
         .transition(.move(edge: .trailing))
     }
 }

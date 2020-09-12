@@ -31,7 +31,6 @@ struct EmptyStateView: View {
                             .scaledToFit()
                             .frame(height: 150)
                         
-                        
                         Text("Add Your First Meeting")
                             .formButton(backgroundColor: .clear, padding: 5)
                     }

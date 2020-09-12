@@ -11,11 +11,8 @@ import Foundation
 extension UserInfo {
     static var currentWeekDay: Int {
         let date = Date()
-        
         let components = Calendar.current.dateComponents([.weekday], from: date)
-        
         let weekDayInt = components.weekday ?? -1
-        
         return weekDayInt
     }
     
@@ -27,7 +24,7 @@ extension UserInfo {
         var minTimeUntilMeeting: Int = Int.max
         var nextMeeting: RecurringMeetingModel? = nil
         
-        for meeting in filteredMeetings {
+        for meeting in todaysMeetings {
             let currentTime = currentDate.getMinutesPlusHours()
             guard let meetingTime = meeting.startDate?.getMinutesPlusHours() else {
                 continue
@@ -49,7 +46,7 @@ extension UserInfo {
         self.nextMeeting = nil
     }
     
-    var filteredMeetings: [RecurringMeetingModel] {
+    var todaysMeetings: [RecurringMeetingModel] {
         self.allMeetings
             .filter( { $0.days.contains(UserInfo.currentWeekDay) })
             .sorted()
@@ -91,16 +88,12 @@ extension UserInfo {
         
         var startTime: Time? = nil
         if let uwStartDate = startDate {
-            let startHour = Calendar.current.component(.hour, from: uwStartDate)
-            let startMinute = Calendar.current.component(.minute, from: uwStartDate)
-            startTime = Time(hour: startHour, minute: startMinute)
+            startTime = uwStartDate.toTime()
         }
         
         var endTime: Time? = nil
         if let uwEndDate = endDate {
-            let endHour = Calendar.current.component(.hour, from: uwEndDate)
-            let endMinute = Calendar.current.component(.minute, from: uwEndDate)
-            endTime = Time(hour: endHour, minute: endMinute)
+            endTime = uwEndDate.toTime()
         }
         
         let meeting = RecurringMeetingModel(name: title, url: url, urlString: newURLString, days: weekDaysResult, sameTimeEachDay: sameTimeEachDay, startTime: startTime, endTime: endTime)
