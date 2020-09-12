@@ -61,14 +61,14 @@ struct AddView: View {
     }
     
     func fillInFields() {
-        let selectedMeeting: MeetingModel = self.meetings.allMeetings.first(where: { $0.id == self.selectedMeetingID! })!
+        let selectedMeeting: RecurringMeetingModel = self.meetings.allMeetings.first(where: { $0.id == self.selectedMeetingID! })!
         
         self.currentTitle = selectedMeeting.name
         self.currentURLString = selectedMeeting.urlString
         self.sameTimeEachDay = selectedMeeting.sameTimeEachDay
         if let startTime = selectedMeeting.startTime, let endTime = selectedMeeting.endTime {
-            self.currentStartTime = startTime
-            self.currentEndTime = endTime
+            self.currentStartTime = startTime.toDate()
+            self.currentEndTime = endTime.toDate()
         }
         
         var weekResult = [Bool](repeating: false, count: 7)

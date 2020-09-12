@@ -12,7 +12,7 @@ let meetingsKey = "meetings"
 let settingsKey = "settings"
 
 class UserInfo: ObservableObject {
-    @Published var allMeetings: [MeetingModel] {
+    @Published var allMeetings: [RecurringMeetingModel] {
         didSet {
             getNextMeeting()
             save()
@@ -20,7 +20,7 @@ class UserInfo: ObservableObject {
     }
     
     @Published var currentDate: Date = Date()
-    @Published var nextMeeting: MeetingModel? = nil
+    @Published var nextMeeting: RecurringMeetingModel? = nil
     
     @Published var settings: SettingsModel {
         didSet {
@@ -29,9 +29,9 @@ class UserInfo: ObservableObject {
     }
     
     init() {
-        func getMeetings() -> [MeetingModel] {
+        func getMeetings() -> [RecurringMeetingModel] {
             if let data = UserDefaults.standard.data(forKey: meetingsKey) {
-                if let decoded = try? JSONDecoder().decode([MeetingModel].self, from: data) {
+                if let decoded = try? JSONDecoder().decode([RecurringMeetingModel].self, from: data) {
                     return decoded
                 }
             }

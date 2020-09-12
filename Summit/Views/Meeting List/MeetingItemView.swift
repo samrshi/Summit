@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MeetingItemView: View {
-    let meeting: MeetingModel
+    let meeting: RecurringMeetingModel
     
     @Binding var mainViewState: MainViewState
     @Binding var selectedMeetingID: UUID?

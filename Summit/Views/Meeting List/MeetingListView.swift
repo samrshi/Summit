@@ -47,7 +47,7 @@ struct MeetingListView: View {
         }
     }
     
-    func deleteMeetings(meeting: MeetingModel?) {
+    func deleteMeetings(meeting: RecurringMeetingModel?) {
         if let id = meeting?.id {
             self.meetings.allMeetings.removeAll {
                 $0.id == id
@@ -55,7 +55,7 @@ struct MeetingListView: View {
         }
     }
     
-    func filterLogic(meeting: MeetingModel) -> Bool {
+    func filterLogic(meeting: RecurringMeetingModel) -> Bool {
         if filterString.isEmpty {
             return true
         }

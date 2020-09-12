@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MeetingModel: Codable, Comparable {
+struct RecurringMeetingModel: Codable, Comparable {
     let id = UUID()
     
     var name: String
@@ -18,15 +18,15 @@ struct MeetingModel: Codable, Comparable {
     var days: [Int]
     
     var sameTimeEachDay: Bool
-    var startTime: Date?
-    var endTime: Date?
+    var startTime: Time?
+    var endTime: Time?
     
-    static func < (lhs: MeetingModel, rhs: MeetingModel) -> Bool {
-        guard let lhsDate = lhs.startTime else {
+    static func < (lhs: RecurringMeetingModel, rhs: RecurringMeetingModel) -> Bool {
+        guard let lhsDate = lhs.startDate else {
             return false
         }
         
-        guard let rhsDate = rhs.startTime else {
+        guard let rhsDate = rhs.startDate else {
             return true
         }
         
@@ -35,5 +35,9 @@ struct MeetingModel: Codable, Comparable {
         let rhsStartMins = rhsDate.getMinutesPlusHours()
         
         return lhsStartMins < rhsStartMins
+    }
+    
+    static func == (lhs: RecurringMeetingModel, rhs: RecurringMeetingModel) -> Bool {
+        lhs.id == rhs.id
     }
 }

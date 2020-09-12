@@ -23,7 +23,7 @@
 		BDB6699E24FAE841004052C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB6699D24FAE841004052C0 /* Preview Assets.xcassets */; };
 		BDB669A124FAE841004052C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB6699F24FAE841004052C0 /* Main.storyboard */; };
 		BDB669AA24FAFAB8004052C0 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB669A924FAFAB8004052C0 /* AddView.swift */; };
-		BDB669AC24FAFAF8004052C0 /* MeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB669AB24FAFAF8004052C0 /* MeetingModel.swift */; };
+		BDB669AC24FAFAF8004052C0 /* RecurringMeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB669AB24FAFAF8004052C0 /* RecurringMeetingModel.swift */; };
 		BDB669B024FB016B004052C0 /* MeetingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB669AF24FB016B004052C0 /* MeetingItemView.swift */; };
 		BDC5CCE424FB3CBC0003B1AB /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE324FB3CBC0003B1AB /* MainInfoView.swift */; };
 		BDC5CCE624FB3D2D0003B1AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE524FB3D2D0003B1AB /* Extensions.swift */; };
@@ -34,6 +34,7 @@
 		BDDCAB442500722900FFFD05 /* NextMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCAB432500722900FFFD05 /* NextMeetingView.swift */; };
 		BDDCB29324FDAEC70006E1EA /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCB29224FDAEC70006E1EA /* MeetingViewModel.swift */; };
 		BDE66836250BEFB30069EF64 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = BDE66835250BEFB30069EF64 /* Assets */; };
+		BDE66838250C8EBD0069EF64 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE66837250C8EBD0069EF64 /* Time.swift */; };
 		BDEF51A624FD6E9E00D9987C /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEF51A524FD6E9E00D9987C /* CustomAlert.swift */; };
 		BDF0AC8E250851480050ECD4 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF0AC8D250851480050ECD4 /* CustomAlertView.swift */; };
 /* End PBXBuildFile section */
@@ -58,7 +59,7 @@
 		BDB669A224FAE841004052C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDB669A324FAE841004052C0 /* Summit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Summit.entitlements; sourceTree = "<group>"; };
 		BDB669A924FAFAB8004052C0 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
-		BDB669AB24FAFAF8004052C0 /* MeetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingModel.swift; sourceTree = "<group>"; };
+		BDB669AB24FAFAF8004052C0 /* RecurringMeetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringMeetingModel.swift; sourceTree = "<group>"; };
 		BDB669AF24FB016B004052C0 /* MeetingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingItemView.swift; sourceTree = "<group>"; };
 		BDC5CCE324FB3CBC0003B1AB /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
 		BDC5CCE524FB3D2D0003B1AB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		BDDCAB432500722900FFFD05 /* NextMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextMeetingView.swift; sourceTree = "<group>"; };
 		BDDCB29224FDAEC70006E1EA /* MeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewModel.swift; sourceTree = "<group>"; };
 		BDE66835250BEFB30069EF64 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		BDE66837250C8EBD0069EF64 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		BDEF51A524FD6E9E00D9987C /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		BDF0AC8D250851480050ECD4 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,8 +109,9 @@
 		BD933C9E24FB14C2001F8A90 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BDB669AB24FAFAF8004052C0 /* MeetingModel.swift */,
+				BDB669AB24FAFAF8004052C0 /* RecurringMeetingModel.swift */,
 				BD403D462505561300BBFEB0 /* SettingsModel.swift */,
+				BDE66837250C8EBD0069EF64 /* Time.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				BD933CA024FB14E5001F8A90 /* Header.swift in Sources */,
 				BDC5CCF124FCC5230003B1AB /* FormButtonsView.swift in Sources */,
 				BD20FA0B24FB2E2300E74D39 /* MeetingListView.swift in Sources */,
+				BDE66838250C8EBD0069EF64 /* Time.swift in Sources */,
 				BDF0AC8E250851480050ECD4 /* CustomAlertView.swift in Sources */,
 				BDDCAB442500722900FFFD05 /* NextMeetingView.swift in Sources */,
 				BDC5CCEA24FB41450003B1AB /* WeekPickerView.swift in Sources */,
@@ -295,7 +299,7 @@
 				BD13CBBD24FF1D10009C5F5D /* MeetingListHeader.swift in Sources */,
 				BD0717ED250B1437001FEFCD /* CustomButtonStyle.swift in Sources */,
 				BDC5CCED24FB440D0003B1AB /* UserInfo.swift in Sources */,
-				BDB669AC24FAFAF8004052C0 /* MeetingModel.swift in Sources */,
+				BDB669AC24FAFAF8004052C0 /* RecurringMeetingModel.swift in Sources */,
 				BDC5CCE424FB3CBC0003B1AB /* MainInfoView.swift in Sources */,
 				BDEF51A624FD6E9E00D9987C /* CustomAlert.swift in Sources */,
 				BDDCB29324FDAEC70006E1EA /* MeetingViewModel.swift in Sources */,

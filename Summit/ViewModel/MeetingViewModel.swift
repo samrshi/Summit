@@ -8,17 +8,37 @@
 
 import Foundation
 
-extension MeetingModel {
+extension RecurringMeetingModel {
+    var startDate: Date? {
+        guard let startTime = startTime else {
+            return nil
+        }
+        
+        let components = DateComponents(hour: startTime.hour, minute: startTime.minute)
+        let date = Calendar.current.date(from: components)
+        return date
+    }
+    
+    var endDate: Date? {
+        guard let endTime = endTime else {
+            return nil
+        }
+        
+        let components = DateComponents(hour: endTime.hour, minute: endTime.minute)
+        let date = Calendar.current.date(from: components)
+        return date
+    }
+    
     func formattedMeetingTimes(show24HourTime: Bool) -> String {
-        guard let startTime = startTime, let endTime = endTime else {
+        guard let startDate = startDate, let endDate = endDate else {
             return ""
         }
         
         let formatter = DateFormatter()
         formatter.dateFormat = show24HourTime ? "H:mm" : "h:mm a"
         
-        let startTimeString = formatter.string(from: startTime)
-        let endTimeString = formatter.string(from: endTime)
+        let startTimeString = formatter.string(from: startDate)
+        let endTimeString = formatter.string(from: endDate)
         
         return "\(startTimeString) — \(endTimeString)"
     }

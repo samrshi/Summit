@@ -37,10 +37,10 @@ struct FormButtonsView: View {
     
     func saveButtonAction() {
         withAnimation {
-            let startTime = sameTimeEachDay ? currentStartTime : nil
-            let endTime = sameTimeEachDay ? currentEndTime : nil
+            let startDate = sameTimeEachDay ? currentStartTime : nil
+            let endDate = sameTimeEachDay ? currentEndTime : nil
             
-            self.meetings.newMeeting(editViewState: editViewState, selectedMeetingID: selectedMeetingID, title: self.currentTitle, urlString: self.currentURLString, week: self.currentWeek, sameTimeEachDay: self.sameTimeEachDay, startTime: startTime, endTime: endTime) { result, message in
+            self.meetings.newMeeting(editViewState: editViewState, selectedMeetingID: selectedMeetingID, title: self.currentTitle, urlString: self.currentURLString, week: self.currentWeek, sameTimeEachDay: self.sameTimeEachDay, startDate: startDate, endDate: endDate) { result, message in
                 if result == .success {
                     self.mainViewState = .list
                 } else {

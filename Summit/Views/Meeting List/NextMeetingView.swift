@@ -15,7 +15,7 @@ struct NextMeetingView: View {
     @Binding var mainViewState: MainViewState
     @Binding var selectedMeetingID: UUID?
     
-    let deleteMeetings: (MeetingModel?) -> Void
+    let deleteMeetings: (RecurringMeetingModel?) -> Void
     
     var body: some View {
         VStack(alignment: .leading) {
