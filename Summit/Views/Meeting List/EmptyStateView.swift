@@ -29,10 +29,11 @@ struct EmptyStateView: View {
                         Image("EmptyState")
                             .resizable()
                             .scaledToFit()
-                            .frame(height: 150)
+                            .frame(height: 210)
                         
-                        Text("Add Your First Meeting")
-                            .formButton(backgroundColor: .clear, padding: 5)
+                        Text("Let's Add Your First Meeting")
+                            .callToAction()
+                            .padding(.top)
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
@@ -43,10 +44,16 @@ struct EmptyStateView: View {
                         .scaledToFit()
                         .frame(height: 175)
                     
-                    Text("You have no meetings today. Enjoy!")
+                    Text("All done for the day!")
                 }
                 .offset(y: -20)
             }
         }
+    }
+}
+
+struct EmptyStateView_Previews: PreviewProvider {
+    static var previews: some View {
+        EmptyStateView(mainViewState: .constant(.list), emptyStateType: .emptyList)
     }
 }
