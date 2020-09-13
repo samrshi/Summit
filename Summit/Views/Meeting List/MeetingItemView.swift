@@ -34,11 +34,7 @@ struct MeetingItemView: View {
                     
                     HStack(spacing: 4) {
                         if meeting.isCurrentlyHappening() {
-                            Text("*")
-                                .font(.callout)
-                                .foregroundColor(.blue)
-                            
-                            Text("Happening Now")
+                            Text("🔵 Happening Now")
                                 .foregroundColor(.secondary)
                         } else {
                             Group {

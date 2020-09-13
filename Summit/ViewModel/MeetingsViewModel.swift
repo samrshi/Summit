@@ -48,7 +48,16 @@ extension UserInfo {
     
     var todaysMeetings: [RecurringMeetingModel] {
         self.allMeetings
-            .filter( { $0.days.contains(UserInfo.currentWeekDay) })
+            .filter( {
+                let sameDay: Bool = $0.days.contains(UserInfo.currentWeekDay)
+                
+                guard let endTime = $0.endTime else {
+                    return sameDay
+                }
+                let hasPassed: Bool = endTime < currentDate.toTime()
+                
+                return sameDay && (settings.onlyShowUpcoming ? !hasPassed : true)
+            })
             .sorted()
     }
     

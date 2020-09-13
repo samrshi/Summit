@@ -11,4 +11,5 @@ import Foundation
 struct SettingsModel: Codable {
     var show24HourTime: Bool = false
     var alwaysShowNextMeeting: Bool = true
+    var onlyShowUpcoming: Bool = true
 }

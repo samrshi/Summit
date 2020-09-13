@@ -51,6 +51,17 @@ struct SettingsView: View {
                                 .font(.caption)
                         }
                     }
+                    
+                    Toggle(isOn: $userInfo.settings.onlyShowUpcoming) {
+                        VStack(alignment: .leading) {
+                            
+                            Text("Only show upcoming meetings in the today view")
+                            
+                            Text("When this is turned on, a meeting won't be shown in the today view its end time has passed")
+                                .foregroundColor(.gray)
+                                .font(.caption)
+                        }
+                    }
                 }
                 
                 Divider()
