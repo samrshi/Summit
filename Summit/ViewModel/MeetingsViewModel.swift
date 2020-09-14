@@ -136,10 +136,11 @@ extension UserInfo {
         let astr101L = RecurringMeetingModel(name: "ASTR 101L", url: URL(string: "https://unc.zoom.us/j/98216613879")!, urlString: "https://unc.zoom.us/j/98216613879", days: [5], sameTimeEachDay: true, startTime: Time(hour: 15, minute: 0), endTime: Time(hour: 16, minute: 50))
         let comp283 = RecurringMeetingModel(name: "COMP 283", url: URL(string: "https://unc.zoom.us/j/93565803306")!, urlString: "https://unc.zoom.us/j/93565803306", days: [3, 5], sameTimeEachDay: true, startTime: Time(hour: 15, minute: 0), endTime: Time(hour: 16, minute: 15))
         let comp283OH = RecurringMeetingModel(name: "COMP 283 OH", url: URL(string: "https://unc.zoom.us/j/92825065172")!, urlString: "https://unc.zoom.us/j/92825065172", days: [3, 4, 5, 6], sameTimeEachDay: false, startTime: nil, endTime: nil)
-        let appTeam = RecurringMeetingModel(name: "App Team Leadership", url: URL(string: "unc.zoom.us/my/mnabokow")!, urlString: "unc.zoom.us/my/mnabokow", days: [6], sameTimeEachDay: true, startTime: Time(hour: 10, minute: 0), endTime: Time(hour: 10, minute: 40))
+        let appTeamLead = RecurringMeetingModel(name: "App Team Leadership", url: URL(string: "unc.zoom.us/my/mnabokow")!, urlString: "unc.zoom.us/my/mnabokow", days: [6], sameTimeEachDay: true, startTime: Time(hour: 10, minute: 0), endTime: Time(hour: 10, minute: 40))
         let math233Recit = RecurringMeetingModel(name: "MATH 233 Recitation", url: URL(string: "https://unc.zoom.us/j/96762806370")!, urlString: "https://unc.zoom.us/j/96762806370", days: [5], sameTimeEachDay: true, startTime: Time(hour: 9, minute: 45), endTime: Time(hour: 10, minute: 35))
+        let appTeamCurriculum = RecurringMeetingModel(name: "App Team Curriculum", url: URL(string: "https://unc.zoom.us/my/mnabokow")!, urlString: "https://unc.zoom.us/my/mnabokow", days: [4, 5], sameTimeEachDay: false, startTime: nil, endTime: nil)
         
-        let meetings = [comp301, math233, astr101, astr101L, comp283, comp283OH, appTeam, math233Recit]
+        let meetings = [comp301, math233, astr101, astr101L, comp283, comp283OH, appTeamLead, math233Recit, appTeamCurriculum]
 
         for meeting in meetings {
             allMeetings.append(meeting)

@@ -21,6 +21,7 @@ struct WeekPickerView: View {
                 }) {
                     VStack {
                         Text(self.weekDays[day])
+                            .foregroundColor(.primary)
                             .font(.footnote)
                         
                         ZStack {

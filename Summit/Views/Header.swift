@@ -20,8 +20,7 @@ struct Header: View {
         VStack(alignment: .leading) {
             HStack {
                 Text(title)
-                    .fontWeight(.bold)
-                    .font(.title)
+                    .heading()
                     .onTapGesture(count: 2) {
                         withAnimation {
                             self.showingDebugging.toggle()

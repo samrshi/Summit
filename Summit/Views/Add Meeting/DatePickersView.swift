@@ -41,5 +41,6 @@ struct DatePickersView: View {
                 }
             }
         }
+        .foregroundColor(.primary)
     }
 }

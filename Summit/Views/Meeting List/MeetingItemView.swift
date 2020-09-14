@@ -30,12 +30,13 @@ struct MeetingItemView: View {
                 
                 VStack(alignment: .leading) {
                     Text(meeting.name)
+                        .foregroundColor(.primary)
                         .font(.headline)
                     
                     HStack(spacing: 4) {
                         if meeting.isCurrentlyHappening() {
                             Text("🔵 Happening Now")
-                                .foregroundColor(.secondary)
+                                .foregroundColor(.gray)
                         } else {
                             Group {
                                 Text(meeting.formattedMeetingDays)
@@ -45,7 +46,7 @@ struct MeetingItemView: View {
                                 }
                             }
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundColor(.gray)
                         }
                     }
                 }
@@ -56,6 +57,7 @@ struct MeetingItemView: View {
             
             Group {
                 Text("􀍠")
+                    .foregroundColor(.primary)
                     .rotationEffect(Angle(degrees: self.showSettings ? -90 : 0))
                     .onTapGesture {
                         withAnimation {

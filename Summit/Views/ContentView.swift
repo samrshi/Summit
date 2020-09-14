@@ -68,7 +68,7 @@ struct ContentView: View {
                 )
             }
         }
-        .background(Color(#colorLiteral(red: 0.2145177126, green: 0.21455428, blue: 0.2145097256, alpha: 1)))
+        .background(Color.background)
         .customAlert(isPresented: $showAlert, title: "Are you sure?", message: "Are you sure that you want to quit Summit?", alertType: .warning, buttonTitle: "Yes") {
             NSApplication.shared.terminate(self)
         }

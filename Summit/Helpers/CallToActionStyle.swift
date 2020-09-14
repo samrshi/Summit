@@ -11,10 +11,9 @@ import SwiftUI
 extension Text {
     func callToAction() -> some View {
         self
-            .bold()
-            .foregroundColor(.white)
+            .foregroundColor(.primary)
             .padding(10)
-            .background(LinearGradient(gradient: Gradient(colors: [Color("gradientDark"), Color("gradientLight")]), startPoint: .bottomLeading, endPoint: .bottomTrailing))
-            .clipShape(Capsule())
+            .background(Color.gray.opacity(0.0001))
+            .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.blue, lineWidth: 2))
     }
 }

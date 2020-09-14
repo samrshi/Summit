@@ -18,8 +18,7 @@ struct MeetingListHeader: View {
             VStack(alignment: .leading, spacing: 7.5) {
                 HStack {
                     Text("\(onlyShowToday ? "Today's" : "All") Meetings")
-                        .fontWeight(.bold)
-                        .font(.system(size: 20))
+                        .heading2()
                         .transition(.opacity)
                     
                     Spacer()
@@ -60,6 +59,7 @@ struct MeetingListHeader: View {
             
             if (!onlyShowToday && showFilter) {
                 TextField("Filter", text: $filterString.animation(.default))
+                    .foregroundColor(.primary)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .transition(.opacity)
                     .padding(.top)

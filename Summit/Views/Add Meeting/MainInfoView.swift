@@ -17,8 +17,7 @@ struct MainInfoView: View {
     var body: some View {
         Form {
             Text("Add a Recurring Meeting")
-                .font(.system(size: 20))
-                .fontWeight(.bold)
+                .heading2()
                 .padding(.bottom)
             
             Section(header: Text("Title")) {
@@ -31,6 +30,7 @@ struct MainInfoView: View {
                         .font(.caption)
                 }
             }
+            .foregroundColor(.primary)
             
             Section(header: Text("URL")) {
                 TextField("URL", text: $currentURLString.animation(.default))
@@ -42,6 +42,7 @@ struct MainInfoView: View {
                         .font(.caption)
                 }
             }
+            .foregroundColor(.primary)
         }
     }
 }

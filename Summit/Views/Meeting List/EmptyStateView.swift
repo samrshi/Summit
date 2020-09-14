@@ -36,7 +36,7 @@ struct EmptyStateView: View {
                             self.mainViewState = .add
                         }
                     }) {
-                        Text("Let's Add Your First Meeting")
+                        Text("Let's Add Your First Meeting!")
                             .callToAction()
                             .padding(.top)
                     }
@@ -50,6 +50,7 @@ struct EmptyStateView: View {
                         .frame(height: 175)
                     
                     Text("All done for the day!")
+                        .foregroundColor(.primary)
                 }
                 .offset(y: -20)
             }

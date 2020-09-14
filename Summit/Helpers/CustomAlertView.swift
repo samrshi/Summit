@@ -30,10 +30,8 @@ struct CustomAlert: View {
                         Text(title)
                             .font(.headline)
                             .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                        
+
                         Text(message)
-                            .foregroundColor(.white)
                     }
                 }
                 .padding(.bottom)
@@ -66,7 +64,6 @@ struct CustomAlert: View {
                         
                         Button(action : action!) {
                             Text("Quit")
-                                .foregroundColor(.white)
                                 .bold()
                                 .formButton(backgroundColor: .blue, padding: 5, width: 70)
                         }
@@ -74,9 +71,10 @@ struct CustomAlert: View {
                     .buttonStyle(PlainButtonStyle())
                 }
             }
+            .foregroundColor(.white)
             .transition(.opacity)
             .padding(10)
-            .background(Color(.darkGray))
+            .background(Color.backgroundDarker)
             .cornerRadius(10)
         }
     }

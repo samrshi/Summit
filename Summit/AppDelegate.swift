@@ -21,8 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Create the popover
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 400, height: 475)
-        popover.behavior = .applicationDefined
-        // makes app always in dark mode
+        popover.behavior = .transient
         popover.appearance = .some(.init())
         popover.contentViewController = NSHostingController(rootView: contentView)
         self.popover = popover

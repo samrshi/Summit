@@ -25,61 +25,44 @@ struct SettingsView: View {
                 .buttonStyle(LinkButtonStyle())
                 
                 Text("Preferences")
-                    .font(.system(size: 20))
-                    .fontWeight(.bold)
+                    .heading2()
                 
                 Divider()
                 
-                Section(header: Text("Settings")) {
-                    Toggle(isOn: $userInfo.settings.show24HourTime) {
-                        VStack(alignment: .leading) {
-                            Text("Show 24 hour time instead of 12 hour time")
-                            
-                            Text("Ex: 13:15 as opposed to 1:15 PM")
-                                .foregroundColor(.gray)
-                                .font(.caption)
-                        }
-                    }
-                    
-                    Toggle(isOn: $userInfo.settings.alwaysShowNextMeeting) {
-                        VStack(alignment: .leading) {
-                            
-                            Text("Always show next meeting view")
-                            
-                            Text("Show next meeting view even when you have no more meetings for the day")
-                                .foregroundColor(.gray)
-                                .font(.caption)
-                        }
-                    }
-                    
-                    Toggle(isOn: $userInfo.settings.onlyShowUpcoming) {
-                        VStack(alignment: .leading) {
-                            
-                            Text("Only show upcoming meetings in the today view")
-                            
-                            Text("When this is turned on, a meeting won't be shown in the today view its end time has passed")
-                                .foregroundColor(.gray)
-                                .font(.caption)
-                        }
-                    }
-                }
+                ToggleView(value: $userInfo.settings.show24HourTime, title: "Use 24-hour time")
+                
+                ToggleView(value: $userInfo.settings.alwaysShowNextMeeting, title: "Always show Next Meeting view")
+                
+                ToggleView(value: $userInfo.settings.onlyShowUpcoming, title: "Hide past meetings in the Today view")
                 
                 Divider()
                 
-                Section(header: Text("Actions")) {
-                    Button("Clear All Meetings") {
-                        withAnimation {
-                            self.userInfo.allMeetings = []
-                            self.mainViewState = .list
-                        }
+                Button("Clear All Meetings") {
+                    withAnimation {
+                        self.userInfo.allMeetings = []
+                        self.mainViewState = .list
                     }
-                    .buttonStyle(LinkButtonStyle())
-                    .foregroundColor(.red)
                 }
+                .buttonStyle(LinkButtonStyle())
+                .foregroundColor(.red)
+                .padding(5)
+                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.red, lineWidth: 1))
             }
             Spacer()
         }
         .padding([.horizontal])
         .transition(.move(edge: .trailing))
+    }
+}
+
+struct ToggleView: View {
+    @Binding var value: Bool
+    let title: String
+    
+    var body: some View {
+        Toggle(isOn: $value) {
+            Text(title)
+                .foregroundColor(.primary)
+        }
     }
 }

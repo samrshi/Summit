@@ -13,6 +13,7 @@ extension Text {
         self
             .fontWeight(.semibold)
             .padding(padding)
+            .foregroundColor(backgroundColor == Color.clear ? .primary : .white)
             .frame(width: width)
             .background(backgroundColor == Color.clear ?
                 Color.gray.opacity(0.001) :
@@ -20,21 +21,5 @@ extension Text {
             )
             .cornerRadius(5)
             .overlay(backgroundColor == Color.clear ? RoundedRectangle(cornerRadius: 5)                            .stroke(Color.gray, lineWidth: 1) : nil)
-    }
-}
-
-extension Date {
-    func getMinutesPlusHours() -> Int {
-        let compenents = Calendar.current.dateComponents([.hour, .minute], from: self)
-        let hours = compenents.hour ?? 0
-        let minutes = compenents.minute ?? 0
-        
-        return (hours * 60) + minutes
-    }
-    
-    func toTime() -> Time {
-        let hour = Calendar.current.component(.hour, from: self)
-        let minute = Calendar.current.component(.minute, from: self)
-        return Time(hour: hour, minute: minute)
     }
 }

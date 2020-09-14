@@ -20,8 +20,7 @@ struct NextMeetingView: View {
         VStack(alignment: .leading) {
             if userInfo.settings.alwaysShowNextMeeting {
                 Text("Next Meeting")
-                    .fontWeight(.bold)
-                    .font(.system(size: 20))
+                    .heading2()
                     .transition(.opacity)
                 
                 if userInfo.nextMeeting != nil {
@@ -30,6 +29,7 @@ struct NextMeetingView: View {
                     }
                 } else {
                     Text("No more meetings today! 🎉")
+                        .foregroundColor(.primary)
                         .padding(.vertical)
                 }
                 

@@ -22,6 +22,7 @@ struct FooterView: View {
             HStack {
                 Button(action: secondaryAction) {
                     Text(secondaryTitle)
+                        .foregroundColor(.primary)
                         .formButton(backgroundColor: Color.clear, padding: 5, width: 70)
                 }
                 .buttonStyle(PlainButtonStyle())
@@ -30,7 +31,6 @@ struct FooterView: View {
                 
                 Button(action: primaryAction) {
                     Text(primaryTitle)
-                        .foregroundColor(.white)
                         .formButton(backgroundColor: Color.blue, padding: 5, width: 115)
                 }
                 .buttonStyle(PlainButtonStyle())
