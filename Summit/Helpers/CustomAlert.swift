@@ -14,7 +14,7 @@ enum AlertType {
 }
 
 extension View {
-    func customAlert(isPresented: Binding<Bool>, title: String, message: String, alertType: AlertType, buttonTitle: String = "OK", action: (() -> Void)? = nil) -> some View {
+    func customAlert(isPresented: Binding<Bool>, message: String, alertType: AlertType, buttonTitle: String = "OK", action: (() -> Void)? = nil) -> some View {
         ZStack {
             self
                 
@@ -29,7 +29,7 @@ extension View {
                         }
                 }
                 
-                CustomAlert(isPresented: isPresented, title: title, message: message, alertType: alertType, buttonTitle: buttonTitle, action: action)
+                CustomAlert(isPresented: isPresented, message: message, alertType: alertType, buttonTitle: buttonTitle, action: action)
             }
         }
         .transition(.opacity)

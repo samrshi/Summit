@@ -69,7 +69,7 @@ extension UserInfo {
         
         let urlStringTrimmed = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if !urlStringTrimmed.isValidURL {
+        if !urlStringTrimmed.isValidURL() {
             completion(.error, "Invalid URL. \"\(urlStringTrimmed)\" could not be made into a URL")
             return
         }

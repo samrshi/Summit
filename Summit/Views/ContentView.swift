@@ -23,7 +23,7 @@ struct ContentView: View {
     @State private var selectedMeetingID: UUID? = nil
         
     @State private var showAlert: Bool = false
-    @State private var errorMessage: String = ""
+    @State private var alertMessage: String = ""
     @State private var alertType: AlertType = .warning
     
     let publisher = NotificationCenter.default.publisher(for: Notification.Name("hasBeenOpened"))
@@ -43,9 +43,9 @@ struct ContentView: View {
                     }
                     .transition(.opacity)
                 } else if mainViewState == .add {
-                    AddView(editViewState: .add, selectedMeetingID: nil, mainViewState: $mainViewState)
+                    AddView(editViewState: .add, selectedMeetingID: nil, mainViewState: $mainViewState, showAlert: $showAlert, alertMessage: $alertMessage, alertType: $alertType)
                 } else if mainViewState == .edit {
-                    AddView(editViewState: .edit, selectedMeetingID: self.selectedMeetingID, mainViewState: $mainViewState)
+                    AddView(editViewState: .edit, selectedMeetingID: self.selectedMeetingID, mainViewState: $mainViewState, showAlert: $showAlert, alertMessage: $alertMessage, alertType: $alertType)
                 } else {
                     SettingsView(mainViewState: $mainViewState)
                 }
@@ -60,6 +60,8 @@ struct ContentView: View {
                     },
                     secondaryTitle: "Quit", secondaryAction: {
                         withAnimation {
+                            self.alertMessage = "Are you sure that you want to quit Summit?"
+                            self.alertType = .warning
                             self.showAlert.toggle()
                         }
                     }
@@ -67,7 +69,7 @@ struct ContentView: View {
             }
         }
         .background(Color.background)
-        .customAlert(isPresented: $showAlert, title: "Are you sure?", message: "Are you sure that you want to quit Summit?", alertType: .warning, buttonTitle: "Yes") {
+        .customAlert(isPresented: $showAlert, message: alertMessage, alertType: alertType, buttonTitle: "Yes") {
             NSApplication.shared.terminate(self)
         }
         .onReceive(publisher) { _ in

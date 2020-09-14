@@ -23,6 +23,8 @@ struct FormButtonsView: View {
     
     @Binding var showError: Bool
     @Binding var errorMessage: String
+    @Binding var alertType: AlertType
+    
     @Binding var mainViewState: MainViewState
     @Binding var hasAttemptedToSave: Bool
         
@@ -43,6 +45,7 @@ struct FormButtonsView: View {
                 if result == .success {
                     self.mainViewState = .list
                 } else {
+                    self.alertType = .error
                     self.errorMessage = message
                     self.showError.toggle()
                     self.hasAttemptedToSave = true

@@ -11,7 +11,6 @@ import SwiftUI
 struct CustomAlert: View {
     @Binding var isPresented: Bool
     
-    let title: String
     let message: String
     let alertType: AlertType
     
@@ -27,7 +26,7 @@ struct CustomAlert: View {
                             .font(.title)
                                         
                     VStack(alignment: .leading) {
-                        Text(title)
+                        Text(alertType == .error ? "Error" : "Are you sure?")
                             .font(.headline)
                             .fontWeight(.semibold)
 

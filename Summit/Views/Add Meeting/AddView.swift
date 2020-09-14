@@ -22,6 +22,10 @@ struct AddView: View {
     
     @Binding var mainViewState: MainViewState
     
+    @Binding var showAlert: Bool
+    @Binding var alertMessage: String
+    @Binding var alertType: AlertType
+    
     @State private var currentTitle: String = ""
     @State private var currentURLString: String = ""
     @State private var currentStartTime: Date = Date()
@@ -29,9 +33,6 @@ struct AddView: View {
     @State private var currentWeek: [Bool] = [Bool](repeating: false, count: 7)
     
     @State private var sameTimeEachDay: Bool = true
-    
-    @State private var showError: Bool = false
-    @State private var errorMessage: String = ""
     
     @State private var hasAttemptedToSave: Bool = false
     
@@ -58,11 +59,10 @@ struct AddView: View {
                 
                 Spacer()
                 
-                FormButtonsView(editViewState: editViewState, selectedMeetingID: selectedMeetingID, currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, sameTimeEachDay: sameTimeEachDay, showError: $showError, errorMessage: $errorMessage, mainViewState: $mainViewState, hasAttemptedToSave: $hasAttemptedToSave)
+                FormButtonsView(editViewState: editViewState, selectedMeetingID: selectedMeetingID, currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, sameTimeEachDay: sameTimeEachDay, showError: $showAlert, errorMessage: $alertMessage, alertType: $alertType, mainViewState: $mainViewState, hasAttemptedToSave: $hasAttemptedToSave)
                     .environmentObject(userInfo)
             }
         }
-        .customAlert(isPresented: $showError, title: "Error", message: errorMessage, alertType: .error)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
             if self.editViewState == .edit {
