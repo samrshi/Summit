@@ -28,6 +28,7 @@ struct MeetingListHeader: View {
                         withAnimation {
                             self.showFilter.toggle()
                             self.onlyShowToday = false
+                            self.filterString = ""
                         }
                     }) {
                         Text("􀊫")

@@ -20,17 +20,22 @@ struct EmptyStateView: View {
     var body: some View {
         Group {
             if emptyStateType == .emptyList {
-                Button(action: {
-                    withAnimation {
-                        self.mainViewState = .add
+                VStack(spacing: 4) {
+                    Image("EmptyState")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 210)
+                        .onTapGesture {
+                            withAnimation {
+                                self.mainViewState = .add
+                            }
                     }
-                }) {
-                    VStack(spacing: 4) {
-                        Image("EmptyState")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 210)
-                        
+                    
+                    Button(action: {
+                        withAnimation {
+                            self.mainViewState = .add
+                        }
+                    }) {
                         Text("Let's Add Your First Meeting")
                             .callToAction()
                             .padding(.top)
