@@ -42,7 +42,7 @@ struct CustomAlert: View {
                         }
                     }) {
                         Text("OK")
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                             .formButton(backgroundColor: .clear, padding: 5, width: 70)
                     }
                     .buttonStyle(PlainButtonStyle())
