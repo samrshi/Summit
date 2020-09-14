@@ -35,10 +35,21 @@ struct AddView: View {
     
     @State private var hasAttemptedToSave: Bool = false
     
+    var meeting: RecurringMeetingModel {
+        if editViewState == .edit {
+            return self.userInfo.allMeetings.first(where: { $0.id == self.selectedMeetingID }) ?? blankMeeting
+        } else {
+            return blankMeeting
+        }
+    }
+    
     var body: some View {
         ZStack {
             VStack {
                 VStack {
+                    AddHeaderView(meeting: meeting, editViewState: editViewState)
+                        .environmentObject(userInfo)
+                    
                     MainInfoView(currentTitle: $currentTitle, currentURLString: $currentURLString, hasAttemptedToSave: $hasAttemptedToSave)
                     
                     DatePickersView(currentWeek: $currentWeek, currentStartTime: $currentStartTime, currentEndTime: $currentEndTime, sameTimeEachDay: $sameTimeEachDay)

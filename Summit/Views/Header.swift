@@ -13,19 +13,12 @@ struct Header: View {
     
     @Binding var mainViewState: MainViewState
     @ObservedObject var userInfo: UserInfo
-    
-    @State private var showingDebugging = false
-    
+        
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text(title)
                     .heading()
-                    .onTapGesture(count: 2) {
-                        withAnimation {
-                            self.showingDebugging.toggle()
-                        }
-                }
                 
                 Spacer()
                 
@@ -41,12 +34,11 @@ struct Header: View {
                 .buttonStyle(PlainButtonStyle())
             }
             
-            if showingDebugging {
+            if self.userInfo.showingDebugging {
                 HStack {
                     Button("Add Fall Schedule") {
                         withAnimation {
                             self.userInfo.addFallSchedule()
-                            self.showingDebugging.toggle()
                         }
                     }
                 }

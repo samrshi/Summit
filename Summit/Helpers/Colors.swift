@@ -17,8 +17,8 @@ extension Color {
         Color("primary")
     }
     
-    static var backgroundDarker: Color {
-        Color("backgroundDarker")
+    static var secondaryBackground: Color {
+        Color("secondaryBackground")
     }
 }
 

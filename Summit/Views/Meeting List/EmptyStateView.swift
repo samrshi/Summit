@@ -47,12 +47,11 @@ struct EmptyStateView: View {
                     Image("FreeDay")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 175)
+                        .frame(height: 160)
                     
                     Text("All done for the day!")
                         .foregroundColor(.primary)
                 }
-                .offset(y: -20)
             }
         }
     }

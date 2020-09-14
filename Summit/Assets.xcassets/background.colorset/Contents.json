@@ -2,24 +2,6 @@
   "colors" : [
     {
       "color" : {
-        "color-space" : "srgb",
-        "components" : {
-          "alpha" : "1.000",
-          "blue" : "0.216",
-          "green" : "0.216",
-          "red" : "0.216"
-        }
-      },
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "color" : {
         "color-space" : "display-p3",
         "components" : {
           "alpha" : "1.000",

@@ -46,7 +46,6 @@ struct SettingsView: View {
                 .buttonStyle(LinkButtonStyle())
                 .foregroundColor(.red)
                 .padding(5)
-                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.red, lineWidth: 1))
             }
             Spacer()
         }

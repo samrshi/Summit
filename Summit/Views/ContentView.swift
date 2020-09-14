@@ -22,8 +22,9 @@ struct ContentView: View {
     @State private var onlyShowToday = true
     @State private var selectedMeetingID: UUID? = nil
         
-    @State private var showAlert = false
-    @State private var showArt = false
+    @State private var showAlert: Bool = false
+    @State private var errorMessage: String = ""
+    @State private var alertType: AlertType = .warning
     
     let publisher = NotificationCenter.default.publisher(for: Notification.Name("hasBeenOpened"))
     
@@ -39,20 +40,17 @@ struct ContentView: View {
                 if mainViewState == .list {
                     ScrollView(.vertical) {
                         MeetingListView(mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, onlyShowToday: $onlyShowToday)
-                            .environmentObject(userInfo)
                     }
                     .transition(.opacity)
                 } else if mainViewState == .add {
                     AddView(editViewState: .add, selectedMeetingID: nil, mainViewState: $mainViewState)
-                        .environmentObject(userInfo)
                 } else if mainViewState == .edit {
                     AddView(editViewState: .edit, selectedMeetingID: self.selectedMeetingID, mainViewState: $mainViewState)
-                        .environmentObject(userInfo)
                 } else {
                     SettingsView(mainViewState: $mainViewState)
-                        .environmentObject(userInfo)
                 }
             }
+            .environmentObject(userInfo)
             
             if self.mainViewState == .list {
                 FooterView(primaryTitle: "Add a Meeting", primaryAction: {

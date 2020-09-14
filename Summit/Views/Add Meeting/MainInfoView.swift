@@ -16,10 +16,6 @@ struct MainInfoView: View {
             
     var body: some View {
         Form {
-            Text("Add a Recurring Meeting")
-                .heading2()
-                .padding(.bottom)
-            
             Section(header: Text("Title")) {
                 TextField("Title", text: $currentTitle.animation(.default))
                     .textFieldStyle(RoundedBorderTextFieldStyle())

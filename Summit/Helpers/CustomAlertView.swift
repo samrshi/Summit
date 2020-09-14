@@ -22,10 +22,10 @@ struct CustomAlert: View {
         Group {
             VStack {
                 HStack {
-                    Text(alertType == .error ? "􀇾" : "􀅴")
-                        .foregroundColor(alertType == .error ? .red : .blue)
-                        .font(.title)
-                    
+                        Text(alertType == .error ? "􀇾" : "􀅴")
+                            .foregroundColor(alertType == .error ? .red : .blue)
+                            .font(.title)
+                                        
                     VStack(alignment: .leading) {
                         Text(title)
                             .font(.headline)
@@ -58,7 +58,7 @@ struct CustomAlert: View {
                             }
                         }) {
                             Text("Cancel")
-                                .foregroundColor(.white)
+                                .foregroundColor(.primary)
                                 .formButton(backgroundColor: .clear, padding: 5, width: 70)
                         }
                         
@@ -71,10 +71,10 @@ struct CustomAlert: View {
                     .buttonStyle(PlainButtonStyle())
                 }
             }
-            .foregroundColor(.white)
+            .foregroundColor(.primary)
             .transition(.opacity)
             .padding(10)
-            .background(Color.backgroundDarker)
+            .background(Color.background)
             .cornerRadius(10)
         }
     }

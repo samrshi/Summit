@@ -32,6 +32,7 @@ struct MeetingListView: View {
                     MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID, show24HourTime: self.userInfo.settings.show24HourTime) {
                         self.deleteMeetings(meeting: meeting)
                     }
+                    .environmentObject(self.userInfo)
                 }
             }
             

@@ -9,6 +9,15 @@
 import Foundation
 
 extension RecurringMeetingModel {
+    func equals(other: RecurringMeetingModel) -> Bool {
+        name == other.name &&
+            urlString == other.urlString &&
+            days == other.days &&
+            startTime == other.startTime &&
+            endTime == other.endTime &&
+            sameTimeEachDay == other.sameTimeEachDay
+    }
+    
     var startDate: Date? {
         guard let startTime = startTime else {
             return nil

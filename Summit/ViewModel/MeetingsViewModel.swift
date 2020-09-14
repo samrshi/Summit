@@ -128,6 +128,7 @@ extension UserInfo {
         }
     }
     
+    #if DEBUG
     // FOR TESTING ONLY
     func addFallSchedule() {
         let comp301 = RecurringMeetingModel(name: "COMP 301", url: URL(string: "https://unc.zoom.us/j/97164010235")!, urlString: "https://unc.zoom.us/j/97164010235", days: [3, 5], sameTimeEachDay: true, startTime: Time(hour: 13, minute: 15), endTime: Time(hour: 14, minute: 30))
@@ -141,12 +142,14 @@ extension UserInfo {
         let appTeamCurriculum = RecurringMeetingModel(name: "App Team Curriculum", url: URL(string: "https://unc.zoom.us/my/mnabokow")!, urlString: "https://unc.zoom.us/my/mnabokow", days: [4, 5], sameTimeEachDay: false, startTime: nil, endTime: nil)
         
         let meetings = [comp301, math233, astr101, astr101L, comp283, comp283OH, appTeamLead, math233Recit, appTeamCurriculum]
-
+        
         for meeting in meetings {
             allMeetings.append(meeting)
         }
     }
+    #endif
 }
+
 
 enum SaveResult {
     case success

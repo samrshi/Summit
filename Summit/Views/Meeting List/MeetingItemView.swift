@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct MeetingItemView: View {
+    @EnvironmentObject var userInfo: UserInfo
+    
     let meeting: RecurringMeetingModel
     
     @Binding var mainViewState: MainViewState

@@ -21,6 +21,10 @@ struct Time: Codable, Comparable {
 }
 
 extension Time {
+    static func == (lhs: Time, rhs: Time) -> Bool {
+        lhs.hour == rhs.hour && lhs.minute == rhs.minute
+    }
+    
     func toDate() -> Date {
         let calendar = Calendar.current
         let components = DateComponents(hour: hour, minute: minute)

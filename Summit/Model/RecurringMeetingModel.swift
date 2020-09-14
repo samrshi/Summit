@@ -41,3 +41,5 @@ struct RecurringMeetingModel: Codable, Comparable {
         lhs.id == rhs.id
     }
 }
+
+let blankMeeting = RecurringMeetingModel(name: "", url: URL(string: "google.com")!, urlString: "", days: [], sameTimeEachDay: false, startTime: Time(hour: 0, minute: 0), endTime: Time(hour: 0, minute: 0))

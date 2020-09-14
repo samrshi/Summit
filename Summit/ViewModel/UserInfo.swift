@@ -19,36 +19,23 @@ class UserInfo: ObservableObject {
         }
     }
     
-    @Published var currentDate: Date = Date()
-    @Published var nextMeeting: RecurringMeetingModel? = nil
-    
     @Published var settings: SettingsModel {
         didSet {
             save()
         }
     }
     
+    @Published var currentDate: Date = Date()
+    @Published var nextMeeting: RecurringMeetingModel? = nil
+    
+    var showingDebugging = false
+    
     init() {
-        func getMeetings() -> [RecurringMeetingModel] {
-            if let data = UserDefaults.standard.data(forKey: meetingsKey) {
-                if let decoded = try? JSONDecoder().decode([RecurringMeetingModel].self, from: data) {
-                    return decoded
-                }
-            }
-            return []
-        }
+        let meetingsDecoded = UserInfo.getFromDefaults(forKey: meetingsKey, type: [RecurringMeetingModel].self)
+        self.allMeetings = meetingsDecoded ?? []
         
-        func getSettings() -> SettingsModel {
-            if let data = UserDefaults.standard.data(forKey: settingsKey) {
-                if let decoded = try? JSONDecoder().decode(SettingsModel.self, from: data) {
-                    return decoded
-                }
-            }
-            return SettingsModel()
-        }
-        
-        self.allMeetings = getMeetings()        
-        self.settings = getSettings()
+        let settingsDecoded = UserInfo.getFromDefaults(forKey: settingsKey, type: SettingsModel.self)
+        self.settings = settingsDecoded ?? SettingsModel()
         
         self.getNextMeeting()
     }
@@ -61,5 +48,14 @@ class UserInfo: ObservableObject {
         if let encodedSettings = try? JSONEncoder().encode(settings) {
             UserDefaults.standard.set(encodedSettings, forKey: settingsKey)
         }
+    }
+    
+    static func getFromDefaults<T: Decodable>(forKey: String, type: T.Type) -> T? {
+        if let data = UserDefaults.standard.data(forKey: forKey) {
+            if let decoded = try? JSONDecoder().decode(T.self, from: data) {
+                return decoded
+            }
+        }
+        return nil
     }
 }

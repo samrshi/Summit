@@ -17,6 +17,7 @@
 		BD5848E0250FCE7400B36CCB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848DF250FCE7400B36CCB /* Colors.swift */; };
 		BD5848E2250FCEBD00B36CCB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E1250FCEBD00B36CCB /* Date.swift */; };
 		BD5848E4250FCF2D00B36CCB /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E3250FCF2D00B36CCB /* FontStyles.swift */; };
+		BD5848E6250FE11400B36CCB /* AddHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E5250FE11400B36CCB /* AddHeaderView.swift */; };
 		BD933CA024FB14E5001F8A90 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD933C9F24FB14E5001F8A90 /* Header.swift */; };
 		BDA07474250B2829003D593C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA07473250B2829003D593C /* EmptyStateView.swift */; };
 		BDA7D97B24FD60B500A18CA8 /* URLValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */; };
@@ -53,6 +54,7 @@
 		BD5848DF250FCE7400B36CCB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BD5848E1250FCEBD00B36CCB /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		BD5848E3250FCF2D00B36CCB /* FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
+		BD5848E5250FE11400B36CCB /* AddHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeaderView.swift; sourceTree = "<group>"; };
 		BD933C9F24FB14E5001F8A90 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		BDA07473250B2829003D593C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidity.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				BDB669A924FAFAB8004052C0 /* AddView.swift */,
+				BD5848E5250FE11400B36CCB /* AddHeaderView.swift */,
 				BDC5CCE324FB3CBC0003B1AB /* MainInfoView.swift */,
 				BDC5CCEE24FCC1EC0003B1AB /* DatePickersView.swift */,
 				BDC5CCE924FB41450003B1AB /* WeekPickerView.swift */,
@@ -291,6 +294,7 @@
 				BDB669AA24FAFAB8004052C0 /* AddView.swift in Sources */,
 				BD933CA024FB14E5001F8A90 /* Header.swift in Sources */,
 				BDC5CCF124FCC5230003B1AB /* FormButtonsView.swift in Sources */,
+				BD5848E6250FE11400B36CCB /* AddHeaderView.swift in Sources */,
 				BD20FA0B24FB2E2300E74D39 /* MeetingListView.swift in Sources */,
 				BDE66838250C8EBD0069EF64 /* Time.swift in Sources */,
 				BDF0AC8E250851480050ECD4 /* CustomAlertView.swift in Sources */,

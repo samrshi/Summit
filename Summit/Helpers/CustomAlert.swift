@@ -17,7 +17,9 @@ extension View {
     func customAlert(isPresented: Binding<Bool>, title: String, message: String, alertType: AlertType, buttonTitle: String = "OK", action: (() -> Void)? = nil) -> some View {
         ZStack {
             self
-                .blur(radius: isPresented.wrappedValue ? 4 : 0)
+                
+            Color.black.opacity(isPresented.wrappedValue ? 0.3 : 0)
+//                .blur(radius: isPresented.wrappedValue ? 4 : 0)
             
             if isPresented.wrappedValue {
                 Color.gray.opacity(0.0001)

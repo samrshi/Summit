@@ -17,9 +17,10 @@ struct MeetingListHeader: View {
         VStack {
             VStack(alignment: .leading, spacing: 7.5) {
                 HStack {
-                    Text("\(onlyShowToday ? "Today's" : "All") Meetings")
+                    Text("\(onlyShowToday ? "Today's Upcoming" : "All") Meetings")
                         .heading2()
                         .transition(.opacity)
+                    
                     
                     Spacer()
                     
@@ -36,7 +37,6 @@ struct MeetingListHeader: View {
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
-                .animation(.none)
                 
                 Button(action: {
                     withAnimation {
