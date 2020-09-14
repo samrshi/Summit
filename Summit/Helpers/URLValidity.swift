@@ -9,11 +9,13 @@
 import Foundation
 
 extension String {
-    var isValidURL: Bool {
-        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) {
-            // it is a link, if the match covers the whole string
-            return match.range.length == self.utf16.count
+    func isValidURL() -> Bool {
+        let pattern = "((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        
+        let matches = regex.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.utf16.count))
+        if (matches == 1 ) {
+            return true
         } else {
             return false
         }
