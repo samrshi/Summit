@@ -22,16 +22,18 @@ struct Header: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    withAnimation {
-                        self.mainViewState = self.mainViewState != .settings ? .settings : .list
+                if mainViewState == .list || mainViewState == .settings {
+                    Button(action: {
+                        withAnimation {
+                            self.mainViewState = self.mainViewState != .settings ? .settings : .list
+                        }
+                    }) {
+                        Text("􀍟")
+                            .font(.headline)
+                            .foregroundColor(.gray)
                     }
-                }) {
-                    Text("􀍟")
-                        .font(.headline)
-                        .foregroundColor(.gray)
+                    .buttonStyle(PlainButtonStyle())
                 }
-                .buttonStyle(PlainButtonStyle())
             }
             
             if self.userInfo.showingDebugging {

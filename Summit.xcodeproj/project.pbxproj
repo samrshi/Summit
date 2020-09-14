@@ -33,7 +33,7 @@
 		BDC5CCE624FB3D2D0003B1AB /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE524FB3D2D0003B1AB /* FormButton.swift */; };
 		BDC5CCEA24FB41450003B1AB /* WeekPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE924FB41450003B1AB /* WeekPickerView.swift */; };
 		BDC5CCED24FB440D0003B1AB /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCEC24FB440D0003B1AB /* UserInfo.swift */; };
-		BDC5CCEF24FCC1EC0003B1AB /* DatePickersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCEE24FCC1EC0003B1AB /* DatePickersView.swift */; };
+		BDC5CCEF24FCC1EC0003B1AB /* DateAndTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCEE24FCC1EC0003B1AB /* DateAndTimeView.swift */; };
 		BDC5CCF124FCC5230003B1AB /* FormButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCF024FCC5230003B1AB /* FormButtonsView.swift */; };
 		BDDCAB442500722900FFFD05 /* NextMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCAB432500722900FFFD05 /* NextMeetingView.swift */; };
 		BDDCB29324FDAEC70006E1EA /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCB29224FDAEC70006E1EA /* MeetingViewModel.swift */; };
@@ -41,6 +41,7 @@
 		BDE66838250C8EBD0069EF64 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE66837250C8EBD0069EF64 /* Time.swift */; };
 		BDEF51A624FD6E9E00D9987C /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEF51A524FD6E9E00D9987C /* CustomAlert.swift */; };
 		BDF0AC8E250851480050ECD4 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF0AC8D250851480050ECD4 /* CustomAlertView.swift */; };
+		BDFBE9FC25101D2C0066B48C /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFBE9FB25101D2C0066B48C /* Weekday.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +74,7 @@
 		BDC5CCE524FB3D2D0003B1AB /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
 		BDC5CCE924FB41450003B1AB /* WeekPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPickerView.swift; sourceTree = "<group>"; };
 		BDC5CCEC24FB440D0003B1AB /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		BDC5CCEE24FCC1EC0003B1AB /* DatePickersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickersView.swift; sourceTree = "<group>"; };
+		BDC5CCEE24FCC1EC0003B1AB /* DateAndTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndTimeView.swift; sourceTree = "<group>"; };
 		BDC5CCF024FCC5230003B1AB /* FormButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButtonsView.swift; sourceTree = "<group>"; };
 		BDDCAB432500722900FFFD05 /* NextMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextMeetingView.swift; sourceTree = "<group>"; };
 		BDDCB29224FDAEC70006E1EA /* MeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewModel.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		BDE66837250C8EBD0069EF64 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		BDEF51A524FD6E9E00D9987C /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		BDF0AC8D250851480050ECD4 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		BDFBE9FB25101D2C0066B48C /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				BDB669AB24FAFAF8004052C0 /* RecurringMeetingModel.swift */,
 				BD403D462505561300BBFEB0 /* SettingsModel.swift */,
 				BDE66837250C8EBD0069EF64 /* Time.swift */,
+				BDFBE9FB25101D2C0066B48C /* Weekday.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,7 +191,7 @@
 				BDB669A924FAFAB8004052C0 /* AddView.swift */,
 				BD5848E5250FE11400B36CCB /* AddHeaderView.swift */,
 				BDC5CCE324FB3CBC0003B1AB /* MainInfoView.swift */,
-				BDC5CCEE24FCC1EC0003B1AB /* DatePickersView.swift */,
+				BDC5CCEE24FCC1EC0003B1AB /* DateAndTimeView.swift */,
 				BDC5CCE924FB41450003B1AB /* WeekPickerView.swift */,
 				BDC5CCF024FCC5230003B1AB /* FormButtonsView.swift */,
 			);
@@ -306,8 +309,9 @@
 				BDB6699624FAE83E004052C0 /* ContentView.swift in Sources */,
 				BDB669B024FB016B004052C0 /* MeetingItemView.swift in Sources */,
 				BDA07474250B2829003D593C /* EmptyStateView.swift in Sources */,
-				BDC5CCEF24FCC1EC0003B1AB /* DatePickersView.swift in Sources */,
+				BDC5CCEF24FCC1EC0003B1AB /* DateAndTimeView.swift in Sources */,
 				BD403D472505561300BBFEB0 /* SettingsModel.swift in Sources */,
+				BDFBE9FC25101D2C0066B48C /* Weekday.swift in Sources */,
 				BDB6699424FAE83E004052C0 /* AppDelegate.swift in Sources */,
 				BDC5CCE624FB3D2D0003B1AB /* FormButton.swift in Sources */,
 				BD403D45250555C900BBFEB0 /* MeetingsViewModel.swift in Sources */,

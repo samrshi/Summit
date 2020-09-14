@@ -22,4 +22,9 @@ extension Text {
             .fontWeight(.bold)
             .font(.system(size: 20))
     }
+    
+    func heading3() -> some View {
+        self
+            .fontWeight(.semibold)
+    }
 }

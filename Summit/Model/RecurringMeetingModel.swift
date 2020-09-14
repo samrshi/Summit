@@ -14,12 +14,10 @@ struct RecurringMeetingModel: Codable, Comparable {
     var name: String
     var url: URL
     var urlString: String
-    
-    var days: [Int]
-    
+        
     var sameTimeEachDay: Bool
-    var startTime: Time?
-    var endTime: Time?
+    
+    var meetingTimes: [Weekday] = []
     
     static func < (lhs: RecurringMeetingModel, rhs: RecurringMeetingModel) -> Bool {
         guard let lhsDate = lhs.startDate else {
@@ -42,4 +40,4 @@ struct RecurringMeetingModel: Codable, Comparable {
     }
 }
 
-let blankMeeting = RecurringMeetingModel(name: "", url: URL(string: "google.com")!, urlString: "", days: [], sameTimeEachDay: false, startTime: Time(hour: 0, minute: 0), endTime: Time(hour: 0, minute: 0))
+let blankMeeting = RecurringMeetingModel(name: "", url: URL(string: "google.com")!, urlString: "", sameTimeEachDay: false, meetingTimes: daysOfWeek)

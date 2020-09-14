@@ -14,14 +14,20 @@ struct MeetingItemView: View {
     let meeting: RecurringMeetingModel
     
     @Binding var mainViewState: MainViewState
+    @Binding var onlyShowToday: Bool
+
     @Binding var selectedMeetingID: UUID?
     
-    let show24HourTime: Bool
     
+    let show24HourTime: Bool
     let delete: () -> Void    
     
     @State private var showSettings: Bool = false
     @State private var beingDeleted: Bool = false
+    
+    private var currentWeekDay: Int {
+        return Calendar.current.component(.weekday, from: Date())
+    }
     
     var body: some View {
         HStack {
@@ -36,19 +42,19 @@ struct MeetingItemView: View {
                         .font(.headline)
                     
                     HStack(spacing: 4) {
-                        if meeting.isCurrentlyHappening() {
+                        if meeting.isCurrentlyHappening() && onlyShowToday {
                             Text("🔵 Happening Now")
                                 .foregroundColor(.gray)
                         } else {
                             Group {
-                                Text(meeting.formattedMeetingDays)
-                                
-                                if (meeting.sameTimeEachDay) {
-                                    Text(meeting.formattedMeetingTimes(show24HourTime: show24HourTime))
+                                if !onlyShowToday {
+                                    Text(meeting.formattedMeetingDays)
                                 }
-                            }
-                            .font(.caption)
-                            .foregroundColor(.gray)
+                                
+                                Text(!onlyShowToday && !meeting.sameTimeEachDay ? "@ Various Times" :  meeting.formattedMeetingTimes(show24HourTime: show24HourTime))
+                                }
+                                .font(.caption)
+                                .foregroundColor(.gray)
                         }
                     }
                 }

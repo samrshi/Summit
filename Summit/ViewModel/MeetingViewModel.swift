@@ -9,33 +9,28 @@
 import Foundation
 
 extension RecurringMeetingModel {
-    func equals(other: RecurringMeetingModel) -> Bool {
-        name == other.name &&
-            urlString == other.urlString &&
-            days == other.days &&
-            startTime == other.startTime &&
-            endTime == other.endTime &&
-            sameTimeEachDay == other.sameTimeEachDay
-    }
-    
     var startDate: Date? {
-        guard let startTime = startTime else {
-            return nil
-        }
-        
-        let components = DateComponents(hour: startTime.hour, minute: startTime.minute)
-        let date = Calendar.current.date(from: components)
-        return date
+//        guard let startTime = startTime else {
+//            return nil
+//        }
+//
+//        let components = DateComponents(hour: startTime.hour, minute: startTime.minute)
+//        let date = Calendar.current.date(from: components)
+//        return date
+        let today = Calendar.current.component(.weekday, from: Date())
+        return meetingTimes[today - 1].startTime
     }
     
     var endDate: Date? {
-        guard let endTime = endTime else {
-            return nil
-        }
-        
-        let components = DateComponents(hour: endTime.hour, minute: endTime.minute)
-        let date = Calendar.current.date(from: components)
-        return date
+//        guard let endTime = endTime else {
+//            return nil
+//        }
+//
+//        let components = DateComponents(hour: endTime.hour, minute: endTime.minute)
+//        let date = Calendar.current.date(from: components)
+//        return date
+        let today = Calendar.current.component(.weekday, from: Date())
+        return meetingTimes[today - 1].endTime
     }
     
     func formattedMeetingTimes(show24HourTime: Bool) -> String {
@@ -56,23 +51,33 @@ extension RecurringMeetingModel {
         let weekdays = ["S", "M", "T", "W", "Th", "F", "S"]
         
         var weekDaysString = ""
-        for i in 0 ..< days.count {
-            weekDaysString.append(weekdays[days[i] - 1] + "\(i == days.count - 1 ? "" : "/")")
+        for i in 0 ..< daysOfWeek.count {
+            if meetingTimes[i].isUsed {
+                weekDaysString.append(weekdays[i] + "/")
+            }
         }
+        
+        if !weekDaysString.isEmpty {
+            weekDaysString.removeLast(1)
+        }
+        
         return weekDaysString
     }
     
     func isCurrentlyHappening() -> Bool {
-        guard let startTime = startTime, let endTime = endTime else {
+        let today = Calendar.current.component(.weekday, from: Date()) - 1
+        let sameDay = meetingTimes[today].isUsed
+        
+        if !sameDay {
             return false
         }
         
+        let startTime = meetingTimes[today].startTime.toTime()
+        let endTime = meetingTimes[today].endTime.toTime()
+        
         let currentDate = Date()
         let currentTime = currentDate.toTime()
-        
-        let currentWeekday = Calendar.current.component(.weekday, from: currentDate)
-        let sameDay = days.contains(currentWeekday)
-        
+                
         return sameDay && startTime < currentTime && currentTime < endTime
     }
 }

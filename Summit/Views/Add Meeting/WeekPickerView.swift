@@ -11,13 +11,13 @@ import SwiftUI
 struct WeekPickerView: View {
     let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     
-    @Binding var week: [Bool]
+    @Binding var week: [Weekday]
     
     var body: some View {
         HStack {
             ForEach(0..<weekDays.count) { day in
                 Button(action: {
-                    self.week[day].toggle()
+                    self.week[day].isUsed.toggle()
                 }) {
                     VStack {
                         Text(self.weekDays[day])
@@ -25,7 +25,7 @@ struct WeekPickerView: View {
                             .font(.footnote)
                         
                         ZStack {
-                            Text(self.week[day] ? "􀀁" : "􀀀")
+                            Text(self.week[day].isUsed ? "􀀁" : "􀀀")
                                 .font(.title)
                                 .foregroundColor(Color("green"))
                         }

@@ -30,7 +30,7 @@ struct AddView: View {
     @State private var currentURLString: String = ""
     @State private var currentStartTime: Date = Date()
     @State private var currentEndTime: Date = Date(timeIntervalSinceNow: 3600)
-    @State private var currentWeek: [Bool] = [Bool](repeating: false, count: 7)
+    @State private var currentWeekTimes: [Weekday] = daysOfWeek
     
     @State private var sameTimeEachDay: Bool = true
     
@@ -45,23 +45,23 @@ struct AddView: View {
     }
     
     var body: some View {
-        ZStack {
-            VStack {
+        VStack {
+            ScrollView(.vertical) {
                 VStack {
                     AddHeaderView(meeting: meeting, editViewState: editViewState)
                         .environmentObject(userInfo)
                     
                     MainInfoView(currentTitle: $currentTitle, currentURLString: $currentURLString, hasAttemptedToSave: $hasAttemptedToSave)
                     
-                    DatePickersView(currentWeek: $currentWeek, currentStartTime: $currentStartTime, currentEndTime: $currentEndTime, sameTimeEachDay: $sameTimeEachDay)
+                    DateAndTimeView(currentWeekTimes: $currentWeekTimes, currentStartTime: $currentStartTime, currentEndTime: $currentEndTime, sameTimeEachDay: $sameTimeEachDay)
                 }
                 .padding([.horizontal, .top])
-                
-                Spacer()
-                
-                FormButtonsView(editViewState: editViewState, selectedMeetingID: selectedMeetingID, currentTitle: currentTitle, currentURLString: currentURLString, currentWeek: currentWeek, currentStartTime: currentStartTime, currentEndTime: currentEndTime, sameTimeEachDay: sameTimeEachDay, showError: $showAlert, errorMessage: $alertMessage, alertType: $alertType, mainViewState: $mainViewState, hasAttemptedToSave: $hasAttemptedToSave)
-                    .environmentObject(userInfo)
             }
+            
+            Spacer()
+            
+            FormButtonsView(editViewState: editViewState, selectedMeetingID: selectedMeetingID, currentTitle: currentTitle, currentURLString: currentURLString, currentWeekDays: currentWeekTimes, currentStartTime: currentStartTime, currentEndTime: currentEndTime, sameTimeEachDay: sameTimeEachDay, showError: $showAlert, errorMessage: $alertMessage, alertType: $alertType, mainViewState: $mainViewState, hasAttemptedToSave: $hasAttemptedToSave)
+                .environmentObject(userInfo)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
@@ -77,17 +77,11 @@ struct AddView: View {
         self.currentTitle = selectedMeeting.name
         self.currentURLString = selectedMeeting.urlString
         self.sameTimeEachDay = selectedMeeting.sameTimeEachDay
-        if let startTime = selectedMeeting.startTime, let endTime = selectedMeeting.endTime {
-            self.currentStartTime = startTime.toDate()
-            self.currentEndTime = endTime.toDate()
+        if let startTime = selectedMeeting.startDate, let endTime = selectedMeeting.endDate {
+            self.currentStartTime = startTime
+            self.currentEndTime = endTime
         }
         
-        var weekResult = [Bool](repeating: false, count: 7)
-        for i in 0..<7 {
-            let dayIsIncluded = selectedMeeting.days.first(where: { $0 == i + 1 })
-            weekResult[i] = (dayIsIncluded != nil)
-        }
-        
-        self.currentWeek = weekResult
+        self.currentWeekTimes = selectedMeeting.meetingTimes
     }
 }

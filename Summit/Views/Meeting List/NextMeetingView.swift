@@ -12,6 +12,8 @@ struct NextMeetingView: View {
     @EnvironmentObject var userInfo: UserInfo
     
     @Binding var mainViewState: MainViewState
+    @Binding var onlyShowToday: Bool
+
     @Binding var selectedMeetingID: UUID?
     
     let deleteMeetings: (RecurringMeetingModel?) -> Void
@@ -24,7 +26,7 @@ struct NextMeetingView: View {
                     .transition(.opacity)
                 
                 if userInfo.nextMeeting != nil {
-                    MeetingItemView(meeting: userInfo.nextMeeting!, mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, show24HourTime: userInfo.settings.show24HourTime) {
+                    MeetingItemView(meeting: userInfo.nextMeeting!, mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, show24HourTime: userInfo.settings.show24HourTime) {
                         self.deleteMeetings(self.userInfo.nextMeeting)
                     }
                     .environmentObject(self.userInfo)

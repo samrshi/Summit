@@ -22,14 +22,14 @@ struct MeetingListView: View {
         VStack {
             VStack(alignment: .leading) {
                 if !userInfo.allMeetings.isEmpty {
-                    NextMeetingView(mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, deleteMeetings: self.deleteMeetings)
+                    NextMeetingView(mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, deleteMeetings: self.deleteMeetings)
                         .environmentObject(userInfo)
                 }
                 
                 MeetingListHeader(onlyShowToday: $onlyShowToday, showFilter: $showFilter, filterString: $filterString)
 
                 ForEach(onlyShowToday ? userInfo.todaysMeetings : userInfo.allMeetings.filter(filterLogic), id: \.id) { meeting in
-                    MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, selectedMeetingID: self.$selectedMeetingID, show24HourTime: self.userInfo.settings.show24HourTime) {
+                    MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, onlyShowToday: self.$onlyShowToday, selectedMeetingID: self.$selectedMeetingID, show24HourTime: self.userInfo.settings.show24HourTime) {
                         self.deleteMeetings(meeting: meeting)
                     }
                     .environmentObject(self.userInfo)

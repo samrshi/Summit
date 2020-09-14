@@ -15,7 +15,7 @@ struct AddHeaderView: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            Text("Add a Recurring Meeting")
+            Text("\(editViewState == .add ? "Add" : "Edit") a Recurring Meeting")
                 .heading2()
                 
             Spacer()
