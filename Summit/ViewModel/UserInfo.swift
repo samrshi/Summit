@@ -18,7 +18,6 @@ class UserInfo: ObservableObject {
             save()
         }
     }
-    
     @Published var settings: SettingsModel {
         didSet {
             save()
@@ -28,7 +27,7 @@ class UserInfo: ObservableObject {
     @Published var currentDate: Date = Date()
     @Published var nextMeeting: RecurringMeetingModel? = nil
     
-    var showingDebugging = false
+    let showingDebugging = false
     
     init() {
         let meetingsDecoded = UserInfo.getFromDefaults(forKey: meetingsKey, type: [RecurringMeetingModel].self)
