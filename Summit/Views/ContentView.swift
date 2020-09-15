@@ -76,5 +76,10 @@ struct ContentView: View {
             self.userInfo.updateDate()
             self.userInfo.getNextMeeting()
         }
+        .onAppear {
+            if self.userInfo.allMeetings.isEmpty {
+                self.onlyShowToday = false
+            }
+        }
     }
 }

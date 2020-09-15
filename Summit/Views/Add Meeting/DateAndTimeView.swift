@@ -45,31 +45,49 @@ struct DateAndTimeView: View {
                             }
                         }
                     )
+                        .transition(.opacity)
                 } else {
                     AnyView(
-                        ForEach(0 ..< currentWeekTimes.count, id: \.self) { weekday in
-                            VStack(alignment: .leading) {
-                                if self.currentWeekTimes[weekday].isUsed {
-                                    Text(self.currentWeekTimes[weekday].name)
-                                        .heading3()
-                                        .padding(.top)
-                                    
-                                    DatePicker(selection: self.$currentWeekTimes[weekday].startTime, displayedComponents: .hourAndMinute) {
-                                        Text("Start Time")
-                                            .frame(width: 70, alignment: .leading)
-                                    }
-                                    
-                                    DatePicker(selection: self.$currentWeekTimes[weekday].endTime, displayedComponents: .hourAndMinute) {
-                                        Text("End Time")
-                                            .frame(width: 70, alignment: .leading)
+                        VStack {
+                            if !self.hasSelectedWeekday() {
+                                Text("Select at least one weekday above to begin inputting meeting times")
+                                    .foregroundColor(.gray)
+                            }
+                            
+                            ForEach(0 ..< currentWeekTimes.count, id: \.self) { weekday in
+                                VStack(alignment: .leading) {
+                                    if self.currentWeekTimes[weekday].isUsed {
+                                        Text(self.currentWeekTimes[weekday].name)
+                                            .heading3()
+                                            .padding(.top)
+                                        
+                                        DatePicker(selection: self.$currentWeekTimes[weekday].startTime, displayedComponents: .hourAndMinute) {
+                                            Text("Start Time")
+                                                .frame(width: 70, alignment: .leading)
+                                        }
+                                        
+                                        DatePicker(selection: self.$currentWeekTimes[weekday].endTime, displayedComponents: .hourAndMinute) {
+                                            Text("End Time")
+                                                .frame(width: 70, alignment: .leading)
+                                        }
                                     }
                                 }
                             }
                         }
                     )
+                    .transition(.opacity)
                 }
             }
         }
         .foregroundColor(.primary)
+    }
+    
+    func hasSelectedWeekday() -> Bool {
+        for day in currentWeekTimes {
+            if day.isUsed {
+                return true
+            }
+        }
+        return false
     }
 }

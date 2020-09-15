@@ -41,6 +41,7 @@ struct EmptyStateView: View {
                             .padding(.top)
                     }
                 }
+                .transition(.scale)
                 .buttonStyle(PlainButtonStyle())
             } else {
                 VStack {

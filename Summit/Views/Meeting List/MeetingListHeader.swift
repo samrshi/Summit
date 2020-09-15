@@ -22,7 +22,11 @@ struct MeetingListHeader: View {
                     Text("\(onlyShowToday ? "Today's \(userInfo.settings.onlyShowUpcoming ? "Upcoming" : "")" : "All") Meetings")
                         .heading2()
                         .transition(.opacity)
-                    
+                        .onTapGesture {
+                            withAnimation {
+                                self.onlyShowToday.toggle()
+                            }
+                        }
                     
                     Spacer()
                     
