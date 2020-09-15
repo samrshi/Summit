@@ -43,7 +43,7 @@ struct MeetingItemView: View {
                     
                     HStack(spacing: 4) {
                         if meeting.isCurrentlyHappening() && onlyShowToday {
-                            Text("🔵 Happening Now")
+                            Text("Happening Now")
                                 .foregroundColor(.gray)
                         } else {
                             Group {

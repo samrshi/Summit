@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct MeetingListHeader: View {
+    @EnvironmentObject var userInfo: UserInfo
+    
     @Binding var onlyShowToday: Bool
     @Binding var showFilter: Bool
     @Binding var filterString: String
@@ -17,7 +19,7 @@ struct MeetingListHeader: View {
         VStack {
             VStack(alignment: .leading, spacing: 7.5) {
                 HStack {
-                    Text("\(onlyShowToday ? "Today's Upcoming" : "All") Meetings")
+                    Text("\(onlyShowToday ? "Today's \(userInfo.settings.onlyShowUpcoming ? "Upcoming" : "")" : "All") Meetings")
                         .heading2()
                         .transition(.opacity)
                     
