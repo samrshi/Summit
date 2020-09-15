@@ -72,7 +72,7 @@ extension UserInfo {
         let urlStringTrimmed = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if !urlStringTrimmed.isValidURL() {
-            completion(.error, "Invalid URL. \"\(urlStringTrimmed)\" could not be made into a URL")
+            completion(.error, "That URL doesn't look quite right... Please try again")
             return
         }
         
@@ -84,7 +84,7 @@ extension UserInfo {
         }
         
         guard let url = URL(string: newURLString) else {
-            completion(.error, "Invalid URL: \"\(urlStringTrimmed)\" is not a valid URL.")
+            completion(.error, "That URL doesn't look quite right... Please try again")
             return
         }
                 
