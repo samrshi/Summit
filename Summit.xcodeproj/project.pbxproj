@@ -29,6 +29,8 @@
 		BDB669AA24FAFAB8004052C0 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB669A924FAFAB8004052C0 /* AddView.swift */; };
 		BDB669AC24FAFAF8004052C0 /* RecurringMeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB669AB24FAFAF8004052C0 /* RecurringMeetingModel.swift */; };
 		BDB669B024FB016B004052C0 /* MeetingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB669AF24FB016B004052C0 /* MeetingItemView.swift */; };
+		BDB750E7251312AA00F1149F /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB750E6251312AA00F1149F /* Meeting.swift */; };
+		BDB750E92513155800F1149F /* OneTimeMeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB750E82513155800F1149F /* OneTimeMeetingModel.swift */; };
 		BDC5CCE424FB3CBC0003B1AB /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE324FB3CBC0003B1AB /* MainInfoView.swift */; };
 		BDC5CCE624FB3D2D0003B1AB /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE524FB3D2D0003B1AB /* FormButton.swift */; };
 		BDC5CCEA24FB41450003B1AB /* WeekPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE924FB41450003B1AB /* WeekPickerView.swift */; };
@@ -70,6 +72,8 @@
 		BDB669A924FAFAB8004052C0 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		BDB669AB24FAFAF8004052C0 /* RecurringMeetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringMeetingModel.swift; sourceTree = "<group>"; };
 		BDB669AF24FB016B004052C0 /* MeetingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingItemView.swift; sourceTree = "<group>"; };
+		BDB750E6251312AA00F1149F /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		BDB750E82513155800F1149F /* OneTimeMeetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeMeetingModel.swift; sourceTree = "<group>"; };
 		BDC5CCE324FB3CBC0003B1AB /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
 		BDC5CCE524FB3D2D0003B1AB /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
 		BDC5CCE924FB41450003B1AB /* WeekPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPickerView.swift; sourceTree = "<group>"; };
@@ -119,7 +123,9 @@
 		BD933C9E24FB14C2001F8A90 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BDB750E6251312AA00F1149F /* Meeting.swift */,
 				BDB669AB24FAFAF8004052C0 /* RecurringMeetingModel.swift */,
+				BDB750E82513155800F1149F /* OneTimeMeetingModel.swift */,
 				BD403D462505561300BBFEB0 /* SettingsModel.swift */,
 				BDE66837250C8EBD0069EF64 /* Time.swift */,
 				BDFBE9FB25101D2C0066B48C /* Weekday.swift */,
@@ -309,10 +315,12 @@
 				BDB6699624FAE83E004052C0 /* ContentView.swift in Sources */,
 				BDB669B024FB016B004052C0 /* MeetingItemView.swift in Sources */,
 				BDA07474250B2829003D593C /* EmptyStateView.swift in Sources */,
+				BDB750E7251312AA00F1149F /* Meeting.swift in Sources */,
 				BDC5CCEF24FCC1EC0003B1AB /* DateAndTimeView.swift in Sources */,
 				BD403D472505561300BBFEB0 /* SettingsModel.swift in Sources */,
 				BDFBE9FC25101D2C0066B48C /* Weekday.swift in Sources */,
 				BDB6699424FAE83E004052C0 /* AppDelegate.swift in Sources */,
+				BDB750E92513155800F1149F /* OneTimeMeetingModel.swift in Sources */,
 				BDC5CCE624FB3D2D0003B1AB /* FormButton.swift in Sources */,
 				BD403D45250555C900BBFEB0 /* MeetingsViewModel.swift in Sources */,
 				BD13CBBD24FF1D10009C5F5D /* MeetingListHeader.swift in Sources */,

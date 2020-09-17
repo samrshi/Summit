@@ -9,34 +9,9 @@
 import Foundation
 
 extension RecurringMeetingModel {
-    var startDate: Date? {
-//        guard let startTime = startTime else {
-//            return nil
-//        }
-//
-//        let components = DateComponents(hour: startTime.hour, minute: startTime.minute)
-//        let date = Calendar.current.date(from: components)
-//        return date
-        let today = Calendar.current.component(.weekday, from: Date())
-        return meetingTimes[today - 1].startTime
-    }
-    
-    var endDate: Date? {
-//        guard let endTime = endTime else {
-//            return nil
-//        }
-//
-//        let components = DateComponents(hour: endTime.hour, minute: endTime.minute)
-//        let date = Calendar.current.date(from: components)
-//        return date
-        let today = Calendar.current.component(.weekday, from: Date())
-        return meetingTimes[today - 1].endTime
-    }
-    
     func formattedMeetingTimes(show24HourTime: Bool) -> String {
-        guard let startDate = startDate, let endDate = endDate else {
-            return ""
-        }
+        let startDate = getStartDate()
+        let endDate = getEndDate()
         
         let formatter = DateFormatter()
         formatter.dateFormat = show24HourTime ? "H:mm" : "h:mm a"

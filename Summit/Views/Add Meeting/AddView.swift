@@ -77,10 +77,8 @@ struct AddView: View {
         self.currentTitle = selectedMeeting.name
         self.currentURLString = selectedMeeting.urlString
         self.sameTimeEachDay = selectedMeeting.sameTimeEachDay
-        if let startTime = selectedMeeting.startDate, let endTime = selectedMeeting.endDate {
-            self.currentStartTime = startTime
-            self.currentEndTime = endTime
-        }
+        self.currentStartTime = selectedMeeting.getStartDate()
+        self.currentEndTime = selectedMeeting.getEndDate()
         
         self.currentWeekTimes = selectedMeeting.meetingTimes
     }

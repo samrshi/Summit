@@ -26,9 +26,7 @@ extension UserInfo {
         
         for meeting in todaysMeetings {
             let currentTime = currentDate.getMinutesPlusHours()
-            guard let meetingTime = meeting.startDate?.getMinutesPlusHours() else {
-                continue
-            }
+            let meetingTime = meeting.getStartDate().getMinutesPlusHours()
             
             let difference = meetingTime - currentTime
             
