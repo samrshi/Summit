@@ -36,12 +36,7 @@ extension UserInfo {
             }
         }
         
-        if let soonestMeeting = nextMeeting {
-            self.nextMeeting = soonestMeeting
-            return
-        }
-        
-        self.nextMeeting = nil
+        self.nextMeeting = nextMeeting
     }
     
     var todaysMeetings: [RecurringMeetingModel] {
@@ -94,6 +89,11 @@ extension UserInfo {
         var endTime: Time? = nil
         if let uwEndDate = endDate {
             endTime = uwEndDate.toTime()
+        }
+        
+        if weekdays.filter({ $0.isUsed }).isEmpty {
+            completion(.error, "Please select a weekday")
+            return
         }
         
         var newWeekDays: [Weekday] = []
