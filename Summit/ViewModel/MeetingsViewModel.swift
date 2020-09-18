@@ -26,7 +26,7 @@ extension UserInfo {
         
         for meeting in todaysMeetings {
             let currentTime = currentDate.getMinutesPlusHours()
-            let meetingTime = meeting.getStartDate().getMinutesPlusHours()
+            let meetingTime = meeting.getEndDate().getMinutesPlusHours()
             
             let difference = meetingTime - currentTime
             
@@ -56,13 +56,15 @@ extension UserInfo {
             .sorted()
     }
     
-    func newMeeting(editViewState: EditViewStates, selectedMeetingID: UUID? = nil, title: String, urlString: String, weekdays: [Weekday], sameTimeEachDay: Bool, startDate: Date?, endDate: Date?, completion: @escaping (SaveResult, String) -> Void) {
-        if urlString.isEmpty || title.isEmpty {
+    func newMeeting(editViewState: EditViewStates, selectedMeetingID: UUID? = nil, attemptedNewMeeting: AttemptedNewMeeting, completion: @escaping (SaveResult, String) -> Void) {
+        let attempt = attemptedNewMeeting
+        
+        if attempt.urlString.isEmpty || attempt.title.isEmpty {
             completion(.error, "Please fill out all required fields")
             return
         }
         
-        let urlStringTrimmed = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
+        let urlStringTrimmed = attempt.urlString.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if !urlStringTrimmed.isValidURL() {
             completion(.error, "That URL doesn't look quite right... Please try again")
@@ -73,7 +75,7 @@ extension UserInfo {
         
         var newURLString = urlStringTrimmed
         if !prefix.contains("http") {
-            newURLString = "https://" + urlString
+            newURLString = "https://" + attempt.urlString
         }
         
         guard let url = URL(string: newURLString) else {
@@ -81,31 +83,24 @@ extension UserInfo {
             return
         }
                 
-        var startTime: Time? = nil
-        if let uwStartDate = startDate {
-            startTime = uwStartDate.toTime()
-        }
+        let startTime: Time = attempt.startDate.toTime()
+        let endTime: Time = attempt.endDate.toTime()
         
-        var endTime: Time? = nil
-        if let uwEndDate = endDate {
-            endTime = uwEndDate.toTime()
-        }
-        
-        if weekdays.filter({ $0.isUsed }).isEmpty {
+        if attempt.weekdays.filter({ $0.isUsed }).isEmpty {
             completion(.error, "Please select a weekday")
             return
         }
         
         var newWeekDays: [Weekday] = []
-        for day in weekdays {
+        for day in attempt.weekdays {
             newWeekDays.append(
                 Weekday(name: day.name, day: day.day, isUsed: day.isUsed,
-                        startTime: sameTimeEachDay ? startTime!.toDate() : day.startTime, endTime:
-                    sameTimeEachDay ? endTime!.toDate() : day.endTime)
+                        startTime: attempt.sameTimeEachDay ? startTime.toDate() : day.startTime, endTime:
+                    attempt.sameTimeEachDay ? endTime.toDate() : day.endTime)
                 )
         }
         
-        let meeting = RecurringMeetingModel(name: title, url: url, urlString: newURLString, sameTimeEachDay: sameTimeEachDay, meetingTimes: newWeekDays)
+        let meeting = RecurringMeetingModel(name: attempt.title, url: url, urlString: newURLString, sameTimeEachDay: attempt.sameTimeEachDay, meetingTimes: newWeekDays)
         
         switch editViewState {
         case .add:
@@ -158,7 +153,7 @@ extension UserInfo {
             week[i].startTime = Time(hour: 13, minute: 20).toDate()
             week[i].endTime = Time(hour: 14, minute: 10).toDate()
         }
-        let astr101 = RecurringMeetingModel(name: "ASTR 101", url: URL(string: "https://unc.zoom.us/j/98893223423")!, urlString: "https://unc.zoom.us/j/98893223423", sameTimeEachDay: true, meetingTimes: week)
+        let astr101 = RecurringMeetingModel(name: "ASTR 101", url: URL(string: "https://unc.zoom.us/j/94870847028")!, urlString: "https://unc.zoom.us/j/94870847028", sameTimeEachDay: true, meetingTimes: week)
         
         week = daysOfWeek
         for i in [4] {

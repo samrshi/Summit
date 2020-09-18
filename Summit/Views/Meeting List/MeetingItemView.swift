@@ -18,7 +18,7 @@ struct MeetingItemView: View {
 
     @Binding var selectedMeetingID: UUID?
     
-    
+    let isNextMeeting: Bool
     let show24HourTime: Bool
     let delete: () -> Void    
     
@@ -63,6 +63,7 @@ struct MeetingItemView: View {
             
             Spacer()
             
+            if !isNextMeeting {
             Group {
                 Text("􀍠")
                     .foregroundColor(.primary)
@@ -105,6 +106,7 @@ struct MeetingItemView: View {
                 }
             }
             .font(.headline)
+            }
         }
         .scaleEffect(beingDeleted ? 0.001 : 1)
         .transition(.opacity)

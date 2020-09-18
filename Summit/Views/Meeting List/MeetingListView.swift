@@ -18,21 +18,21 @@ struct MeetingListView: View {
     @State private var showFilter: Bool = false
     @State private var filterString: String = ""
     
+    @State private var nextMeeting: RecurringMeetingModel = blankMeeting
+    
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
                 if !userInfo.allMeetings.isEmpty {
                     NextMeetingView(mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, deleteMeetings: self.deleteMeetings)
-                        .environmentObject(userInfo)
                 }
                 
                 MeetingListHeader(onlyShowToday: $onlyShowToday, showFilter: $showFilter, filterString: $filterString)
 
                 ForEach(onlyShowToday ? userInfo.todaysMeetings : userInfo.allMeetings.filter(filterLogic), id: \.id) { meeting in
-                    MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, onlyShowToday: self.$onlyShowToday, selectedMeetingID: self.$selectedMeetingID, show24HourTime: self.userInfo.settings.show24HourTime) {
+                    MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, onlyShowToday: self.$onlyShowToday, selectedMeetingID: self.$selectedMeetingID, isNextMeeting: false, show24HourTime: self.userInfo.settings.show24HourTime) {
                         self.deleteMeetings(meeting: meeting)
                     }
-                    .environmentObject(self.userInfo)
                 }
             }
             
@@ -47,6 +47,7 @@ struct MeetingListView: View {
         .onAppear {
             self.userInfo.updateDate()
             self.userInfo.getNextMeeting()
+            self.nextMeeting = self.userInfo.nextMeeting ?? blankMeeting
         }
     }
     

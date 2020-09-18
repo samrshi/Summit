@@ -50,7 +50,6 @@ struct ContentView: View {
                     SettingsView(mainViewState: $mainViewState)
                 }
             }
-            .environmentObject(userInfo)
             
             if self.mainViewState == .list {
                 FooterView(primaryTitle: "Add a Meeting", primaryAction: {
@@ -68,6 +67,7 @@ struct ContentView: View {
                 )
             }
         }
+        .environmentObject(userInfo)
         .background(Color.background)
         .customAlert(isPresented: $showAlert, message: alertMessage, alertType: alertType, buttonTitle: "Yes") {
             NSApplication.shared.terminate(self)

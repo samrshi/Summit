@@ -10,7 +10,6 @@ import SwiftUI
 
 struct AddHeaderView: View {
     @EnvironmentObject var userInfo: UserInfo
-    let meeting: RecurringMeetingModel
     let editViewState: EditViewStates
     
     var body: some View {
