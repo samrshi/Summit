@@ -31,7 +31,7 @@ struct FormButtonsView: View {
     }
     
     func saveButtonAction() {
-        self.userInfo.newMeeting(editViewState: editViewState, attemptedNewMeeting: newMeeting) { result, message in
+        self.userInfo.newMeeting(editViewState: editViewState, selectedMeetingID: selectedMeetingID, attemptedNewMeeting: newMeeting) { result, message in
             if result == .success {
                 self.mainViewState = .list
             } else {

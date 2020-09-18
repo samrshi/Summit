@@ -46,10 +46,15 @@ struct SettingsView: View {
                 .buttonStyle(LinkButtonStyle())
                 .foregroundColor(.red)
                 .padding(5)
+                
+                Spacer()
+                
+                Text(appVersion != nil ? "Summit Version \(appVersion!)" : "")
+                    .foregroundColor(.gray)
             }
-            Spacer()
+            
         }
-        .padding([.horizontal])
+        .padding([.horizontal, .bottom])
         .transition(.move(edge: .trailing))
     }
 }

@@ -34,8 +34,6 @@ struct NextMeetingView: View {
                         .foregroundColor(.primary)
                         .padding(.vertical)
                 }
-                
-                Divider()
             }
         }
         .transition(.opacity)

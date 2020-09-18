@@ -23,9 +23,11 @@ struct MeetingListView: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
-                if !userInfo.allMeetings.isEmpty {
+                if onlyShowToday && !userInfo.allMeetings.isEmpty {
                     NextMeetingView(mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, deleteMeetings: self.deleteMeetings)
                 }
+                
+                Divider()
                 
                 MeetingListHeader(onlyShowToday: $onlyShowToday, showFilter: $showFilter, filterString: $filterString)
 

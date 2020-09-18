@@ -20,6 +20,7 @@
 		BD5848E6250FE11400B36CCB /* AddHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E5250FE11400B36CCB /* AddHeaderView.swift */; };
 		BD933CA024FB14E5001F8A90 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD933C9F24FB14E5001F8A90 /* Header.swift */; };
 		BDA07474250B2829003D593C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA07473250B2829003D593C /* EmptyStateView.swift */; };
+		BDA554A82514563700C84398 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA554A72514563700C84398 /* AppVersion.swift */; };
 		BDA7D97B24FD60B500A18CA8 /* URLValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */; };
 		BDB6699424FAE83E004052C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6699324FAE83E004052C0 /* AppDelegate.swift */; };
 		BDB6699624FAE83E004052C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6699524FAE83E004052C0 /* ContentView.swift */; };
@@ -60,6 +61,7 @@
 		BD5848E5250FE11400B36CCB /* AddHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeaderView.swift; sourceTree = "<group>"; };
 		BD933C9F24FB14E5001F8A90 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		BDA07473250B2829003D593C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		BDA554A72514563700C84398 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidity.swift; sourceTree = "<group>"; };
 		BDB6699024FAE83E004052C0 /* Summit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB6699324FAE83E004052C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				BDF0AC8D250851480050ECD4 /* CustomAlertView.swift */,
 				BD5848E3250FCF2D00B36CCB /* FontStyles.swift */,
 				BD5848DF250FCE7400B36CCB /* Colors.swift */,
+				BDA554A72514563700C84398 /* AppVersion.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDA554A82514563700C84398 /* AppVersion.swift in Sources */,
 				BD403D432505517D00BBFEB0 /* SettingsView.swift in Sources */,
 				BD13CBC124FF4011009C5F5D /* FooterView.swift in Sources */,
 				BDB669AA24FAFAB8004052C0 /* AddView.swift in Sources */,
@@ -477,7 +481,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Summit/Preview Content\"";
 				DEVELOPMENT_TEAM = Q9PPH2T3L2;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -488,6 +492,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samuelshi.Summit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -502,7 +507,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Summit/Preview Content\"";
 				DEVELOPMENT_TEAM = Q9PPH2T3L2;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -513,6 +518,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samuelshi.Summit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

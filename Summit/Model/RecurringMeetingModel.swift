@@ -19,6 +19,20 @@ struct RecurringMeetingModel: Meeting, Comparable {
     
     var meetingTimes: [Weekday] = []
     
+    func getStartDate() -> Date {
+        let today = Calendar.current.component(.weekday, from: Date())
+        return meetingTimes[today - 1].startTime
+    }
+    
+    func getEndDate() -> Date {
+        let today = Calendar.current.component(.weekday, from: Date())
+        return meetingTimes[today - 1].endTime
+    }
+    
+    func getFormattedTime(show24HourTime: Bool) -> String {
+        formattedMeetingTimes(show24HourTime: show24HourTime)
+    }
+    
     static func < (lhs: RecurringMeetingModel, rhs: RecurringMeetingModel) -> Bool {
         let lhsDate = lhs.getStartDate()
         let rhsDate = rhs.getStartDate()
@@ -30,16 +44,6 @@ struct RecurringMeetingModel: Meeting, Comparable {
     
     static func == (lhs: RecurringMeetingModel, rhs: RecurringMeetingModel) -> Bool {
         lhs.id == rhs.id
-    }
-    
-    func getStartDate() -> Date {
-        let today = Calendar.current.component(.weekday, from: Date())
-        return meetingTimes[today - 1].startTime
-    }
-    
-    func getEndDate() -> Date {
-        let today = Calendar.current.component(.weekday, from: Date())
-        return meetingTimes[today - 1].endTime
     }
 }
 
