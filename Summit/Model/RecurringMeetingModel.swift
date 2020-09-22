@@ -9,7 +9,7 @@
 import Foundation
 
 struct RecurringMeetingModel: Meeting, Comparable {
-    let id = UUID()
+    var id = UUID()
     
     var name: String
     var url: URL

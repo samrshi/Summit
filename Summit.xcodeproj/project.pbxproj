@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD0717ED250B1437001FEFCD /* CallToActionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0717EC250B1437001FEFCD /* CallToActionStyle.swift */; };
+		BD0717ED250B1437001FEFCD /* Text+CallToActionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0717EC250B1437001FEFCD /* Text+CallToActionStyle.swift */; };
 		BD13CBBD24FF1D10009C5F5D /* MeetingListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13CBBC24FF1D10009C5F5D /* MeetingListHeader.swift */; };
 		BD13CBC124FF4011009C5F5D /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13CBC024FF4011009C5F5D /* FooterView.swift */; };
 		BD20FA0B24FB2E2300E74D39 /* MeetingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20FA0A24FB2E2300E74D39 /* MeetingListView.swift */; };
 		BD403D432505517D00BBFEB0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD403D422505517D00BBFEB0 /* SettingsView.swift */; };
 		BD403D45250555C900BBFEB0 /* MeetingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD403D44250555C900BBFEB0 /* MeetingsViewModel.swift */; };
 		BD403D472505561300BBFEB0 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD403D462505561300BBFEB0 /* SettingsModel.swift */; };
-		BD5848E0250FCE7400B36CCB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848DF250FCE7400B36CCB /* Colors.swift */; };
-		BD5848E2250FCEBD00B36CCB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E1250FCEBD00B36CCB /* Date.swift */; };
-		BD5848E4250FCF2D00B36CCB /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E3250FCF2D00B36CCB /* FontStyles.swift */; };
+		BD5848E0250FCE7400B36CCB /* Color+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848DF250FCE7400B36CCB /* Color+Colors.swift */; };
+		BD5848E2250FCEBD00B36CCB /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E1250FCEBD00B36CCB /* Date+Extensions.swift */; };
+		BD5848E4250FCF2D00B36CCB /* Text+FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E3250FCF2D00B36CCB /* Text+FontStyles.swift */; };
 		BD5848E6250FE11400B36CCB /* AddHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E5250FE11400B36CCB /* AddHeaderView.swift */; };
 		BD933CA024FB14E5001F8A90 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD933C9F24FB14E5001F8A90 /* Header.swift */; };
 		BD9CAFB5251A7F8D006668C5 /* View+SystemName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CAFB4251A7F8D006668C5 /* View+SystemName.swift */; };
 		BD9CAFB8251A863F006668C5 /* View+ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CAFB7251A863E006668C5 /* View+ConditionalModifier.swift */; };
 		BDA07474250B2829003D593C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA07473250B2829003D593C /* EmptyStateView.swift */; };
 		BDA554A82514563700C84398 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA554A72514563700C84398 /* AppVersion.swift */; };
-		BDA7D97B24FD60B500A18CA8 /* URLValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */; };
+		BDA7D97B24FD60B500A18CA8 /* String+URLValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7D97A24FD60B500A18CA8 /* String+URLValidity.swift */; };
 		BDB6699424FAE83E004052C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6699324FAE83E004052C0 /* AppDelegate.swift */; };
 		BDB6699624FAE83E004052C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6699524FAE83E004052C0 /* ContentView.swift */; };
 		BDB6699B24FAE841004052C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB6699A24FAE841004052C0 /* Assets.xcassets */; };
@@ -35,7 +35,7 @@
 		BDB750E7251312AA00F1149F /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB750E6251312AA00F1149F /* Meeting.swift */; };
 		BDB750E92513155800F1149F /* OneTimeMeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB750E82513155800F1149F /* OneTimeMeetingModel.swift */; };
 		BDC5CCE424FB3CBC0003B1AB /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE324FB3CBC0003B1AB /* MainInfoView.swift */; };
-		BDC5CCE624FB3D2D0003B1AB /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE524FB3D2D0003B1AB /* FormButton.swift */; };
+		BDC5CCE624FB3D2D0003B1AB /* View+FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE524FB3D2D0003B1AB /* View+FormButton.swift */; };
 		BDC5CCEA24FB41450003B1AB /* WeekPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCE924FB41450003B1AB /* WeekPickerView.swift */; };
 		BDC5CCED24FB440D0003B1AB /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCEC24FB440D0003B1AB /* UserInfo.swift */; };
 		BDC5CCEF24FCC1EC0003B1AB /* DateAndTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC5CCEE24FCC1EC0003B1AB /* DateAndTimeView.swift */; };
@@ -44,29 +44,29 @@
 		BDDCB29324FDAEC70006E1EA /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDCB29224FDAEC70006E1EA /* MeetingViewModel.swift */; };
 		BDE66836250BEFB30069EF64 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = BDE66835250BEFB30069EF64 /* Assets */; };
 		BDE66838250C8EBD0069EF64 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE66837250C8EBD0069EF64 /* Time.swift */; };
-		BDEF51A624FD6E9E00D9987C /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEF51A524FD6E9E00D9987C /* CustomAlert.swift */; };
-		BDF0AC8E250851480050ECD4 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF0AC8D250851480050ECD4 /* CustomAlertView.swift */; };
+		BDEF51A624FD6E9E00D9987C /* View+CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEF51A524FD6E9E00D9987C /* View+CustomAlert.swift */; };
+		BDF0B07C251AAAC900FACE45 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF0B07B251AAAC900FACE45 /* CalendarManager.swift */; };
 		BDFBE9FC25101D2C0066B48C /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFBE9FB25101D2C0066B48C /* Weekday.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BD0717EC250B1437001FEFCD /* CallToActionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionStyle.swift; sourceTree = "<group>"; };
+		BD0717EC250B1437001FEFCD /* Text+CallToActionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+CallToActionStyle.swift"; sourceTree = "<group>"; };
 		BD13CBBC24FF1D10009C5F5D /* MeetingListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListHeader.swift; sourceTree = "<group>"; };
 		BD13CBC024FF4011009C5F5D /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		BD20FA0A24FB2E2300E74D39 /* MeetingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListView.swift; sourceTree = "<group>"; };
 		BD403D422505517D00BBFEB0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BD403D44250555C900BBFEB0 /* MeetingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsViewModel.swift; sourceTree = "<group>"; };
 		BD403D462505561300BBFEB0 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
-		BD5848DF250FCE7400B36CCB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		BD5848E1250FCEBD00B36CCB /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		BD5848E3250FCF2D00B36CCB /* FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
+		BD5848DF250FCE7400B36CCB /* Color+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Colors.swift"; sourceTree = "<group>"; };
+		BD5848E1250FCEBD00B36CCB /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		BD5848E3250FCF2D00B36CCB /* Text+FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+FontStyles.swift"; sourceTree = "<group>"; };
 		BD5848E5250FE11400B36CCB /* AddHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeaderView.swift; sourceTree = "<group>"; };
 		BD933C9F24FB14E5001F8A90 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		BD9CAFB4251A7F8D006668C5 /* View+SystemName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+SystemName.swift"; sourceTree = "<group>"; };
 		BD9CAFB7251A863E006668C5 /* View+ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ConditionalModifier.swift"; sourceTree = "<group>"; };
 		BDA07473250B2829003D593C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		BDA554A72514563700C84398 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
-		BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidity.swift; sourceTree = "<group>"; };
+		BDA7D97A24FD60B500A18CA8 /* String+URLValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URLValidity.swift"; sourceTree = "<group>"; };
 		BDB6699024FAE83E004052C0 /* Summit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB6699324FAE83E004052C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDB6699524FAE83E004052C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		BDB750E6251312AA00F1149F /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		BDB750E82513155800F1149F /* OneTimeMeetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeMeetingModel.swift; sourceTree = "<group>"; };
 		BDC5CCE324FB3CBC0003B1AB /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
-		BDC5CCE524FB3D2D0003B1AB /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
+		BDC5CCE524FB3D2D0003B1AB /* View+FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FormButton.swift"; sourceTree = "<group>"; };
 		BDC5CCE924FB41450003B1AB /* WeekPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPickerView.swift; sourceTree = "<group>"; };
 		BDC5CCEC24FB440D0003B1AB /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BDC5CCEE24FCC1EC0003B1AB /* DateAndTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndTimeView.swift; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 		BDDCB29224FDAEC70006E1EA /* MeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewModel.swift; sourceTree = "<group>"; };
 		BDE66835250BEFB30069EF64 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		BDE66837250C8EBD0069EF64 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
-		BDEF51A524FD6E9E00D9987C /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
-		BDF0AC8D250851480050ECD4 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		BDEF51A524FD6E9E00D9987C /* View+CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CustomAlert.swift"; sourceTree = "<group>"; };
+		BDF0B07B251AAAC900FACE45 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		BDFBE9FB25101D2C0066B48C /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,17 +142,8 @@
 		BDA7D97924FD609B00A18CA8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				BDC5CCE524FB3D2D0003B1AB /* FormButton.swift */,
-				BD5848E1250FCEBD00B36CCB /* Date.swift */,
-				BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */,
-				BD0717EC250B1437001FEFCD /* CallToActionStyle.swift */,
-				BDEF51A524FD6E9E00D9987C /* CustomAlert.swift */,
-				BDF0AC8D250851480050ECD4 /* CustomAlertView.swift */,
-				BD5848E3250FCF2D00B36CCB /* FontStyles.swift */,
-				BD5848DF250FCE7400B36CCB /* Colors.swift */,
-				BDA554A72514563700C84398 /* AppVersion.swift */,
-				BD9CAFB4251A7F8D006668C5 /* View+SystemName.swift */,
-				BD9CAFB7251A863E006668C5 /* View+ConditionalModifier.swift */,
+				BDF0B072251AAA6D00FACE45 /* Extensions */,
+				BDF0B07B251AAAC900FACE45 /* CalendarManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -233,6 +224,23 @@
 				BDDCB29224FDAEC70006E1EA /* MeetingViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BDF0B072251AAA6D00FACE45 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BDC5CCE524FB3D2D0003B1AB /* View+FormButton.swift */,
+				BDEF51A524FD6E9E00D9987C /* View+CustomAlert.swift */,
+				BD9CAFB4251A7F8D006668C5 /* View+SystemName.swift */,
+				BD9CAFB7251A863E006668C5 /* View+ConditionalModifier.swift */,
+				BD5848E1250FCEBD00B36CCB /* Date+Extensions.swift */,
+				BD0717EC250B1437001FEFCD /* Text+CallToActionStyle.swift */,
+				BD5848E3250FCF2D00B36CCB /* Text+FontStyles.swift */,
+				BD5848DF250FCE7400B36CCB /* Color+Colors.swift */,
+				BDA7D97A24FD60B500A18CA8 /* String+URLValidity.swift */,
+				BDA554A72514563700C84398 /* AppVersion.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,30 +326,30 @@
 				BD20FA0B24FB2E2300E74D39 /* MeetingListView.swift in Sources */,
 				BDE66838250C8EBD0069EF64 /* Time.swift in Sources */,
 				BD9CAFB8251A863F006668C5 /* View+ConditionalModifier.swift in Sources */,
-				BDF0AC8E250851480050ECD4 /* CustomAlertView.swift in Sources */,
-				BD5848E4250FCF2D00B36CCB /* FontStyles.swift in Sources */,
+				BD5848E4250FCF2D00B36CCB /* Text+FontStyles.swift in Sources */,
 				BDDCAB442500722900FFFD05 /* NextMeetingView.swift in Sources */,
 				BDC5CCEA24FB41450003B1AB /* WeekPickerView.swift in Sources */,
-				BD5848E0250FCE7400B36CCB /* Colors.swift in Sources */,
-				BDA7D97B24FD60B500A18CA8 /* URLValidity.swift in Sources */,
+				BD5848E0250FCE7400B36CCB /* Color+Colors.swift in Sources */,
+				BDA7D97B24FD60B500A18CA8 /* String+URLValidity.swift in Sources */,
 				BDB6699624FAE83E004052C0 /* ContentView.swift in Sources */,
 				BDB669B024FB016B004052C0 /* MeetingItemView.swift in Sources */,
 				BDA07474250B2829003D593C /* EmptyStateView.swift in Sources */,
 				BDB750E7251312AA00F1149F /* Meeting.swift in Sources */,
 				BDC5CCEF24FCC1EC0003B1AB /* DateAndTimeView.swift in Sources */,
+				BDF0B07C251AAAC900FACE45 /* CalendarManager.swift in Sources */,
 				BD403D472505561300BBFEB0 /* SettingsModel.swift in Sources */,
 				BDFBE9FC25101D2C0066B48C /* Weekday.swift in Sources */,
 				BDB6699424FAE83E004052C0 /* AppDelegate.swift in Sources */,
 				BDB750E92513155800F1149F /* OneTimeMeetingModel.swift in Sources */,
-				BDC5CCE624FB3D2D0003B1AB /* FormButton.swift in Sources */,
+				BDC5CCE624FB3D2D0003B1AB /* View+FormButton.swift in Sources */,
 				BD403D45250555C900BBFEB0 /* MeetingsViewModel.swift in Sources */,
 				BD13CBBD24FF1D10009C5F5D /* MeetingListHeader.swift in Sources */,
-				BD0717ED250B1437001FEFCD /* CallToActionStyle.swift in Sources */,
+				BD0717ED250B1437001FEFCD /* Text+CallToActionStyle.swift in Sources */,
 				BDC5CCED24FB440D0003B1AB /* UserInfo.swift in Sources */,
-				BD5848E2250FCEBD00B36CCB /* Date.swift in Sources */,
+				BD5848E2250FCEBD00B36CCB /* Date+Extensions.swift in Sources */,
 				BDB669AC24FAFAF8004052C0 /* RecurringMeetingModel.swift in Sources */,
 				BDC5CCE424FB3CBC0003B1AB /* MainInfoView.swift in Sources */,
-				BDEF51A624FD6E9E00D9987C /* CustomAlert.swift in Sources */,
+				BDEF51A624FD6E9E00D9987C /* View+CustomAlert.swift in Sources */,
 				BDDCB29324FDAEC70006E1EA /* MeetingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

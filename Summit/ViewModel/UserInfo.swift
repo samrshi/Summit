@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EventKit
 
 let meetingsKey = "meetings"
 let settingsKey = "settings"

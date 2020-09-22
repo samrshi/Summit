@@ -60,7 +60,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "109"
                   endingLineNumber = "109"
-                  offsetFromSymbolStart = "4549">
+                  offsetFromSymbolStart = "4746">
                </Location>
                <Location
                   uuid = "32D5E43E-C04F-414B-A4D5-94A2862B8A2E - c66f352476d3aa78"
@@ -75,7 +75,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "109"
                   endingLineNumber = "109"
-                  offsetFromSymbolStart = "125">
+                  offsetFromSymbolStart = "104">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -83,17 +83,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7EEE5FDF-609E-434A-902F-D63015F1B29A"
-            shouldBeEnabled = "Yes"
+            uuid = "99CF57AA-1DFF-4176-8890-DB334DD21B25"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Summit/Views/Meeting List/MeetingItemView.swift"
+            filePath = "Summit/Helpers/CalendarManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "containsMeetingLink(text:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

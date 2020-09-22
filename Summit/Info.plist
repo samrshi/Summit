@@ -34,6 +34,8 @@
 	<string>NSApplication</string>
 	<key>NSSupportsAutomaticTermination</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>We want access to your calendar to include calendar meetings</string>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
 </dict>

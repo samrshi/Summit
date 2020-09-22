@@ -9,7 +9,7 @@
 import Foundation
 
 struct Weekday: Codable {
-    let id = UUID()
+    var id = UUID()
     
     let name: String
     let day: Int

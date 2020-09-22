@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import EventKit
 
 enum MainViewState {
     case list
