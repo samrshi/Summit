@@ -21,15 +21,15 @@ struct CustomAlert: View {
         Group {
             VStack {
                 HStack {
-                        Text(alertType == .error ? "􀇾" : "􀅴")
-                            .foregroundColor(alertType == .error ? .red : .blue)
-                            .font(.title)
-                                        
+                    Image.sfSymbol(systemName: alertType == .error ? "exclamationmark.triangle" : "info.circle")
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(alertType == .error ? .red : .blue)
+                    
                     VStack(alignment: .leading) {
                         Text(alertType == .error ? "Error" : "Are you sure?")
                             .font(.headline)
                             .fontWeight(.semibold)
-
+                        
                         Text(message)
                     }
                 }

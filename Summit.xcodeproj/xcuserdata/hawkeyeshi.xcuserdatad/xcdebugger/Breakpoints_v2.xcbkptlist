@@ -48,7 +48,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "32D5E43E-C04F-414B-A4D5-94A2862B8A2E - 2c83bedba8526b30"
+                  uuid = "32D5E43E-C04F-414B-A4D5-94A2862B8A2E - 2af3c7fed1d5cac3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -63,7 +63,7 @@
                   offsetFromSymbolStart = "4549">
                </Location>
                <Location
-                  uuid = "32D5E43E-C04F-414B-A4D5-94A2862B8A2E - c01f4c010f540b8b"
+                  uuid = "32D5E43E-C04F-414B-A4D5-94A2862B8A2E - c66f352476d3aa78"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -90,8 +90,8 @@
             filePath = "Summit/Views/Meeting List/MeetingItemView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

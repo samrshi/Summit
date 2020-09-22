@@ -28,8 +28,8 @@ struct Header: View {
                             self.mainViewState = self.mainViewState != .settings ? .settings : .list
                         }
                     }) {
-                        Text("􀍟")
-                            .font(.headline)
+                        Image.sfSymbol(systemName: "gear")
+                            .frame(width: 20, height: 20)
                             .foregroundColor(.gray)
                     }
                     .buttonStyle(PlainButtonStyle())

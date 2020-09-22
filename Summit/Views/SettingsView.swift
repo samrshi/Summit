@@ -16,12 +16,20 @@ struct SettingsView: View {
     var body: some View {
         Form {
             VStack(alignment: .leading) {
-                Button("􀆉 Back") {
+                Button(action: {
                     withAnimation {
                         self.mainViewState = .list
                     }
+                }) {
+                    HStack {
+                        Image.sfSymbol(systemName: "chevron.left")
+                            .frame(height: 14)
+                        
+                        Text("Back")
+                            .font(.callout)
+                    }
+                    .foregroundColor(.blue)
                 }
-                .font(.callout)
                 .buttonStyle(LinkButtonStyle())
                 
                 Text("Preferences")

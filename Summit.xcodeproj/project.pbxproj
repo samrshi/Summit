@@ -19,6 +19,8 @@
 		BD5848E4250FCF2D00B36CCB /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E3250FCF2D00B36CCB /* FontStyles.swift */; };
 		BD5848E6250FE11400B36CCB /* AddHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E5250FE11400B36CCB /* AddHeaderView.swift */; };
 		BD933CA024FB14E5001F8A90 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD933C9F24FB14E5001F8A90 /* Header.swift */; };
+		BD9CAFB5251A7F8D006668C5 /* View+SystemName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CAFB4251A7F8D006668C5 /* View+SystemName.swift */; };
+		BD9CAFB8251A863F006668C5 /* View+ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CAFB7251A863E006668C5 /* View+ConditionalModifier.swift */; };
 		BDA07474250B2829003D593C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA07473250B2829003D593C /* EmptyStateView.swift */; };
 		BDA554A82514563700C84398 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA554A72514563700C84398 /* AppVersion.swift */; };
 		BDA7D97B24FD60B500A18CA8 /* URLValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */; };
@@ -60,6 +62,8 @@
 		BD5848E3250FCF2D00B36CCB /* FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
 		BD5848E5250FE11400B36CCB /* AddHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeaderView.swift; sourceTree = "<group>"; };
 		BD933C9F24FB14E5001F8A90 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		BD9CAFB4251A7F8D006668C5 /* View+SystemName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+SystemName.swift"; sourceTree = "<group>"; };
+		BD9CAFB7251A863E006668C5 /* View+ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ConditionalModifier.swift"; sourceTree = "<group>"; };
 		BDA07473250B2829003D593C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		BDA554A72514563700C84398 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		BDA7D97A24FD60B500A18CA8 /* URLValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidity.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				BD5848E3250FCF2D00B36CCB /* FontStyles.swift */,
 				BD5848DF250FCE7400B36CCB /* Colors.swift */,
 				BDA554A72514563700C84398 /* AppVersion.swift */,
+				BD9CAFB4251A7F8D006668C5 /* View+SystemName.swift */,
+				BD9CAFB7251A863E006668C5 /* View+ConditionalModifier.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -256,7 +262,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = samrshi;
 				TargetAttributes = {
 					BDB6698F24FAE83E004052C0 = {
@@ -302,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDA554A82514563700C84398 /* AppVersion.swift in Sources */,
+				BD9CAFB5251A7F8D006668C5 /* View+SystemName.swift in Sources */,
 				BD403D432505517D00BBFEB0 /* SettingsView.swift in Sources */,
 				BD13CBC124FF4011009C5F5D /* FooterView.swift in Sources */,
 				BDB669AA24FAFAB8004052C0 /* AddView.swift in Sources */,
@@ -310,6 +317,7 @@
 				BD5848E6250FE11400B36CCB /* AddHeaderView.swift in Sources */,
 				BD20FA0B24FB2E2300E74D39 /* MeetingListView.swift in Sources */,
 				BDE66838250C8EBD0069EF64 /* Time.swift in Sources */,
+				BD9CAFB8251A863F006668C5 /* View+ConditionalModifier.swift in Sources */,
 				BDF0AC8E250851480050ECD4 /* CustomAlertView.swift in Sources */,
 				BD5848E4250FCF2D00B36CCB /* FontStyles.swift in Sources */,
 				BDDCAB442500722900FFFD05 /* NextMeetingView.swift in Sources */,
@@ -378,6 +386,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -442,6 +451,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

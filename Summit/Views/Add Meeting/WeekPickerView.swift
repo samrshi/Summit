@@ -24,10 +24,20 @@ struct WeekPickerView: View {
                             .foregroundColor(.primary)
                             .font(.footnote)
                         
-                        ZStack {
-                            Text(self.week[day].isUsed ? "􀀁" : "􀀀")
-                                .font(.title)
-                                .foregroundColor(Color("green"))
+                        VStack {
+                            Circle()
+                                .if(condition: !self.week[day].isUsed) {
+                                    $0.stroke(Color("green"), lineWidth: 3)
+                                        .background(Color.gray.opacity(0.0001))
+                                }
+                                .if(condition: self.week[day].isUsed) {
+                                    $0.overlay(
+                                        Circle()
+                                            .fill(Color("green"))
+                                            .frame(width: 30)
+                                    )
+                                }
+                                .frame(width: 30, height: 30)
                         }
                     }
                     .padding(.horizontal, 6)

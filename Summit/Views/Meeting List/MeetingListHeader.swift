@@ -37,8 +37,8 @@ struct MeetingListHeader: View {
                             self.filterString = ""
                         }
                     }) {
-                        Text("􀊫")
-                            .font(.callout)
+                        Image.sfSymbol(systemName: "magnifyingglass")
+                            .frame(width: 16, height: 16)
                             .foregroundColor(.gray)
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -50,7 +50,7 @@ struct MeetingListHeader: View {
                     }
                 }) {
                     HStack {
-                        Text("􀆈")
+                        Image.sfSymbol(systemName: "chevron.down")
                             .rotation3DEffect(Angle(degrees: onlyShowToday ? 0 : 180), axis: (x: 10, y: 0, z: 0))
                             .animation(.spring())
                             .frame(width: 15)

@@ -32,9 +32,9 @@ struct MeetingItemView: View {
     var body: some View {
         HStack {
             HStack {
-                Text("􀄔")
+                Image.sfSymbol(systemName: "arrow.up.right.square")
+                    .frame(height: 15)
                     .foregroundColor(.green)
-                    .font(.callout)
                 
                 VStack(alignment: .leading) {
                     Text(meeting.name)
@@ -65,7 +65,8 @@ struct MeetingItemView: View {
             
             if !isNextMeeting {
             Group {
-                Text("􀍠")
+                Image.sfSymbol(systemName: "ellipsis")
+                    .frame(width: 16)
                     .foregroundColor(.primary)
                     .rotationEffect(Angle(degrees: self.showSettings ? -90 : 0))
                     .onTapGesture {
@@ -99,7 +100,8 @@ struct MeetingItemView: View {
                             self.delete()
                         }
                     }) {
-                        Text("􀈑")
+                        Image.sfSymbol(systemName: "trash")
+                            .frame(height: 18)
                             .foregroundColor(.red)
                     }
                     .buttonStyle(PlainButtonStyle())
