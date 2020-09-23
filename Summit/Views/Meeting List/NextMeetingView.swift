@@ -26,9 +26,7 @@ struct NextMeetingView: View {
                     .transition(.opacity)
                 
                 if userInfo.nextMeeting != nil {
-                    MeetingItemView(meeting: userInfo.nextMeeting!, mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, isNextMeeting: true, show24HourTime: userInfo.settings.show24HourTime) {
-                        self.deleteMeetings(self.userInfo.nextMeeting)
-                    }
+                    MeetingItemView(meeting: userInfo.nextMeeting!, mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, hideOptions: true, show24HourTime: userInfo.settings.show24HourTime) {}
                 } else {
                     Text("No more meetings today! 🎉")
                         .foregroundColor(.primary)

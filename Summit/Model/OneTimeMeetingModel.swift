@@ -14,6 +14,7 @@ struct OneTimeMeetingModel: Meeting {
     var url: URL
     var urlString: String
     
+    var allDay: Bool
     var startDate: Date
     var endDate: Date
     
@@ -25,14 +26,18 @@ struct OneTimeMeetingModel: Meeting {
         endDate
     }
     
-    func getFormattedTime(show24HourTime: Bool) -> String {
+    func isHappeningNow() -> Bool {
+        startDate <= Date() && Date() >= endDate
+    }
+    
+    func sameDay() -> Bool {
+        Calendar.current.isDate(startDate, equalTo: Date(), toGranularity: .day)
+    }
+    
+    func getFormattedTime(show24HourTime: Bool, onlyShowingToday: Bool) -> String {
         let formatter = DateFormatter()
-
-        let startComp = Calendar.current.dateComponents([.month, .day, .year], from: startDate)
-        let currentComp = Calendar.current.dateComponents([.month, .day, .year], from: Date())
-        let sameDay = (startComp == currentComp)
         
-        formatter.dateFormat = sameDay ? "Today hh:mm a" : "M dd hh:mm a"
+        formatter.dateFormat = sameDay() && onlyShowingToday ? "'Today' h:mm a" : "MMM dd h:mm a"
         let startString = formatter.string(from: startDate)
         
         formatter.dateFormat = "hh:mm a"

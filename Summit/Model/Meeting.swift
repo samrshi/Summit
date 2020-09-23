@@ -17,6 +17,8 @@ protocol Meeting: Codable {
     
     func getStartDate() -> Date
     func getEndDate() -> Date
+    func isHappeningNow() -> Bool
+    func sameDay() -> Bool
     
-    func getFormattedTime(show24HourTime: Bool) -> String
+    func getFormattedTime(show24HourTime: Bool, onlyShowingToday: Bool) -> String
 }

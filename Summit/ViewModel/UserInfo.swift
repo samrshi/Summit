@@ -13,31 +13,53 @@ let meetingsKey = "meetings"
 let settingsKey = "settings"
 
 class UserInfo: ObservableObject {
+    // recurring meetings
     @Published var allMeetings: [RecurringMeetingModel] {
         didSet {
             getNextMeeting()
             save()
         }
     }
+    
+    // events from calendar
+    @Published var calendarEvents: [OneTimeMeetingModel] = []
+
+    // user settings
     @Published var settings: SettingsModel {
         didSet {
             save()
         }
     }
-    
+        
     @Published var currentDate: Date = Date()
-    @Published var nextMeeting: RecurringMeetingModel? = nil
+    @Published var nextMeeting: Meeting? = nil
     
     let showingDebugging = false
     
     init() {
+        // decode recurring meetings from UserDefaults
         let meetingsDecoded = UserInfo.getFromDefaults(forKey: meetingsKey, type: [RecurringMeetingModel].self)
         self.allMeetings = meetingsDecoded ?? []
         
+        // decode user settings from UserDefaults
         let settingsDecoded = UserInfo.getFromDefaults(forKey: settingsKey, type: SettingsModel.self)
         self.settings = settingsDecoded ?? SettingsModel()
         
         self.getNextMeeting()
+        
+        // fetch calendar events from EventKit
+        getCalendarMeetings()
+    }
+    
+    func getCalendarMeetings() {
+        CalendarManager.events { result in
+            switch result {
+            case .success(let calendarEvents):
+                self.calendarEvents = calendarEvents
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func save() {

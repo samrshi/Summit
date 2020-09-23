@@ -76,6 +76,8 @@ struct ContentView: View {
         .onReceive(publisher) { _ in
             self.userInfo.updateDate()
             self.userInfo.getNextMeeting()
+            
+            self.userInfo.getCalendarMeetings()
         }
         .onAppear {
             if self.userInfo.allMeetings.isEmpty {

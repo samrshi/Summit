@@ -11,14 +11,14 @@ import SwiftUI
 struct MeetingItemView: View {
     @EnvironmentObject var userInfo: UserInfo
     
-    let meeting: RecurringMeetingModel
+    let meeting: Meeting
     
     @Binding var mainViewState: MainViewState
     @Binding var onlyShowToday: Bool
-
+    
     @Binding var selectedMeetingID: UUID?
     
-    let isNextMeeting: Bool
+    let hideOptions: Bool
     let show24HourTime: Bool
     let delete: () -> Void    
     
@@ -42,17 +42,11 @@ struct MeetingItemView: View {
                         .font(.headline)
                     
                     HStack(spacing: 4) {
-                        if meeting.isCurrentlyHappening() && onlyShowToday {
+                        if meeting.isHappeningNow() && onlyShowToday {
                             Text("Happening Now")
                                 .foregroundColor(.gray)
                         } else {
-                            Group {
-                                if !onlyShowToday {
-                                    Text(meeting.formattedMeetingDays)
-                                }
-                                
-                                Text(!onlyShowToday && !meeting.sameTimeEachDay ? "@ Various Times" :  meeting.formattedMeetingTimes(show24HourTime: show24HourTime))
-                                }
+                            Text(meeting.getFormattedTime(show24HourTime: show24HourTime, onlyShowingToday: onlyShowToday))
                                 .font(.caption)
                                 .foregroundColor(.gray)
                         }
@@ -63,56 +57,56 @@ struct MeetingItemView: View {
             
             Spacer()
             
-            if !isNextMeeting {
-            Group {
-                Image.sfSymbol(systemName: "ellipsis")
-                    .frame(width: 16)
-                    .foregroundColor(.primary)
-                    .rotationEffect(Angle(degrees: self.showSettings ? -90 : 0))
-                    .onTapGesture {
-                        withAnimation {
-                            self.showSettings.toggle()
+            if !hideOptions {
+                Group {
+                    Image.sfSymbol(systemName: "ellipsis")
+                        .frame(width: 16)
+                        .foregroundColor(.primary)
+                        .rotationEffect(Angle(degrees: self.showSettings ? -90 : 0))
+                        .onTapGesture {
+                            withAnimation {
+                                self.showSettings.toggle()
+                            }
                         }
-                }
-                
-                if self.showSettings {
-                    Button(action: {
-                        withAnimation {
-                            self.mainViewState = .edit
-                            self.selectedMeetingID = self.meeting.id
-                        }
-                    }) {
-                        Text("Edit")
-                            .font(.caption)
-                            .padding(4)
-                            .foregroundColor(.blue)
-                            .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.blue, lineWidth: 1))
-                            .background(Color.gray.opacity(0.0001))
-                    }
-                    .buttonStyle(PlainButtonStyle())
                     
-                    Button(action: {
-                        withAnimation {
-                            self.beingDeleted = true
+                    if self.showSettings {
+                        Button(action: {
+                            withAnimation {
+                                self.mainViewState = .edit
+                                self.selectedMeetingID = self.meeting.id
+                            }
+                        }) {
+                            Text("Edit")
+                                .font(.caption)
+                                .padding(4)
+                                .foregroundColor(.blue)
+                                .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.blue, lineWidth: 1))
+                                .background(Color.gray.opacity(0.0001))
                         }
-                        withAnimation(Animation.default.delay(0.1)) {
-                            self.showSettings = false
-                            self.delete()
+                        .buttonStyle(PlainButtonStyle())
+                        
+                        Button(action: {
+                            withAnimation {
+                                self.beingDeleted = true
+                            }
+                            withAnimation(Animation.default.delay(0.1)) {
+                                self.showSettings = false
+                                self.delete()
+                            }
+                        }) {
+                            Image.sfSymbol(systemName: "trash")
+                                .frame(height: 18)
+                                .foregroundColor(.red)
                         }
-                    }) {
-                        Image.sfSymbol(systemName: "trash")
-                            .frame(height: 18)
-                            .foregroundColor(.red)
+                        .buttonStyle(PlainButtonStyle())
                     }
-                    .buttonStyle(PlainButtonStyle())
                 }
-            }
-            .font(.headline)
+                .font(.headline)
             }
         }
         .scaleEffect(beingDeleted ? 0.001 : 1)
+        .padding(.bottom, 12)
         .transition(.opacity)
-        .padding(.top)
         .onTapGesture {
             if self.mainViewState != .add {
                 let url = self.meeting.url

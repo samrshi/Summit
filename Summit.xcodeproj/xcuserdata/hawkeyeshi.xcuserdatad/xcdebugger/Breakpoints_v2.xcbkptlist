@@ -19,81 +19,18 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C1923AD2-8DC5-430C-8601-C4D19DB2EFF1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Summit/ViewModel/MeetingsViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "newMeeting(editViewState:selectedMeetingID:attemptedNewMeeting:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "32D5E43E-C04F-414B-A4D5-94A2862B8A2E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Summit/ViewModel/MeetingsViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "newMeeting(editViewState:selectedMeetingID:attemptedNewMeeting:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "32D5E43E-C04F-414B-A4D5-94A2862B8A2E - 2af3c7fed1d5cac3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Summit.UserInfo.newMeeting(editViewState: Summit.EditViewStates, selectedMeetingID: Swift.Optional&lt;Foundation.UUID&gt;, attemptedNewMeeting: Summit.AttemptedNewMeeting, completion: (Summit.SaveResult, Swift.String) -&gt; ()) -&gt; ()"
-                  moduleName = "Summit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hawkeyeshi/-dev/-Swift/Summit/Summit/ViewModel/MeetingsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "4746">
-               </Location>
-               <Location
-                  uuid = "32D5E43E-C04F-414B-A4D5-94A2862B8A2E - c66f352476d3aa78"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Summit.RecurringMeetingModel) -&gt; Swift.Bool in Summit.UserInfo.newMeeting(editViewState: Summit.EditViewStates, selectedMeetingID: Swift.Optional&lt;Foundation.UUID&gt;, attemptedNewMeeting: Summit.AttemptedNewMeeting, completion: (Summit.SaveResult, Swift.String) -&gt; ()) -&gt; ()"
-                  moduleName = "Summit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hawkeyeshi/-dev/-Swift/Summit/Summit/ViewModel/MeetingsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "104">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "99CF57AA-1DFF-4176-8890-DB334DD21B25"
+            uuid = "CAA5CB45-9D51-4A6D-8172-15F8C65F4011"
             shouldBeEnabled = "No"
+            condition = "$0.sameDay()"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Summit/Helpers/CalendarManager.swift"
+            filePath = "Summit/ViewModel/MeetingsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "containsMeetingLink(text:)"
-            landmarkType = "7">
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "todaysMeetings"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

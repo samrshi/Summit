@@ -142,8 +142,8 @@
 		BDA7D97924FD609B00A18CA8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				BDF0B072251AAA6D00FACE45 /* Extensions */,
 				BDF0B07B251AAAC900FACE45 /* CalendarManager.swift */,
+				BDF0B072251AAA6D00FACE45 /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

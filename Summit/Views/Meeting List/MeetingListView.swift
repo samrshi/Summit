@@ -18,21 +18,32 @@ struct MeetingListView: View {
     @State private var showFilter: Bool = false
     @State private var filterString: String = ""
     
-    @State private var nextMeeting: RecurringMeetingModel = blankMeeting
+    @State private var nextMeeting: Meeting = blankMeeting
     
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
-                if !userInfo.allMeetings.isEmpty {
-                    NextMeetingView(mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, deleteMeetings: self.deleteMeetings)
+                if !userInfo.allMeetings.isEmpty && onlyShowToday {
+                    AnyView(NextMeetingView(mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, deleteMeetings: self.deleteMeetings))
+                } else if !userInfo.allMeetings.isEmpty && !onlyShowToday {
+                    AnyView(
+                        VStack(alignment: .leading) {
+                            Text("Upcoming Meetings from Calendar")
+                                .heading2()
+                            
+                            ForEach(userInfo.calendarEvents, id: \.id) { event in
+                                MeetingItemView(meeting: event, mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, hideOptions: true, show24HourTime: userInfo.settings.show24HourTime, delete: {})
+                            }
+                        }
+                    )
                 }
                 
-                Divider()
-                
                 MeetingListHeader(onlyShowToday: $onlyShowToday, showFilter: $showFilter, filterString: $filterString)
-
+                
+                Divider()
+                                
                 ForEach(onlyShowToday ? userInfo.todaysMeetings : userInfo.allMeetings.filter(filterLogic), id: \.id) { meeting in
-                    MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, onlyShowToday: self.$onlyShowToday, selectedMeetingID: self.$selectedMeetingID, isNextMeeting: false, show24HourTime: self.userInfo.settings.show24HourTime) {
+                    MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, onlyShowToday: self.$onlyShowToday, selectedMeetingID: self.$selectedMeetingID, hideOptions: onlyShowToday, show24HourTime: self.userInfo.settings.show24HourTime) {
                         self.deleteMeetings(meeting: meeting)
                     }
                 }
@@ -53,7 +64,7 @@ struct MeetingListView: View {
         }
     }
     
-    func deleteMeetings(meeting: RecurringMeetingModel?) {
+    func deleteMeetings(meeting: Meeting?) {
         if let id = meeting?.id {
             self.userInfo.allMeetings.removeAll {
                 $0.id == id

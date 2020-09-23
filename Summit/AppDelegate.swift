@@ -33,9 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: "MenuIcon")
             button.action = #selector(togglePopover(_:))
         }
-        
-        // Get calendar events
-        CalendarManager.events()
     }
     
     // Create the status item

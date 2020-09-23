@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RecurringMeetingModel: Meeting, Comparable {
+struct RecurringMeetingModel: Meeting {
     var id = UUID()
     
     var name: String
@@ -29,21 +29,20 @@ struct RecurringMeetingModel: Meeting, Comparable {
         return meetingTimes[today - 1].endTime
     }
     
-    func getFormattedTime(show24HourTime: Bool) -> String {
-        formattedMeetingTimes(show24HourTime: show24HourTime)
+    func getFormattedTime(show24HourTime: Bool, onlyShowingToday: Bool) -> String {
+        var result = ""
+        result += !onlyShowingToday ? formattedMeetingDays + " " : ""
+        result += !onlyShowingToday && !sameTimeEachDay ? "@ Various Times" : formattedMeetingTimes(show24HourTime: show24HourTime)
+        return result
     }
     
-    static func < (lhs: RecurringMeetingModel, rhs: RecurringMeetingModel) -> Bool {
-        let lhsDate = lhs.getStartDate()
-        let rhsDate = rhs.getStartDate()
-        let lhsStartMins = lhsDate.getMinutesPlusHours()
-        let rhsStartMins = rhsDate.getMinutesPlusHours()
-        
-        return lhsStartMins < rhsStartMins
+    func isHappeningNow() -> Bool {
+        isCurrentlyHappening()
     }
     
-    static func == (lhs: RecurringMeetingModel, rhs: RecurringMeetingModel) -> Bool {
-        lhs.id == rhs.id
+    func sameDay() -> Bool {
+        let today = Calendar.current.component(.weekday, from: Date()) - 1
+        return meetingTimes[today].isUsed
     }
 }
 

@@ -22,11 +22,11 @@ extension UserInfo {
     
     func getNextMeeting() {
         var minTimeUntilMeeting: Int = Int.max
-        var nextMeeting: RecurringMeetingModel? = nil
+        var nextMeeting: Meeting? = nil
         
         for meeting in todaysMeetings {
             let currentTime = currentDate.getMinutesPlusHours()
-            let meetingTime = meeting.getEndDate().getMinutesPlusHours()
+            let meetingTime = meeting.getStartDate().getMinutesPlusHours()
             
             let difference = meetingTime - currentTime
             
@@ -39,21 +39,30 @@ extension UserInfo {
         self.nextMeeting = nextMeeting
     }
     
-    var todaysMeetings: [RecurringMeetingModel] {
-        self.allMeetings
-            .filter( {
-                let today = Calendar.current.component(.weekday, from: Date()) - 1
-                let sameDay: Bool = $0.meetingTimes[today].isUsed
-                
-                if !settings.onlyShowUpcoming {
-                    return sameDay
-                }
-                
-                let endTime = $0.meetingTimes[today].endTime.toTime()
-                let hasPassed = endTime < currentDate.toTime()
-                return sameDay && (settings.onlyShowUpcoming ? !hasPassed : true)
-            })
-            .sorted()
+    var todaysMeetings: [Meeting] {
+        var meetings: [Meeting] = self.allMeetings
+        meetings.append(contentsOf: calendarEvents)
+        
+        let filtered = meetings.filter {
+            let sameDay = $0.sameDay()
+            
+            if !settings.onlyShowUpcoming {
+                return sameDay
+            }
+            
+            let startTime = $0.getStartDate().toTime()
+            let hasPassed = startTime < currentDate.toTime()
+            return sameDay && (settings.onlyShowUpcoming ? !hasPassed : true)
+        }.sorted { lhs, rhs in
+            let lhsDate = lhs.getStartDate()
+            let rhsDate = rhs.getStartDate()
+            let lhsStartMins = lhsDate.getMinutesPlusHours()
+            let rhsStartMins = rhsDate.getMinutesPlusHours()
+            
+            return lhsStartMins < rhsStartMins
+        }
+        
+        return filtered
     }
     
     func newMeeting(editViewState: EditViewStates, selectedMeetingID: UUID? = nil, attemptedNewMeeting: AttemptedNewMeeting, completion: @escaping (SaveResult, String) -> Void) {
@@ -82,7 +91,7 @@ extension UserInfo {
             completion(.error, "That URL doesn't look quite right... Please try again")
             return
         }
-                
+        
         let startTime: Time = attempt.startDate.toTime()
         let endTime: Time = attempt.endDate.toTime()
         
@@ -96,8 +105,8 @@ extension UserInfo {
             newWeekDays.append(
                 Weekday(name: day.name, day: day.day, isUsed: day.isUsed,
                         startTime: attempt.sameTimeEachDay ? startTime.toDate() : day.startTime, endTime:
-                    attempt.sameTimeEachDay ? endTime.toDate() : day.endTime)
-                )
+                            attempt.sameTimeEachDay ? endTime.toDate() : day.endTime)
+            )
         }
         
         let meeting = RecurringMeetingModel(name: attempt.title, url: url, urlString: newURLString, sameTimeEachDay: attempt.sameTimeEachDay, meetingTimes: newWeekDays)
