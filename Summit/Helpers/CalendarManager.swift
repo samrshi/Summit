@@ -73,7 +73,7 @@ struct CalendarManager {
         
         let range = NSRange(location: 0, length: text.utf16.count)
         
-        let zoomRegex = "https?://\\w*..*zoom.\\w*/(j/\\d*|my/[a-zA-Z0-9\\.]*)"
+        let zoomRegex = "https?://\\w*.*zoom.\\w*/(j/\\d*|my/[a-zA-Z0-9\\.]*)"
         let googleMeetRegex = "https?://.*meet.google.\\w*/[a-zA-Z0-9\\.-_]*"
         let skypeRegex = "https?://.*join.skype.\\w*/[a-zA-Z0-9\\.-_]*"
         let hangoutsRegex1 = "https?://.*hangouts.google.\\w*/[a-zA-Z0-9\\.-_/]*"
