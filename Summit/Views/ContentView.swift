@@ -31,7 +31,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Header(title: "Summit", mainViewState: $mainViewState, userInfo: userInfo)
+            Header(title: "Summit", mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, userInfo: userInfo)
                 .animation(.none)
             
             Divider()

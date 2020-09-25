@@ -18,6 +18,10 @@ struct OneTimeMeetingModel: Meeting {
     var startDate: Date
     var endDate: Date
     
+    func getMeetingType() -> MeetingType {
+        .oneTime
+    }
+    
     func getStartDate() -> Date {
         startDate
     }
@@ -27,7 +31,7 @@ struct OneTimeMeetingModel: Meeting {
     }
     
     func isHappeningNow() -> Bool {
-        startDate <= Date() && Date() >= endDate
+        startDate <= Date() && Date() <= endDate
     }
     
     func sameDay() -> Bool {

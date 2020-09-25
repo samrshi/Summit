@@ -26,8 +26,7 @@ extension UserInfo {
         
         for meeting in todaysMeetings {
             let currentTime = currentDate.getMinutesPlusHours()
-            let meetingTime = meeting.getStartDate().getMinutesPlusHours()
-            
+            let meetingTime = meeting.getEndDate().getMinutesPlusHours()
             let difference = meetingTime - currentTime
             
             if difference < minTimeUntilMeeting && difference >= 0 {
@@ -50,7 +49,7 @@ extension UserInfo {
                 return sameDay
             }
             
-            let startTime = $0.getStartDate().toTime()
+            let startTime = $0.getEndDate().toTime()
             let hasPassed = startTime < currentDate.toTime()
             return sameDay && (settings.onlyShowUpcoming ? !hasPassed : true)
         }.sorted { lhs, rhs in
@@ -162,7 +161,7 @@ extension UserInfo {
             week[i].startTime = Time(hour: 13, minute: 20).toDate()
             week[i].endTime = Time(hour: 14, minute: 10).toDate()
         }
-        let astr101 = RecurringMeetingModel(name: "ASTR 101", url: URL(string: "https://unc.zoom.us/j/94870847028")!, urlString: "https://unc.zoom.us/j/94870847028", sameTimeEachDay: true, meetingTimes: week)
+        let astr101 = RecurringMeetingModel(name: "ASTR 101", url: URL(string: "https://unc.zoom.us/j/92808393980")!, urlString: "https://unc.zoom.us/j/92808393980", sameTimeEachDay: true, meetingTimes: week)
         
         week = daysOfWeek
         for i in [4] {

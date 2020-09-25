@@ -12,13 +12,38 @@ struct Header: View {
     let title: String
     
     @Binding var mainViewState: MainViewState
+    @Binding var onlyShowToday: Bool
     @ObservedObject var userInfo: UserInfo
-        
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(title)
-                    .heading()
+                if mainViewState == .list {
+                    VStack(alignment: .leading) {
+                        Text("\(onlyShowToday ? "Today's" : "All") Meetings")
+                            .heading()
+                        
+                        Button(action: {
+                            withAnimation {
+                                self.onlyShowToday.toggle()
+                            }
+                        }) {
+                            HStack {
+                                Image.sfSymbol(systemName: "chevron.down")
+                                    .rotationEffect(Angle(degrees: onlyShowToday ? 0 : 180))
+                                    .frame(width: 13)
+                                
+                                Text("\(onlyShowToday ? "Show All" : "Show Today")")
+                            }
+                            .animation(.none)
+                        }
+                        .buttonStyle(LinkButtonStyle())
+                        .padding(.top, -10)
+                    }
+                } else {
+                    Text(title)
+                        .heading()
+                }
                 
                 Spacer()
                 

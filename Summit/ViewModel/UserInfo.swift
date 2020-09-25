@@ -34,7 +34,7 @@ class UserInfo: ObservableObject {
     @Published var currentDate: Date = Date()
     @Published var nextMeeting: Meeting? = nil
     
-    let showingDebugging = false
+    var showingDebugging = false
     
     init() {
         // decode recurring meetings from UserDefaults
@@ -52,7 +52,7 @@ class UserInfo: ObservableObject {
     }
     
     func getCalendarMeetings() {
-        CalendarManager.events { result in
+        CalendarManager.fetchEvents { result in
             switch result {
             case .success(let calendarEvents):
                 self.calendarEvents = calendarEvents

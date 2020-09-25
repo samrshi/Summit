@@ -13,10 +13,6 @@ extension Color {
         Color("background")
     }
     
-    static var primary: Color {
-        Color("primary")
-    }
-    
     static var secondaryBackground: Color {
         Color("secondaryBackground")
     }

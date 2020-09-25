@@ -20,11 +20,10 @@ struct EmptyStateView: View {
     var body: some View {
         Group {
             if emptyStateType == .emptyList {
-                VStack(spacing: 4) {
+                HStack(spacing: 15) {
                     Image("EmptyState")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 210)
                         .onTapGesture {
                             withAnimation {
                                 self.mainViewState = .add
@@ -38,6 +37,7 @@ struct EmptyStateView: View {
                     }) {
                         Text("Let's Add Your First Meeting!")
                             .callToAction()
+                            .multilineTextAlignment(.center)
                             .padding(.top)
                     }
                 }
@@ -48,7 +48,7 @@ struct EmptyStateView: View {
                     Image("FreeDay")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 160)
+                        .frame(height: 175)
                     
                     Text("All done for the day!")
                         .foregroundColor(.primary)

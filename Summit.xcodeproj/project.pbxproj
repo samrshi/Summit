@@ -14,6 +14,8 @@
 		BD403D432505517D00BBFEB0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD403D422505517D00BBFEB0 /* SettingsView.swift */; };
 		BD403D45250555C900BBFEB0 /* MeetingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD403D44250555C900BBFEB0 /* MeetingsViewModel.swift */; };
 		BD403D472505561300BBFEB0 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD403D462505561300BBFEB0 /* SettingsModel.swift */; };
+		BD44C53A251D0FD300DFD42E /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44C539251D0FD300DFD42E /* TodayView.swift */; };
+		BD44C53D251D11AB00DFD42E /* AllMeetingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44C53C251D11AB00DFD42E /* AllMeetingsView.swift */; };
 		BD5848E0250FCE7400B36CCB /* Color+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848DF250FCE7400B36CCB /* Color+Colors.swift */; };
 		BD5848E2250FCEBD00B36CCB /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E1250FCEBD00B36CCB /* Date+Extensions.swift */; };
 		BD5848E4250FCF2D00B36CCB /* Text+FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E3250FCF2D00B36CCB /* Text+FontStyles.swift */; };
@@ -46,6 +48,7 @@
 		BDE66838250C8EBD0069EF64 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE66837250C8EBD0069EF64 /* Time.swift */; };
 		BDEF51A624FD6E9E00D9987C /* View+CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEF51A524FD6E9E00D9987C /* View+CustomAlert.swift */; };
 		BDF0B07C251AAAC900FACE45 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF0B07B251AAAC900FACE45 /* CalendarManager.swift */; };
+		BDF3AE30251C03E80043CD99 /* CalendarMeetingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF3AE2F251C03E80043CD99 /* CalendarMeetingsView.swift */; };
 		BDFBE9FC25101D2C0066B48C /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFBE9FB25101D2C0066B48C /* Weekday.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +60,8 @@
 		BD403D422505517D00BBFEB0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BD403D44250555C900BBFEB0 /* MeetingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsViewModel.swift; sourceTree = "<group>"; };
 		BD403D462505561300BBFEB0 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		BD44C539251D0FD300DFD42E /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		BD44C53C251D11AB00DFD42E /* AllMeetingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMeetingsView.swift; sourceTree = "<group>"; };
 		BD5848DF250FCE7400B36CCB /* Color+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Colors.swift"; sourceTree = "<group>"; };
 		BD5848E1250FCEBD00B36CCB /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		BD5848E3250FCF2D00B36CCB /* Text+FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+FontStyles.swift"; sourceTree = "<group>"; };
@@ -92,6 +97,7 @@
 		BDE66837250C8EBD0069EF64 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		BDEF51A524FD6E9E00D9987C /* View+CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CustomAlert.swift"; sourceTree = "<group>"; };
 		BDF0B07B251AAAC900FACE45 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		BDF3AE2F251C03E80043CD99 /* CalendarMeetingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMeetingsView.swift; sourceTree = "<group>"; };
 		BDFBE9FB25101D2C0066B48C /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +112,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD44C541251D1FD000DFD42E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				BDB669AF24FB016B004052C0 /* MeetingItemView.swift */,
+				BDA07473250B2829003D593C /* EmptyStateView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		BD44C542251D1FDE00DFD42E /* All Meetings */ = {
+			isa = PBXGroup;
+			children = (
+				BD44C53C251D11AB00DFD42E /* AllMeetingsView.swift */,
+				BDF3AE2F251C03E80043CD99 /* CalendarMeetingsView.swift */,
+				BD13CBBC24FF1D10009C5F5D /* MeetingListHeader.swift */,
+			);
+			path = "All Meetings";
+			sourceTree = "<group>";
+		};
+		BD44C543251D1FE600DFD42E /* Today's Meetings */ = {
+			isa = PBXGroup;
+			children = (
+				BD44C539251D0FD300DFD42E /* TodayView.swift */,
+				BDDCAB432500722900FFFD05 /* NextMeetingView.swift */,
+			);
+			path = "Today's Meetings";
+			sourceTree = "<group>";
+		};
 		BD7991E9250893A2008841F7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,8 +176,8 @@
 		BDA7D97924FD609B00A18CA8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				BDF0B07B251AAAC900FACE45 /* CalendarManager.swift */,
 				BDF0B072251AAA6D00FACE45 /* Extensions */,
+				BDF0B07B251AAAC900FACE45 /* CalendarManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -208,10 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				BD20FA0A24FB2E2300E74D39 /* MeetingListView.swift */,
-				BDDCAB432500722900FFFD05 /* NextMeetingView.swift */,
-				BDB669AF24FB016B004052C0 /* MeetingItemView.swift */,
-				BD13CBBC24FF1D10009C5F5D /* MeetingListHeader.swift */,
-				BDA07473250B2829003D593C /* EmptyStateView.swift */,
+				BD44C543251D1FE600DFD42E /* Today's Meetings */,
+				BD44C542251D1FDE00DFD42E /* All Meetings */,
+				BD44C541251D1FD000DFD42E /* Shared */,
 			);
 			path = "Meeting List";
 			sourceTree = "<group>";
@@ -320,8 +353,10 @@
 				BD403D432505517D00BBFEB0 /* SettingsView.swift in Sources */,
 				BD13CBC124FF4011009C5F5D /* FooterView.swift in Sources */,
 				BDB669AA24FAFAB8004052C0 /* AddView.swift in Sources */,
+				BDF3AE30251C03E80043CD99 /* CalendarMeetingsView.swift in Sources */,
 				BD933CA024FB14E5001F8A90 /* Header.swift in Sources */,
 				BDC5CCF124FCC5230003B1AB /* FormButtonsView.swift in Sources */,
+				BD44C53A251D0FD300DFD42E /* TodayView.swift in Sources */,
 				BD5848E6250FE11400B36CCB /* AddHeaderView.swift in Sources */,
 				BD20FA0B24FB2E2300E74D39 /* MeetingListView.swift in Sources */,
 				BDE66838250C8EBD0069EF64 /* Time.swift in Sources */,
@@ -333,6 +368,7 @@
 				BDA7D97B24FD60B500A18CA8 /* String+URLValidity.swift in Sources */,
 				BDB6699624FAE83E004052C0 /* ContentView.swift in Sources */,
 				BDB669B024FB016B004052C0 /* MeetingItemView.swift in Sources */,
+				BD44C53D251D11AB00DFD42E /* AllMeetingsView.swift in Sources */,
 				BDA07474250B2829003D593C /* EmptyStateView.swift in Sources */,
 				BDB750E7251312AA00F1149F /* Meeting.swift in Sources */,
 				BDC5CCEF24FCC1EC0003B1AB /* DateAndTimeView.swift in Sources */,

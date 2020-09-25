@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum MeetingType {
+    case oneTime
+    case recurring
+}
+
 protocol Meeting: Codable {
     var id: UUID { get }
     
@@ -19,6 +24,8 @@ protocol Meeting: Codable {
     func getEndDate() -> Date
     func isHappeningNow() -> Bool
     func sameDay() -> Bool
+    
+    func getMeetingType() -> MeetingType
     
     func getFormattedTime(show24HourTime: Bool, onlyShowingToday: Bool) -> String
 }

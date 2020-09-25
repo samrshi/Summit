@@ -19,18 +19,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CAA5CB45-9D51-4A6D-8172-15F8C65F4011"
+            uuid = "00B707BD-D064-4E60-928B-B1BE2765C62B"
             shouldBeEnabled = "No"
-            condition = "$0.sameDay()"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Summit/ViewModel/MeetingsViewModel.swift"
+            filePath = "Summit/Model/OneTimeMeetingModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "todaysMeetings"
-            landmarkType = "24">
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "isHappeningNow()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -57,7 +57,7 @@ struct MeetingItemView: View {
             
             Spacer()
             
-            if !hideOptions {
+            if !hideOptions && meeting.getMeetingType() == .recurring {
                 Group {
                     Image.sfSymbol(systemName: "ellipsis")
                         .frame(width: 16)
@@ -102,10 +102,15 @@ struct MeetingItemView: View {
                     }
                 }
                 .font(.headline)
+            } else if meeting.getMeetingType() == .oneTime {
+                Image.sfSymbol(systemName: "calendar")
+                    .frame(width: 17)
+                    .onTapGesture {
+                        NSWorkspace.shared.launchApplication("Calendar")
+                    }
             }
         }
         .scaleEffect(beingDeleted ? 0.001 : 1)
-        .padding(.bottom, 12)
         .transition(.opacity)
         .onTapGesture {
             if self.mainViewState != .add {

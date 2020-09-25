@@ -14,10 +14,12 @@ struct RecurringMeetingModel: Meeting {
     var name: String
     var url: URL
     var urlString: String
-        
     var sameTimeEachDay: Bool
-    
     var meetingTimes: [Weekday] = []
+    
+    func getMeetingType() -> MeetingType {
+        .recurring
+    }
     
     func getStartDate() -> Date {
         let today = Calendar.current.component(.weekday, from: Date())

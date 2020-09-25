@@ -14,7 +14,7 @@ enum CalendarError: Error {
 }
 
 struct CalendarManager {
-    static func events(completion: @escaping (Result<[OneTimeMeetingModel], CalendarError>) -> Void) {
+    static func fetchEvents(completion: @escaping (Result<[OneTimeMeetingModel], CalendarError>) -> Void) {
         let eventStore = EKEventStore()
         
         switch EKEventStore.authorizationStatus(for: .event) {
@@ -39,24 +39,31 @@ struct CalendarManager {
     
     private static func getEvents() -> [OneTimeMeetingModel] {
         let store = EKEventStore()
-        let predicate = store.predicateForEvents(withStart: Date(timeIntervalSinceNow: -60*60*24), end: Date(timeIntervalSinceNow: 60*60*24*365), calendars: nil)
+        let predicate = store.predicateForEvents(withStart: Date(), end: Date(timeIntervalSinceNow: 60*60*24*11), calendars: nil)
         let events = store.events(matching: predicate)
         
         var calendarMeetings = [OneTimeMeetingModel]()
         
         for event in events {
-            if containsMeetingLink(text: event.notes) != nil {
-                if let url = URL(string: containsMeetingLink(text: event.notes)!),
-                   let urlString = containsMeetingLink(text: event.notes) {
-                    calendarMeetings.append(
-                        OneTimeMeetingModel(id: UUID(), name: event.title, url: url, urlString: urlString,
-                                            allDay: event.isAllDay, startDate: event.startDate, endDate: event.endDate)
-                    )
-                }
+            if let locationLink = containsMeetingLink(text: event.location) {
+                addMeetingWithLink(event: event, urlString: locationLink, calendarMeetings: &calendarMeetings)
+            } else if let notesLink = containsMeetingLink(text: event.notes) {
+                addMeetingWithLink(event: event, urlString: notesLink, calendarMeetings: &calendarMeetings)
+            } else if let urlLink = containsMeetingLink(text: event.url?.absoluteString) {
+                addMeetingWithLink(event: event, urlString: urlLink, calendarMeetings: &calendarMeetings)
             }
         }
         
         return calendarMeetings
+    }
+    
+    static private func addMeetingWithLink(event: EKEvent, urlString: String, calendarMeetings: inout [OneTimeMeetingModel]) {
+        if let url = URL(string: urlString) {
+            calendarMeetings.append(
+                OneTimeMeetingModel(id: UUID(), name: event.title, url: url, urlString: urlString,
+                                    allDay: event.isAllDay, startDate: event.startDate, endDate: event.endDate)
+            )
+        }
     }
     
     static func containsMeetingLink(text: String?) -> String? {
@@ -65,7 +72,15 @@ struct CalendarManager {
         }
         
         let range = NSRange(location: 0, length: text.utf16.count)
-        let regex = try! NSRegularExpression(pattern: "https?://\\w*..*zoom.\\w*/(j/\\d*|my/[a-zA-Z0-9\\.]*)")
+        
+        let zoomRegex = "https?://\\w*..*zoom.\\w*/(j/\\d*|my/[a-zA-Z0-9\\.]*)"
+        let googleMeetRegex = "https?://.*meet.google.\\w*/[a-zA-Z0-9\\.-_]*"
+        let skypeRegex = "https?://.*join.skype.\\w*/[a-zA-Z0-9\\.-_]*"
+        let hangoutsRegex1 = "https?://.*hangouts.google.\\w*/[a-zA-Z0-9\\.-_/]*"
+        let hangoutsRegex2 = "https?://.*plus.google.\\w*/hangouts/[a-zA-Z0-9\\.-_/]*"
+        let webexRegex = "https?://.*webex.\\w*/[a-zA-Z0-9\\.-_/]*"
+        
+        let regex = try! NSRegularExpression(pattern: "\(zoomRegex)|\(googleMeetRegex)|\(skypeRegex)|\(hangoutsRegex1)|\(hangoutsRegex2)|\(webexRegex)")
         
         
         guard let match = regex.firstMatch(in: text, options: [], range: range) else {
@@ -74,5 +89,9 @@ struct CalendarManager {
         
         guard let newRange = Range(match.range, in: text) else { return nil }
         return String(text[newRange])
+    }
+    
+    static func getCalendarAuthorizationStatus() -> EKAuthorizationStatus {
+        EKEventStore.authorizationStatus(for: .event)
     }
 }
