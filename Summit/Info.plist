@@ -35,7 +35,7 @@
 	<key>NSSupportsAutomaticTermination</key>
 	<true/>
 	<key>NSCalendarsUsageDescription</key>
-	<string>We want access to your calendar to include calendar meetings</string>
+	<string>This will allow us to include virtual meetings from your Calendar in our app.</string>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
 </dict>

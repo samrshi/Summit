@@ -23,14 +23,14 @@ class UserInfo: ObservableObject {
     
     // events from calendar
     @Published var calendarEvents: [OneTimeMeetingModel] = []
-
+    
     // user settings
     @Published var settings: SettingsModel {
         didSet {
             save()
         }
     }
-        
+    
     @Published var currentDate: Date = Date()
     @Published var nextMeeting: Meeting? = nil
     
@@ -79,5 +79,11 @@ class UserInfo: ObservableObject {
             }
         }
         return nil
+    }
+    
+    func updateSettings() {
+        if let decodedSettings = UserInfo.getFromDefaults(forKey: settingsKey, type: SettingsModel.self){
+            self.settings = decodedSettings
+        }
     }
 }

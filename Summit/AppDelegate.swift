@@ -8,12 +8,36 @@
 
 import SwiftUI
 import EventKit
+import Preferences
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     var popover: NSPopover!
     var statusBarItem: NSStatusItem!
+        
+    lazy var preferencesWindowController = PreferencesWindowController(
+        panes: [
+            Preferences.Pane(
+                identifier: .general,
+                title: "General",
+                toolbarIcon: NSImage(named: NSImage.preferencesGeneralName)!
+            ) {
+                PreferencesView()
+            },
+            Preferences.Pane(
+                identifier: .advanced,
+                title: "Advanced",
+                toolbarIcon: NSImage(named: NSImage.advancedName)!
+            ) {
+                PreferencesView()
+            }
+        ]
+    )
+    
+    @objc func openPreferencesWindow() {
+        preferencesWindowController.show()
+    }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the contents
@@ -23,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 400, height: 475)
         popover.behavior = .transient
-//        popover.appearance = .some(.init())
+        //        popover.appearance = .some(.init())
         popover.contentViewController = NSHostingController(rootView: contentView)
         self.popover = popover
         

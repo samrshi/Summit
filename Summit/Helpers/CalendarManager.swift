@@ -60,8 +60,7 @@ struct CalendarManager {
     static private func addMeetingWithLink(event: EKEvent, urlString: String, calendarMeetings: inout [OneTimeMeetingModel]) {
         if let url = URL(string: urlString) {
             calendarMeetings.append(
-                OneTimeMeetingModel(id: UUID(), name: event.title, url: url, urlString: urlString,
-                                    allDay: event.isAllDay, startDate: event.startDate, endDate: event.endDate)
+                OneTimeMeetingModel(id: UUID(), name: event.title, url: url, urlString: urlString, allDay: event.isAllDay, startDate: event.startDate, endDate: event.endDate)
             )
         }
     }
@@ -93,5 +92,10 @@ struct CalendarManager {
     
     static func getCalendarAuthorizationStatus() -> EKAuthorizationStatus {
         EKEventStore.authorizationStatus(for: .event)
+    }
+    
+    static func getCalendars() -> [EKCalendar] {
+        let store = EKEventStore()
+        return store.calendars(for: .event)
     }
 }

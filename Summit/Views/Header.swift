@@ -51,6 +51,7 @@ struct Header: View {
                     Button(action: {
                         withAnimation {
                             self.mainViewState = self.mainViewState != .settings ? .settings : .list
+//                            NSApp.sendAction(#selector(AppDelegate.openPreferencesWindow), to: nil, from: nil)
                         }
                     }) {
                         Image.sfSymbol(systemName: "gear")

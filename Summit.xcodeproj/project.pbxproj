@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,8 @@
 		BD5848E2250FCEBD00B36CCB /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E1250FCEBD00B36CCB /* Date+Extensions.swift */; };
 		BD5848E4250FCF2D00B36CCB /* Text+FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E3250FCF2D00B36CCB /* Text+FontStyles.swift */; };
 		BD5848E6250FE11400B36CCB /* AddHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5848E5250FE11400B36CCB /* AddHeaderView.swift */; };
+		BD86BAFB251E7A3A00627DF4 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = BD86BAFA251E7A3A00627DF4 /* Preferences */; };
+		BD86BAFE251E7AE400627DF4 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD86BAFD251E7AE400627DF4 /* PreferencesView.swift */; };
 		BD933CA024FB14E5001F8A90 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD933C9F24FB14E5001F8A90 /* Header.swift */; };
 		BD9CAFB5251A7F8D006668C5 /* View+SystemName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CAFB4251A7F8D006668C5 /* View+SystemName.swift */; };
 		BD9CAFB8251A863F006668C5 /* View+ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CAFB7251A863E006668C5 /* View+ConditionalModifier.swift */; };
@@ -66,6 +68,7 @@
 		BD5848E1250FCEBD00B36CCB /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		BD5848E3250FCF2D00B36CCB /* Text+FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+FontStyles.swift"; sourceTree = "<group>"; };
 		BD5848E5250FE11400B36CCB /* AddHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeaderView.swift; sourceTree = "<group>"; };
+		BD86BAFD251E7AE400627DF4 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		BD933C9F24FB14E5001F8A90 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		BD9CAFB4251A7F8D006668C5 /* View+SystemName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+SystemName.swift"; sourceTree = "<group>"; };
 		BD9CAFB7251A863E006668C5 /* View+ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ConditionalModifier.swift"; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD86BAFB251E7A3A00627DF4 /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +160,7 @@
 				BD403D422505517D00BBFEB0 /* SettingsView.swift */,
 				BDC5CCE724FB40260003B1AB /* Meeting List */,
 				BDC5CCE224FB3C940003B1AB /* Add Meeting */,
+				BD86BAFD251E7AE400627DF4 /* PreferencesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,6 +297,9 @@
 			dependencies = (
 			);
 			name = Summit;
+			packageProductDependencies = (
+				BD86BAFA251E7A3A00627DF4 /* Preferences */,
+			);
 			productName = MeetingManager;
 			productReference = BDB6699024FAE83E004052C0 /* Summit.app */;
 			productType = "com.apple.product-type.application";
@@ -320,6 +328,9 @@
 				Base,
 			);
 			mainGroup = BDB6698724FAE83E004052C0;
+			packageReferences = (
+				BD86BAF9251E7A3A00627DF4 /* XCRemoteSwiftPackageReference "Preferences" */,
+			);
 			productRefGroup = BDB6699124FAE83E004052C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -370,6 +381,7 @@
 				BDB669B024FB016B004052C0 /* MeetingItemView.swift in Sources */,
 				BD44C53D251D11AB00DFD42E /* AllMeetingsView.swift in Sources */,
 				BDA07474250B2829003D593C /* EmptyStateView.swift in Sources */,
+				BD86BAFE251E7AE400627DF4 /* PreferencesView.swift in Sources */,
 				BDB750E7251312AA00F1149F /* Meeting.swift in Sources */,
 				BDC5CCEF24FCC1EC0003B1AB /* DateAndTimeView.swift in Sources */,
 				BDF0B07C251AAAC900FACE45 /* CalendarManager.swift in Sources */,
@@ -601,6 +613,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BD86BAF9251E7A3A00627DF4 /* XCRemoteSwiftPackageReference "Preferences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Preferences";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BD86BAFA251E7A3A00627DF4 /* Preferences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD86BAF9251E7A3A00627DF4 /* XCRemoteSwiftPackageReference "Preferences" */;
+			productName = Preferences;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BDB6698824FAE83E004052C0 /* Project object */;
 }
