@@ -69,7 +69,7 @@ struct ContentView: View {
             }
         }
         .environmentObject(userInfo)
-        .background(Color.background)
+        .background(Color.background.opacity(0.75))
         .customAlert(isPresented: $showAlert, message: alertMessage, alertType: alertType, buttonTitle: "Yes") {
             NSApplication.shared.terminate(self)
         }
