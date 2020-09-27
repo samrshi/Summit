@@ -22,7 +22,7 @@ struct ContentView: View {
     @State private var mainViewState: MainViewState = .list
     @State private var onlyShowToday = true
     @State private var selectedMeetingID: UUID? = nil
-        
+    
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
     @State private var alertType: AlertType = .warning
@@ -38,22 +38,20 @@ struct ContentView: View {
                 .animation(.none)
             
             VStack {
-                if mainViewState == .list {
-                    ScrollView(.vertical) {
-                        MeetingListView(mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, onlyShowToday: $onlyShowToday)
-                    }
-                    .transition(.opacity)
-                } else if mainViewState == .add {
+                switch mainViewState {
+                case .list:
+                    MeetingListView(mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, onlyShowToday: $onlyShowToday)
+                        .transition(.opacity)
+                case .add:
                     AddView(editViewState: .add, selectedMeetingID: nil, mainViewState: $mainViewState, showAlert: $showAlert, alertMessage: $alertMessage, alertType: $alertType)
-                } else if mainViewState == .edit {
+                case .edit:
                     AddView(editViewState: .edit, selectedMeetingID: self.selectedMeetingID, mainViewState: $mainViewState, showAlert: $showAlert, alertMessage: $alertMessage, alertType: $alertType)
-                } else {
+                case .settings:
                     SettingsView(mainViewState: $mainViewState)
                 }
-            }
-            
-            if self.mainViewState == .list {
-                FooterView(primaryTitle: "Add a Meeting", primaryAction: {
+                
+                if self.mainViewState == .list {
+                    FooterView(primaryTitle: "Add a Meeting", primaryAction: {
                         withAnimation {
                             self.mainViewState = .add
                         }
@@ -65,7 +63,8 @@ struct ContentView: View {
                             self.showAlert.toggle()
                         }
                     }
-                )
+                    )
+                }
             }
         }
         .environmentObject(userInfo)
@@ -76,7 +75,7 @@ struct ContentView: View {
         .onReceive(publisher) { _ in
             self.userInfo.updateDate()
             self.userInfo.getNextMeeting()
-//            self.userInfo.updateSettings()
+            //            self.userInfo.updateSettings()
             self.userInfo.getCalendarMeetings()
         }
         .onAppear {

@@ -17,7 +17,7 @@ struct Header: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
+            HStack(alignment: .top) {
                 if mainViewState == .list {
                     VStack(alignment: .leading) {
                         Text("\(onlyShowToday ? "Today's" : "All") Meetings")
@@ -40,6 +40,7 @@ struct Header: View {
                         .buttonStyle(LinkButtonStyle())
                         .padding(.top, -10)
                     }
+                    .transition(.opacity)
                 } else {
                     Text(title)
                         .heading()

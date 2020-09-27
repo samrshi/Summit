@@ -26,6 +26,8 @@
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>LSUIElement</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>This will allow us to include virtual meetings from your Calendar in our app.</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 samrshi. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
@@ -34,8 +36,6 @@
 	<string>NSApplication</string>
 	<key>NSSupportsAutomaticTermination</key>
 	<true/>
-	<key>NSCalendarsUsageDescription</key>
-	<string>This will allow us to include virtual meetings from your Calendar in our app.</string>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
 </dict>

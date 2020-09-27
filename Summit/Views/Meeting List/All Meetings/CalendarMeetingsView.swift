@@ -21,8 +21,12 @@ struct CalendarMeetingsView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Upcoming Meetings from Calendar")
-                .heading2()
+            HStack {
+                Text("Upcoming Meetings from Calendar")
+                    .heading2()
+                
+                Spacer()
+            }
             
             if !calendarMeetings.isEmpty {
                 ForEach(calendarMeetings, id: \.id) { event in
