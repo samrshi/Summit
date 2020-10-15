@@ -15,25 +15,27 @@ enum CalendarError: Error {
 
 struct CalendarManager {
     static func fetchEvents(completion: @escaping (Result<[OneTimeMeetingModel], CalendarError>) -> Void) {
-        let eventStore = EKEventStore()
-        
-        switch EKEventStore.authorizationStatus(for: .event) {
-        case .authorized:
-            completion(.success(getEvents()))
-        case .denied:
-            completion(.failure(.accessDenied))
-            print("Access denied")
-        case .notDetermined:
-            eventStore.requestAccess(to: .event, completion: { (granted: Bool, error: Error?) -> Void in
-                if granted {
-                    completion(.success(getEvents()))
-                } else {
-                    completion(.failure(.accessDenied))
-                    print("Access denied")
-                }
-            })
-        default:
-            print("Case default")
+        DispatchQueue.main.async {
+            let eventStore = EKEventStore()
+            
+            switch EKEventStore.authorizationStatus(for: .event) {
+            case .authorized:
+                completion(.success(getEvents()))
+            case .denied:
+                completion(.failure(.accessDenied))
+                print("Access denied")
+            case .notDetermined:
+                eventStore.requestAccess(to: .event, completion: { (granted: Bool, error: Error?) -> Void in
+                    if granted {
+                        completion(.success(getEvents()))
+                    } else {
+                        completion(.failure(.accessDenied))
+                        print("Access denied")
+                    }
+                })
+            default:
+                print("Case default")
+            }
         }
     }
     
@@ -72,7 +74,7 @@ struct CalendarManager {
         
         let range = NSRange(location: 0, length: text.utf16.count)
         
-        let zoomRegex = "https?://\\w*.*zoom.\\w*/(j/\\d*|my/[a-zA-Z0-9\\.]*)"
+        let zoomRegex = "https?://\\w*.*zoom.\\w*/(j/|my/)[a-zA-Z0-9\\.=?]*"
         let googleMeetRegex = "https?://.*meet.google.\\w*/[a-zA-Z0-9\\.-_]*"
         let skypeRegex = "https?://.*join.skype.\\w*/[a-zA-Z0-9\\.-_]*"
         let hangoutsRegex1 = "https?://.*hangouts.google.\\w*/[a-zA-Z0-9\\.-_/]*"

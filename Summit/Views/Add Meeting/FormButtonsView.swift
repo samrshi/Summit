@@ -44,7 +44,6 @@ struct FormButtonsView: View {
     }
 }
 
-
 struct AttemptedNewMeeting {
     let title: String
     let urlString: String

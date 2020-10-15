@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 extension View {
     func `if`<T: View>(condition: Bool, apply: (Self) -> T) -> some View {
         if condition {
