@@ -118,6 +118,8 @@ struct MeetingItemView: View {
                 if NSWorkspace.shared.open(url) {
                     print("default browser was successfully opened")
                 }
+                let delegate = NSApplication.shared.delegate as! AppDelegate
+                delegate.popover.close()
             }
         }
     }
