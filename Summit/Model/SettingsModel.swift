@@ -9,7 +9,7 @@
 import Foundation
 
 struct SettingsModel: Codable {
-    var show24HourTime: Bool = false
-    var onlyShowUpcoming: Bool = true
-    var calendarMeetingsLimit: Int = 7
+  var show24HourTime: Bool = false
+  var onlyShowUpcoming: Bool = true
+  var calendarMeetingsLimit: Int = 7
 }

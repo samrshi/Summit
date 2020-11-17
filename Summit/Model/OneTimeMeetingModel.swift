@@ -9,44 +9,44 @@
 import Foundation
 
 struct OneTimeMeetingModel: Meeting {
-    var id: UUID
-    var name: String
-    var url: URL
-    var urlString: String
+  var id: UUID
+  var name: String
+  var url: URL
+  var urlString: String
+  
+  var allDay: Bool
+  var startDate: Date
+  var endDate: Date
+  
+  func getMeetingType() -> MeetingType {
+    .oneTime
+  }
+  
+  func getStartDate() -> Date {
+    startDate
+  }
+  
+  func getEndDate() -> Date {
+    endDate
+  }
+  
+  func isHappeningNow() -> Bool {
+    startDate <= Date() && Date() <= endDate
+  }
+  
+  func sameDay() -> Bool {
+    Calendar.current.isDate(startDate, equalTo: Date(), toGranularity: .day)
+  }
+  
+  func getFormattedTime(show24HourTime: Bool, onlyShowingToday: Bool) -> String {
+    let formatter = DateFormatter()
     
-    var allDay: Bool
-    var startDate: Date
-    var endDate: Date
+    formatter.dateFormat = sameDay() && onlyShowingToday ? "'Today' h:mm a" : "MMM dd h:mm a"
+    let startString = formatter.string(from: startDate)
     
-    func getMeetingType() -> MeetingType {
-        .oneTime
-    }
+    formatter.dateFormat = "hh:mm a"
+    let endString = formatter.string(from: endDate)
     
-    func getStartDate() -> Date {
-        startDate
-    }
-    
-    func getEndDate() -> Date {
-        endDate
-    }
-    
-    func isHappeningNow() -> Bool {
-        startDate <= Date() && Date() <= endDate
-    }
-    
-    func sameDay() -> Bool {
-        Calendar.current.isDate(startDate, equalTo: Date(), toGranularity: .day)
-    }
-    
-    func getFormattedTime(show24HourTime: Bool, onlyShowingToday: Bool) -> String {
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = sameDay() && onlyShowingToday ? "'Today' h:mm a" : "MMM dd h:mm a"
-        let startString = formatter.string(from: startDate)
-        
-        formatter.dateFormat = "hh:mm a"
-        let endString = formatter.string(from: endDate)
-        
-        return startString + " – " + endString
-    }
+    return startString + " – " + endString
+  }
 }

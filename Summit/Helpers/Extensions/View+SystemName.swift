@@ -9,15 +9,15 @@
 import SwiftUI
 
 extension Image {
-    static func sfSymbol(systemName: String) -> some View {
-        return Image(systemName)
-            .resizable()
-            .renderingMode(.template)
-            .scaledToFit()
-            .background(
-                Rectangle()
-                    .fill(Color.gray.opacity(0.0001))
-                    .frame(height: 20)
-            )
-    }
+  static func sfSymbol(systemName: String) -> some View {
+    return Image(systemName)
+      .resizable()
+      .renderingMode(.template)
+      .scaledToFit()
+      .background(
+        Rectangle()
+          .fill(Color.gray.opacity(0.0001))
+          .frame(height: 20)
+      )
+  }
 }

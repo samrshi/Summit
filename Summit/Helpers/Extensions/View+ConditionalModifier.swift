@@ -9,12 +9,12 @@
 import SwiftUI
 
 extension View {
-    func `if`<T: View>(condition: Bool, apply: (Self) -> T) -> some View {
-        if condition {
-            return AnyView(apply(self))
-        }
-        else {
-            return AnyView(self)
-        }
+  func `if`<T: View>(condition: Bool, apply: (Self) -> T) -> some View {
+    if condition {
+      return AnyView(apply(self))
     }
+    else {
+      return AnyView(self)
+    }
+  }
 }

@@ -9,22 +9,22 @@
 import SwiftUI
 
 extension Text {
-    func heading() -> some View {
-        self
-            .foregroundColor(.primary)
-            .fontWeight(.bold)
-            .font(.title)
-    }
-    
-    func heading2() -> some View {
-        self
-            .foregroundColor(.primary)
-            .fontWeight(.bold)
-            .font(.system(size: 20))
-    }
-    
-    func heading3() -> some View {
-        self
-            .fontWeight(.semibold)
-    }
+  func heading() -> some View {
+    self
+      .foregroundColor(.primary)
+      .fontWeight(.bold)
+      .font(.title)
+  }
+  
+  func heading2() -> some View {
+    self
+      .foregroundColor(.primary)
+      .fontWeight(.bold)
+      .font(.system(size: 20))
+  }
+  
+  func heading3() -> some View {
+    self
+      .fontWeight(.semibold)
+  }
 }

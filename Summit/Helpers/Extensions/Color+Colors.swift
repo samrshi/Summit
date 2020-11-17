@@ -9,12 +9,12 @@
 import SwiftUI
 
 extension Color {
-    static var background: Color {
-        Color("background")
-    }
-    
-    static var secondaryBackground: Color {
-        Color("secondaryBackground")
-    }
+  static var background: Color {
+    Color("background")
+  }
+  
+  static var secondaryBackground: Color {
+    Color("secondaryBackground")
+  }
 }
 
