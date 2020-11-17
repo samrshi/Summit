@@ -38,9 +38,11 @@ class UserInfo: ObservableObject {
     
     init() {
         // decode recurring meetings from UserDefaults
-        let meetingsDecoded = UserInfo.getFromDefaults(forKey: meetingsKey, type: [RecurringMeetingModel].self)
-        self.allMeetings = meetingsDecoded ?? []
-        
+//        let meetingsDecoded = UserInfo.getFromDefaults(forKey: meetingsKey, type: [RecurringMeetingModel].self)
+//        self.allMeetings = meetingsDecoded ?? []
+        self.allMeetings = []
+
+      
         // decode user settings from UserDefaults
         let settingsDecoded = UserInfo.getFromDefaults(forKey: settingsKey, type: SettingsModel.self)
         self.settings = settingsDecoded ?? SettingsModel()
