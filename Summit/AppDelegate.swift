@@ -16,6 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var popover: NSPopover!
   var statusBarItem: NSStatusItem!
   
+  @ObservedObject var userInfo: UserInfo = UserInfo()
+  
   lazy var preferencesWindowController = PreferencesWindowController(
     panes: [
       Preferences.Pane(
@@ -23,14 +25,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         title: "General",
         toolbarIcon: NSImage(named: NSImage.preferencesGeneralName)!
       ) {
-        PreferencesView()
+        PreferencesView(userInfo: userInfo)
       },
       Preferences.Pane(
         identifier: .advanced,
         title: "Advanced",
         toolbarIcon: NSImage(named: NSImage.advancedName)!
       ) {
-        PreferencesView()
+        Text("Hello")
       }
     ]
   )
@@ -41,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     // Create the SwiftUI view that provides the contents
-    let contentView = ContentView()
+    let contentView = ContentView(userInfo: userInfo)
     
     // Create the popover
     let popover = NSPopover()

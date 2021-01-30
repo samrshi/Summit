@@ -50,10 +50,10 @@ struct Header: View {
         
         if mainViewState == .list || mainViewState == .settings {
           Button(action: {
-            withAnimation {
-              self.mainViewState = self.mainViewState != .settings ? .settings : .list
-              // NSApp.sendAction(#selector(AppDelegate.openPreferencesWindow), to: nil, from: nil)
-            }
+            NSApp.sendAction(#selector(AppDelegate.openPreferencesWindow), to: nil, from: nil)
+//            withAnimation {
+              //              self.mainViewState = self.mainViewState != .settings ? .settings : .list
+//            }
           }) {
             Image.sfSymbol(systemName: "gear")
               .frame(width: 20, height: 20)

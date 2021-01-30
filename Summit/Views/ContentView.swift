@@ -17,7 +17,7 @@ enum MainViewState {
 }
 
 struct ContentView: View {
-  @ObservedObject var userInfo: UserInfo = UserInfo()
+  @ObservedObject var userInfo: UserInfo
   
   @State private var mainViewState: MainViewState = .list
   @State private var onlyShowToday = true

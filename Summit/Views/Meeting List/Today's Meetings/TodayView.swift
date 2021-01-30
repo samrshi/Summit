@@ -26,7 +26,7 @@ struct TodayView: View {
           .heading2()
         
         ForEach(userInfo.todaysMeetings, id: \.id) { meeting in
-          MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, onlyShowToday: self.$onlyShowToday, selectedMeetingID: self.$selectedMeetingID, hideOptions: false, show24HourTime: self.userInfo.settings.show24HourTime) {
+          MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, onlyShowToday: self.$onlyShowToday, selectedMeetingID: self.$selectedMeetingID, hideOptions: false, show24HourTime: userInfo.settings.show24HourTime) {
             self.deleteMeetings(meeting)
           }
           .padding(.top, 7)

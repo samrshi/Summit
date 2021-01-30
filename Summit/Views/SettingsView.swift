@@ -60,7 +60,7 @@ struct SettingsView: View {
         
         Divider()
         
-        Button("Clear All Meetings") {
+        Button("Delete All Meetings") {
           withAnimation {
             self.userInfo.allMeetings = []
             self.mainViewState = .list
