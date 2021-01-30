@@ -20,7 +20,7 @@ struct AllMeetingsView: View {
   @State private var showFilter = false
   
   var body: some View {
-    ScrollView(.vertical) {
+    ScrollView(.vertical, showsIndicators: false) {
       VStack(alignment: .leading) {
         MeetingListHeader(onlyShowToday: $onlyShowToday, showFilter: $showFilter, filterString: $filterString)
         

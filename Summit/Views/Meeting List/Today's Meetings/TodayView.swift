@@ -18,7 +18,7 @@ struct TodayView: View {
   let deleteMeetings: (_ meeting: Meeting?) -> Void
   
   var body: some View {
-    ScrollView(.vertical) {
+    ScrollView(.vertical, showsIndicators: false) {
       VStack(alignment: .leading) {
         NextMeetingView(mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, deleteMeetings: deleteMeetings)
         
