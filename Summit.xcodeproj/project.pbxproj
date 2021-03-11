@@ -166,6 +166,12 @@
 		BD7991E9250893A2008841F7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BDB6699F24FAE841004052C0 /* Main.storyboard */,
+				BDB669A224FAE841004052C0 /* Info.plist */,
+				BDB669A324FAE841004052C0 /* Summit.entitlements */,
+				BDB6699A24FAE841004052C0 /* Assets.xcassets */,
+				BDE66835250BEFB30069EF64 /* Assets */,
+				BDB6699C24FAE841004052C0 /* Preview Content */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -238,13 +244,7 @@
 				BD933C9D24FB14AF001F8A90 /* Views */,
 				BDC5CCEB24FB43F00003B1AB /* View Models */,
 				BDA7D97924FD609B00A18CA8 /* Helpers */,
-				BDB6699A24FAE841004052C0 /* Assets.xcassets */,
-				BDE66835250BEFB30069EF64 /* Assets */,
-				BDB6699F24FAE841004052C0 /* Main.storyboard */,
-				BDB669A224FAE841004052C0 /* Info.plist */,
-				BDB669A324FAE841004052C0 /* Summit.entitlements */,
 				BD7991E9250893A2008841F7 /* Utils */,
-				BDB6699C24FAE841004052C0 /* Preview Content */,
 			);
 			path = Summit;
 			sourceTree = "<group>";
@@ -551,16 +551,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Summit/Summit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Summit/Utils/Summit.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_ASSET_PATHS = "\"Summit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Summit/Utils/Preview Content\"";
 				DEVELOPMENT_TEAM = Q9PPH2T3L2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Summit/Info.plist;
+				INFOPLIST_FILE = Summit/Utils/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -577,16 +577,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Summit/Summit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Summit/Utils/Summit.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_ASSET_PATHS = "\"Summit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Summit/Utils/Preview Content\"";
 				DEVELOPMENT_TEAM = Q9PPH2T3L2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Summit/Info.plist;
+				INFOPLIST_FILE = Summit/Utils/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
