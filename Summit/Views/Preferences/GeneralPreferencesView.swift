@@ -11,31 +11,15 @@ import Preferences
 
 extension Preferences.PaneIdentifier {
   static let general = Self("general")
-  static let advanced = Self("advanced")
 }
 
-struct PreferencesView: View {
+struct GeneralPreferencesView: View {
   private let contentWidth: Double = 450.0
   let options = [1, 3, 5, 7, 10]
   
   @ObservedObject var userInfo: UserInfo
   
-//  init() {
-//    settings = UserInfo.getFromDefaults(forKey: settingsKey, type: SettingsModel.self) ?? SettingsModel()
-//  }
-  
   var body: some View {
-//    let binding = Binding(
-//      get: { userInfo.settings },
-//      set: {
-//        self.settings = $0
-//        if let encodedSettings = try? JSONEncoder().encode(settings) {
-//          UserDefaults.standard.set(encodedSettings, forKey: settingsKey)
-//        }
-//      }
-//    )
-    
-//    return Preferences.Container(contentWidth: contentWidth) {
     Preferences.Container(contentWidth: contentWidth) {
       Preferences.Section(title: "General Settings:") {
         ToggleView(value: $userInfo.settings.show24HourTime, title: "Use 24-hour time")
@@ -61,18 +45,24 @@ struct PreferencesView: View {
         Text(appVersion != nil ? "Summit Version \(appVersion!)" : "")
           .foregroundColor(.gray)
         
-        Button("Contact Us") {
-          let service = NSSharingService(named: NSSharingService.Name.composeEmail)
-          service?.recipients = ["summitspprt@gmail.com"]
-          service?.subject = emailSubject
-          service?.perform(withItems: ["**Enter your support ticket or feature request here**"])
-        }
+        Button("Contact Us", action: email)
       }
     }
+  }
+  
+  func email() {
+    let service = NSSharingService(named: NSSharingService.Name.composeEmail)
+    service?.recipients = ["summitspprt@gmail.com"]
+    service?.subject = emailSubject
+    service?.perform(withItems: ["**Enter your support ticket or feature request here**"])
   }
   
   var emailSubject: String {
     let version = ProcessInfo.processInfo.operatingSystemVersion
     return "Summit Support – v\(appVersion ?? "Unknown") – macOS \(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
+  }
+  
+  var appVersion: String? {
+    return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
   }
 }

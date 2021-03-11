@@ -35,7 +35,7 @@ struct AddView: View {
     
     var selectedMeetingmeeting: RecurringMeetingModel {
         if editViewState == .edit {
-            return self.userInfo.allMeetings.first(where: { $0.id == self.selectedMeetingID }) ?? blankMeeting
+            return self.userInfo.recurringMeetings.first(where: { $0.id == self.selectedMeetingID }) ?? blankMeeting
         } else {
             return blankMeeting
         }
@@ -71,7 +71,7 @@ struct AddView: View {
     }
     
     func fillInFields() {
-        let selectedMeeting: RecurringMeetingModel = self.userInfo.allMeetings.first(where: { $0.id == self.selectedMeetingID! })!
+        let selectedMeeting: RecurringMeetingModel = self.userInfo.recurringMeetings.first(where: { $0.id == self.selectedMeetingID! })!
         
         self.currentTitle = selectedMeeting.name
         self.currentURLString = selectedMeeting.urlString

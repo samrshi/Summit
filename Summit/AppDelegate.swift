@@ -25,14 +25,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         title: "General",
         toolbarIcon: NSImage(named: NSImage.preferencesGeneralName)!
       ) {
-        PreferencesView(userInfo: userInfo)
+        GeneralPreferencesView(userInfo: userInfo)
       },
       Preferences.Pane(
         identifier: .advanced,
         title: "Advanced",
         toolbarIcon: NSImage(named: NSImage.advancedName)!
       ) {
-        Text("Hello")
+        AdvancedPreferencesView(userInfo: userInfo)
       }
     ]
   )

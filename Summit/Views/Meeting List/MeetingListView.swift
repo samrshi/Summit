@@ -36,7 +36,7 @@ struct MeetingListView: View {
   
   func deleteMeetings(meeting: Meeting?) {
     if let id = meeting?.id {
-      self.userInfo.allMeetings.removeAll {
+      self.userInfo.recurringMeetings.removeAll {
         $0.id == id
       }
     }

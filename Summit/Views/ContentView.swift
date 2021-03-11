@@ -13,7 +13,6 @@ enum MainViewState {
   case list
   case add
   case edit
-  case settings
 }
 
 struct ContentView: View {
@@ -46,8 +45,6 @@ struct ContentView: View {
           AddView(editViewState: .add, selectedMeetingID: nil, mainViewState: $mainViewState, showAlert: $showAlert, alertMessage: $alertMessage, alertType: $alertType)
         case .edit:
           AddView(editViewState: .edit, selectedMeetingID: self.selectedMeetingID, mainViewState: $mainViewState, showAlert: $showAlert, alertMessage: $alertMessage, alertType: $alertType)
-        case .settings:
-          SettingsView(mainViewState: $mainViewState)
         }
         
         if self.mainViewState == .list {
@@ -75,12 +72,11 @@ struct ContentView: View {
     .onReceive(publisher) { _ in
       self.userInfo.updateDate()
       self.userInfo.getNextMeeting()
-      //            self.userInfo.updateSettings()
       self.userInfo.getCalendarMeetings()
-    }
-    .onAppear {
-      if self.userInfo.allMeetings.isEmpty {
+      if self.userInfo.recurringMeetings.isEmpty {
         self.onlyShowToday = false
+      } else {
+        self.onlyShowToday = true
       }
     }
   }

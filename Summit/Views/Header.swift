@@ -48,18 +48,8 @@ struct Header: View {
         
         Spacer()
         
-        if mainViewState == .list || mainViewState == .settings {
-          Button(action: {
-            NSApp.sendAction(#selector(AppDelegate.openPreferencesWindow), to: nil, from: nil)
-//            withAnimation {
-              //              self.mainViewState = self.mainViewState != .settings ? .settings : .list
-//            }
-          }) {
-            Image.sfSymbol(systemName: "gear")
-              .frame(width: 20, height: 20)
-              .foregroundColor(.gray)
-          }
-          .buttonStyle(PlainButtonStyle())
+        if mainViewState == .list {
+          settingsButton
         }
       }
       
@@ -76,5 +66,16 @@ struct Header: View {
       }
     }
     .padding([.top, .horizontal])
+  }
+  
+  var settingsButton: some View {
+    Button(action: {
+      NSApp.sendAction(#selector(AppDelegate.openPreferencesWindow), to: nil, from: nil)
+    }) {
+      Image.sfSymbol(systemName: "gear")
+        .frame(width: 20, height: 20)
+        .foregroundColor(.gray)
+    }
+    .buttonStyle(PlainButtonStyle())
   }
 }

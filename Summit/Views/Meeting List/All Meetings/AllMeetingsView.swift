@@ -24,7 +24,7 @@ struct AllMeetingsView: View {
       VStack(alignment: .leading) {
         MeetingListHeader(onlyShowToday: $onlyShowToday, showFilter: $showFilter, filterString: $filterString)
         
-        ForEach(userInfo.allMeetings.filter(filterLogic), id: \.id) { meeting in
+        ForEach(userInfo.recurringMeetings.filter(filterLogic), id: \.id) { meeting in
           MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, onlyShowToday: self.$onlyShowToday, selectedMeetingID: self.$selectedMeetingID, hideOptions: false, show24HourTime: self.userInfo.settings.show24HourTime) {
             self.deleteMeetings(meeting)
           }
@@ -32,7 +32,7 @@ struct AllMeetingsView: View {
         }
       }
       
-      if userInfo.allMeetings.isEmpty {
+      if userInfo.recurringMeetings.isEmpty {
         EmptyStateView(mainViewState: $mainViewState, emptyStateType: .emptyList)
       }
       
