@@ -4,7 +4,7 @@
 
 [Check it out on the Mac App Store!](https://apps.apple.com/us/app/summit-meeting-manager/id1531813681?mt=12)
 
-![Window Image](https://github.com/samrshi/Summit/blob/master/Summit/App%20Store%20Screenshots/Window%20Image.png)
+![Window Image](https://github.com/samrshi/Summit/blob/master/App%20Store%20Screenshots/Window.png)
 
 When using Summit, there are two ways that you can add a meeting to the app.
 1. You can use the in-app UI to add a recurring meeting that will be stored in the app. This is perfect for things like college classes or stand-up meetings that happen regularly each week. This way, you don't have to clog up your Calendar with meetings that happen each week.
