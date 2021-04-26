@@ -39,12 +39,24 @@ struct ContentView: View {
       VStack {
         switch mainViewState {
         case .list:
-          MeetingListView(mainViewState: $mainViewState, selectedMeetingID: $selectedMeetingID, onlyShowToday: $onlyShowToday)
+          MeetingListView(mainViewState: $mainViewState,
+                          selectedMeetingID: $selectedMeetingID,
+                          onlyShowToday: $onlyShowToday)
             .transition(.opacity)
         case .add:
-          AddView(editViewState: .add, selectedMeetingID: nil, mainViewState: $mainViewState, showAlert: $showAlert, alertMessage: $alertMessage, alertType: $alertType)
+          AddView(editViewState: .add,
+                  selectedMeetingID: nil,
+                  mainViewState: $mainViewState,
+                  showAlert: $showAlert,
+                  alertMessage: $alertMessage,
+                  alertType: $alertType)
         case .edit:
-          AddView(editViewState: .edit, selectedMeetingID: self.selectedMeetingID, mainViewState: $mainViewState, showAlert: $showAlert, alertMessage: $alertMessage, alertType: $alertType)
+          AddView(editViewState: .edit,
+                  selectedMeetingID: self.selectedMeetingID,
+                  mainViewState: $mainViewState,
+                  showAlert: $showAlert,
+                  alertMessage: $alertMessage,
+                  alertType: $alertType)
         }
         
         if self.mainViewState == .list {
@@ -59,8 +71,7 @@ struct ContentView: View {
               self.alertType = .warning
               self.showAlert.toggle()
             }
-          }
-          )
+          })
         }
       }
     }
