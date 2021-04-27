@@ -84,7 +84,7 @@ struct ContentView: View {
       self.userInfo.updateDate()
       self.userInfo.getNextMeeting()
       self.userInfo.getCalendarMeetings()
-      if self.userInfo.recurringMeetings.isEmpty {
+      if self.userInfo.recurringMeetings.isEmpty && userInfo.calendarEvents.isEmpty {
         self.onlyShowToday = false
       } else {
         self.onlyShowToday = true
