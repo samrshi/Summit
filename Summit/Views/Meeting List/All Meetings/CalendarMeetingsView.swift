@@ -30,7 +30,12 @@ struct CalendarMeetingsView: View {
       
       if !calendarMeetings.isEmpty {
         ForEach(calendarMeetings, id: \.id) { event in
-          MeetingItemView(meeting: event, mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, hideOptions: false, show24HourTime: userInfo.settings.show24HourTime, delete: {})
+          MeetingItemView(meeting: event, mainViewState: $mainViewState,
+                          onlyShowToday: $onlyShowToday,
+                          selectedMeetingID: $selectedMeetingID,
+                          hideOptions: false,
+                          show24HourTime: userInfo.settings.show24HourTime,
+                          delete: {})
             .padding(.top, 7)
         }
       } else {

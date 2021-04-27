@@ -20,15 +20,22 @@ struct TodayView: View {
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
       VStack(alignment: .leading) {
-        NextMeetingView(mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, deleteMeetings: deleteMeetings)
+        NextMeetingView(mainViewState: $mainViewState,
+                        onlyShowToday: $onlyShowToday,
+                        selectedMeetingID: $selectedMeetingID,
+                        deleteMeetings: deleteMeetings)
         
         Text("Today's \(userInfo.settings.onlyShowUpcoming ? "Upcoming" : "") Meetings")
           .heading2()
         
         ForEach(userInfo.todaysMeetings, id: \.id) { meeting in
-          MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, onlyShowToday: self.$onlyShowToday, selectedMeetingID: self.$selectedMeetingID, hideOptions: false, show24HourTime: userInfo.settings.show24HourTime) {
-            self.deleteMeetings(meeting)
-          }
+          MeetingItemView(meeting: meeting,
+                          mainViewState: self.$mainViewState,
+                          onlyShowToday: self.$onlyShowToday,
+                          selectedMeetingID: self.$selectedMeetingID,
+                          hideOptions: false,
+                          show24HourTime: userInfo.settings.show24HourTime,
+                          delete: { self.deleteMeetings(meeting) })
           .padding(.top, 7)
         }
       }

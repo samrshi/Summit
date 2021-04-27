@@ -23,15 +23,16 @@ struct FormButtonsView: View {
     @Binding var hasAttemptedToSave: Bool
     
     var body: some View {
-        FooterView(primaryTitle: "Save", primaryAction: self.saveButtonAction, secondaryTitle: "Cancel", secondaryAction: {
-            withAnimation {
-                self.mainViewState = .list
-            }
-        })
+        FooterView(primaryTitle: "Save",
+                   primaryAction: self.saveButtonAction,
+                   secondaryTitle: "Cancel",
+                   secondaryAction: { withAnimation { self.mainViewState = .list } })
     }
     
     func saveButtonAction() {
-        self.userInfo.newMeeting(editViewState: editViewState, selectedMeetingID: selectedMeetingID, attemptedNewMeeting: newMeeting) { result, message in
+        self.userInfo.newMeeting(editViewState: editViewState,
+                                 selectedMeetingID: selectedMeetingID,
+                                 attemptedNewMeeting: newMeeting) { result, message in
             if result == .success {
                 self.mainViewState = .list
             } else {

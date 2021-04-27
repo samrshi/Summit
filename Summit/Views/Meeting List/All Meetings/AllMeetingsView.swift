@@ -25,9 +25,13 @@ struct AllMeetingsView: View {
         MeetingListHeader(onlyShowToday: $onlyShowToday, showFilter: $showFilter, filterString: $filterString)
         
         ForEach(userInfo.recurringMeetings.filter(filterLogic), id: \.id) { meeting in
-          MeetingItemView(meeting: meeting, mainViewState: self.$mainViewState, onlyShowToday: self.$onlyShowToday, selectedMeetingID: self.$selectedMeetingID, hideOptions: false, show24HourTime: self.userInfo.settings.show24HourTime) {
-            self.deleteMeetings(meeting)
-          }
+          MeetingItemView(meeting: meeting,
+                          mainViewState: self.$mainViewState,
+                          onlyShowToday: self.$onlyShowToday,
+                          selectedMeetingID: self.$selectedMeetingID,
+                          hideOptions: false,
+                          show24HourTime: self.userInfo.settings.show24HourTime,
+                          delete: { self.deleteMeetings(meeting) })
           .padding(.top, 7)
         }
       }
@@ -38,7 +42,9 @@ struct AllMeetingsView: View {
       
       Divider()
       
-      CalendarMeetingsView(mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID)
+      CalendarMeetingsView(mainViewState: $mainViewState,
+                           onlyShowToday: $onlyShowToday,
+                           selectedMeetingID: $selectedMeetingID)
     }
     .offset(x: onlyShowToday ? 500 : 0)
   }

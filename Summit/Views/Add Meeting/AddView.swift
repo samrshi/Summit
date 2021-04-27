@@ -42,7 +42,12 @@ struct AddView: View {
     }
     
     var newMeeting: AttemptedNewMeeting {
-        AttemptedNewMeeting(title: currentTitle, urlString: currentURLString, weekdays: currentWeekTimes, sameTimeEachDay: sameTimeEachDay, startDate: currentStartDate, endDate: currentEndDate)
+        AttemptedNewMeeting(title: currentTitle,
+                            urlString: currentURLString,
+                            weekdays: currentWeekTimes,
+                            sameTimeEachDay: sameTimeEachDay,
+                            startDate: currentStartDate,
+                            endDate: currentEndDate)
     }
     
     var body: some View {
@@ -51,16 +56,28 @@ struct AddView: View {
                 VStack {
                     AddHeaderView(editViewState: editViewState)
                     
-                    MainInfoView(currentTitle: $currentTitle, currentURLString: $currentURLString, hasAttemptedToSave: $hasAttemptedToSave)
+                    MainInfoView(currentTitle: $currentTitle,
+                                 currentURLString: $currentURLString,
+                                 hasAttemptedToSave: $hasAttemptedToSave)
                     
-                    DateAndTimeView(currentWeekTimes: $currentWeekTimes, currentStartTime: $currentStartDate, currentEndTime: $currentEndDate, sameTimeEachDay: $sameTimeEachDay)
+                    DateAndTimeView(currentWeekTimes: $currentWeekTimes,
+                                    currentStartTime: $currentStartDate,
+                                    currentEndTime: $currentEndDate,
+                                    sameTimeEachDay: $sameTimeEachDay)
                 }
                 .padding([.horizontal, .top])
             }
             
             Spacer()
             
-            FormButtonsView(editViewState: editViewState, selectedMeetingID: selectedMeetingID, newMeeting: newMeeting, showError: $showAlert, errorMessage: $alertMessage, alertType: $alertType, mainViewState: $mainViewState, hasAttemptedToSave: $hasAttemptedToSave)
+            FormButtonsView(editViewState: editViewState,
+                            selectedMeetingID: selectedMeetingID,
+                            newMeeting: newMeeting,
+                            showError: $showAlert,
+                            errorMessage: $alertMessage,
+                            alertType: $alertType,
+                            mainViewState: $mainViewState,
+                            hasAttemptedToSave: $hasAttemptedToSave)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
@@ -71,7 +88,9 @@ struct AddView: View {
     }
     
     func fillInFields() {
-        let selectedMeeting: RecurringMeetingModel = self.userInfo.recurringMeetings.first(where: { $0.id == self.selectedMeetingID! })!
+        let selectedMeeting: RecurringMeetingModel = self.userInfo.recurringMeetings.first {
+          $0.id == self.selectedMeetingID!
+        }!
         
         self.currentTitle = selectedMeeting.name
         self.currentURLString = selectedMeeting.urlString

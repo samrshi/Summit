@@ -143,7 +143,12 @@ class UserInfo: ObservableObject {
     return filtered
   }
   
-  func newMeeting(editViewState: EditViewStates, selectedMeetingID: UUID? = nil, attemptedNewMeeting: AttemptedNewMeeting, completion: @escaping (SaveResult, String) -> Void) {
+  func newMeeting(
+    editViewState: EditViewStates,
+    selectedMeetingID: UUID? = nil,
+    attemptedNewMeeting: AttemptedNewMeeting,
+    completion: @escaping (SaveResult, String) -> Void
+  ) {
     let attempt = attemptedNewMeeting
     
     if attempt.urlString.isEmpty || attempt.title.isEmpty {
@@ -181,13 +186,21 @@ class UserInfo: ObservableObject {
     var newWeekDays: [Weekday] = []
     for day in attempt.weekdays {
       newWeekDays.append(
-        Weekday(name: day.name, day: day.day, isUsed: day.isUsed,
-                startTime: attempt.sameTimeEachDay ? startTime.toDate() : day.startTime, endTime:
-                  attempt.sameTimeEachDay ? endTime.toDate() : day.endTime)
+        Weekday(
+          name: day.name,
+          day: day.day,
+          isUsed: day.isUsed,
+          startTime: attempt.sameTimeEachDay ? startTime.toDate() : day.startTime,
+          endTime: attempt.sameTimeEachDay ? endTime.toDate() : day.endTime)
       )
     }
     
-    let meeting = RecurringMeetingModel(name: attempt.title, url: url, urlString: newURLString, sameTimeEachDay: attempt.sameTimeEachDay, meetingTimes: newWeekDays)
+    let meeting = RecurringMeetingModel(
+      name: attempt.title,
+      url: url,
+      urlString: newURLString,
+      sameTimeEachDay: attempt.sameTimeEachDay,
+      meetingTimes: newWeekDays)
     
     switch editViewState {
     case .add:

@@ -20,9 +20,15 @@ struct MeetingListView: View {
   var body: some View {
     VStack {
       ZStack(alignment: .top) {
-        TodayView(mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, deleteMeetings: deleteMeetings)
+        TodayView(mainViewState: $mainViewState,
+                  onlyShowToday: $onlyShowToday,
+                  selectedMeetingID: $selectedMeetingID,
+                  deleteMeetings: deleteMeetings)
         
-        AllMeetingsView(mainViewState: $mainViewState, onlyShowToday: $onlyShowToday, selectedMeetingID: $selectedMeetingID, deleteMeetings: deleteMeetings)
+        AllMeetingsView(mainViewState: $mainViewState,
+                        onlyShowToday: $onlyShowToday,
+                        selectedMeetingID: $selectedMeetingID,
+                        deleteMeetings: deleteMeetings)
       }
     }
     .transition(.opacity)
